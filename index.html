@@ -1,198 +1,1177 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+               maximum-scale=1.0, user-scalable=no">
 
-    <title>Gui</title>
+<meta name="theme-color" content="#f7f7f5">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<title>Agenda</title>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: #f5f5f7;
-            color: #1d1d1f;
-            min-height: 100vh;
-        }
+<style>
 
-        .app {
-            max-width: 500px;
-            margin: auto;
-            min-height: 100vh;
-            padding: 25px 20px 100px;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        header {
-            margin-bottom: 30px;
-        }
+:root {
+    --background: #f7f7f5;
+    --card: #ffffff;
+    --text: #202124;
+    --secondary: #777b80;
+    --border: #e9e9e6;
+    --accent: #5f6f64;
+    --accent-light: #edf1ed;
+    --danger: #b45d5d;
+}
 
-        .greeting {
-            font-size: 15px;
-            color: #777;
-            margin-bottom: 5px;
-        }
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "Segoe UI",
+        sans-serif;
 
-        h1 {
-            font-size: 32px;
-            font-weight: 700;
-        }
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
 
-        .date {
-            margin-top: 7px;
-            color: #777;
-            font-size: 14px;
-        }
+button,
+input {
+    font-family: inherit;
+}
 
-        .card {
-            background: white;
-            border-radius: 22px;
-            padding: 22px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
+button {
+    cursor: pointer;
+}
 
-        .card-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
+.hidden {
+    display: none !important;
+}
 
-        .card-text {
-            color: #777;
-            font-size: 14px;
-        }
 
-        .buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 15px;
-        }
+/* =========================
+   LOGIN
+========================= */
 
-        button {
-            border: none;
-            background: white;
-            border-radius: 18px;
-            padding: 22px 10px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
+#loginScreen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
 
-        button:active {
-            transform: scale(0.97);
-        }
+.login-box {
+    width: 100%;
+    max-width: 390px;
+    text-align: center;
+}
 
-        .icon {
-            display: block;
-            font-size: 25px;
-            margin-bottom: 8px;
-        }
+.app-logo {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 24px;
+    border-radius: 22px;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 600;
+    box-shadow: 0 12px 30px rgba(60,70,60,.12);
+}
 
-        nav {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 500px;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(15px);
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-around;
-            border-top: 1px solid #eee;
-        }
+.login-title {
+    font-size: 34px;
+    font-weight: 650;
+    letter-spacing: -1px;
+    margin-bottom: 7px;
+}
 
-        nav button {
-            box-shadow: none;
-            background: transparent;
-            padding: 5px 15px;
-            font-size: 12px;
-        }
+.login-subtitle {
+    color: var(--secondary);
+    font-size: 15px;
+    margin-bottom: 35px;
+}
 
-        nav .icon {
-            font-size: 20px;
-            margin-bottom: 3px;
-        }
-    </style>
+.input-group {
+    text-align: left;
+    margin-bottom: 14px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    color: var(--secondary);
+    margin: 0 0 7px 4px;
+}
+
+.input {
+    width: 100%;
+    height: 52px;
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 15px;
+    padding: 0 16px;
+    outline: none;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.input:focus {
+    border-color: #b9c2bb;
+}
+
+.primary-button {
+    width: 100%;
+    height: 52px;
+    border: 0;
+    border-radius: 15px;
+    background: var(--accent);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.secondary-button {
+    width: 100%;
+    height: 50px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: white;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 11px;
+}
+
+.login-message {
+    min-height: 20px;
+    margin-top: 15px;
+    font-size: 13px;
+    color: var(--danger);
+}
+
+
+/* =========================
+   APP
+========================= */
+
+#app {
+    min-height: 100vh;
+    padding-bottom: 95px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 520px;
+    margin: auto;
+    padding: 25px 19px 35px;
+}
+
+
+/* HEADER */
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 27px;
+}
+
+.greeting-small {
+    font-size: 14px;
+    color: var(--secondary);
+    margin-bottom: 5px;
+}
+
+.user-name {
+    font-size: 30px;
+    font-weight: 650;
+    letter-spacing: -.8px;
+}
+
+.profile-button {
+    border: 0;
+    background: transparent;
+}
+
+.profile-photo {
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 17px;
+}
+
+
+/* DATE */
+
+.date-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 21px;
+    margin-bottom: 15px;
+}
+
+.date-label {
+    color: var(--secondary);
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.date-main {
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.tasks-summary {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-number {
+    font-size: 27px;
+    font-weight: 650;
+}
+
+.task-summary-text {
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+
+/* MODULES */
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 27px 3px 12px;
+}
+
+.module-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.module-card {
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 21px;
+    min-height: 125px;
+    padding: 19px;
+    text-align: left;
+    transition: transform .15s ease;
+}
+
+.module-card:active {
+    transform: scale(.97);
+}
+
+.module-icon {
+    width: 41px;
+    height: 41px;
+    border-radius: 13px;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    margin-bottom: 17px;
+}
+
+.module-name {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.module-description {
+    font-size: 12px;
+    color: var(--secondary);
+    margin-top: 4px;
+}
+
+
+/* PAGE */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.back-button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 13px;
+    font-size: 19px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 650;
+}
+
+
+/* TASKS */
+
+.add-task {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.add-task .input {
+    flex: 1;
+}
+
+.small-add {
+    width: 53px;
+    border: 0;
+    border-radius: 15px;
+    background: var(--accent);
+    color: white;
+    font-size: 25px;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+}
+
+.task-check {
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid #bfc4bf;
+    border-radius: 50%;
+    background: transparent;
+    flex-shrink: 0;
+}
+
+.task-check.completed {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.task-text {
+    flex: 1;
+    font-size: 15px;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.delete-task {
+    border: 0;
+    background: transparent;
+    color: #aaa;
+    font-size: 17px;
+}
+
+
+/* SETTINGS */
+
+.settings-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.settings-section-title {
+    padding: 17px 18px 8px;
+    color: var(--secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+
+.setting-row {
+    width: 100%;
+    min-height: 55px;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+    border-top: 1px solid #f1f1ef;
+    background: white;
+    text-align: left;
+    font-size: 15px;
+}
+
+.setting-arrow {
+    color: #aaa;
+}
+
+.logout {
+    color: var(--danger);
+}
+
+
+/* PROFILE */
+
+.profile-area {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.large-profile {
+    width: 94px;
+    height: 94px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.change-photo {
+    color: var(--accent);
+    font-size: 14px;
+    background: none;
+    border: 0;
+}
+
+
+/* BOTTOM NAV */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 520px;
+    height: 76px;
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: env(safe-area-inset-bottom);
+    z-index: 100;
+}
+
+.nav-button {
+    border: 0;
+    background: transparent;
+    color: #929592;
+    min-width: 65px;
+    font-size: 11px;
+    padding: 7px 5px;
+}
+
+.nav-button.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.nav-icon {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
+
+/* EMPTY */
+
+.empty-state {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+
+/* DESKTOP */
+
+@media (min-width: 700px) {
+    body {
+        padding: 30px;
+    }
+
+    #app {
+        max-width: 520px;
+        margin: auto;
+        background: var(--background);
+    }
+
+    .bottom-nav {
+        bottom: 30px;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-<div class="app">
 
-    <header>
-        <div class="greeting">Bem-vindo</div>
-        <h1>Gui</h1>
-        <div class="date" id="date"></div>
-    </header>
+<!-- =========================
+     LOGIN
+========================= -->
 
-    <div class="card">
-        <div class="card-title">Hoje</div>
-        <div class="card-text">
-            Tens tudo organizado por aqui.
+<section id="loginScreen">
+
+    <div class="login-box">
+
+        <div class="app-logo">A</div>
+
+        <div class="login-title">Agenda</div>
+
+        <div class="login-subtitle">
+            A tua organização, num só lugar.
         </div>
+
+        <div class="input-group">
+            <label>Código de acesso</label>
+
+            <input
+                id="loginCode"
+                class="input"
+                type="password"
+                inputmode="numeric"
+                placeholder="Introduz o teu código"
+                maxlength="20">
+        </div>
+
+        <button
+            class="primary-button"
+            onclick="login()">
+            Entrar
+        </button>
+
+        <button
+            class="secondary-button"
+            onclick="showRegister()">
+            Criar conta
+        </button>
+
+        <div
+            id="loginMessage"
+            class="login-message">
+        </div>
+
     </div>
 
-    <div class="card">
-        <div class="card-title">A minha organização</div>
+</section>
 
-        <div class="buttons">
 
-            <button onclick="alert('Aqui vamos colocar as tuas tarefas.')">
-                <span class="icon">✓</span>
-                Tarefas
-            </button>
 
-            <button onclick="alert('Aqui vamos colocar o teu calendário.')">
-                <span class="icon">□</span>
-                Agenda
-            </button>
+<!-- =========================
+     APPLICATION
+========================= -->
 
-            <button onclick="alert('Aqui vamos colocar as tuas notas.')">
-                <span class="icon">✎</span>
-                Notas
-            </button>
+<section id="app" class="hidden">
 
-            <button onclick="alert('Aqui vamos colocar os teus objetivos.')">
-                <span class="icon">☆</span>
-                Objetivos
-            </button>
+    <main class="app-container">
 
-        </div>
-    </div>
+        <!-- HOME -->
 
-</div>
+        <section id="homePage">
 
-<nav>
-    <button>
-        <span class="icon">⌂</span>
-        Início
-    </button>
+            <header class="top-header">
 
-    <button>
-        <span class="icon">✓</span>
-        Tarefas
-    </button>
+                <div>
+                    <div class="greeting-small">
+                        Olá
+                    </div>
 
-    <button>
-        <span class="icon">⚙</span>
-        Definições
-    </button>
-</nav>
+                    <div
+                        id="homeName"
+                        class="user-name">
+                        -
+                    </div>
+                </div>
+
+                <button
+                    class="profile-button"
+                    onclick="openPage('settingsPage')">
+
+                    <div
+                        id="homeProfile"
+                        class="profile-photo">
+                        A
+                    </div>
+
+                </button>
+
+            </header>
+
+
+            <div class="date-card">
+
+                <div class="date-label">
+                    Hoje
+                </div>
+
+                <div
+                    id="todayDate"
+                    class="date-main">
+                </div>
+
+                <div class="tasks-summary">
+
+                    <div
+                        id="taskCount"
+                        class="task-number">
+                        0
+                    </div>
+
+                    <div class="task-summary-text">
+                        tarefas por realizar
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section-title">
+                A minha organização
+            </div>
+
+
+            <div class="module-grid">
+
+                <button
+                    class="module-card"
+                    onclick="openPage('agendaPage')">
+
+                    <div class="module-icon">◷</div>
+
+                    <div class="module-name">
+                        Agenda
+                    </div>
+
+                    <div class="module-description">
+                        Compromissos
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    onclick="openPage('tasksPage')">
+
+                    <div class="module-icon">✓</div>
+
+                    <div class="module-name">
+                        Tarefas
+                    </div>
+
+                    <div class="module-description">
+                        O que tens para fazer
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    onclick="openPage('financePage')">
+
+                    <div class="module-icon">€</div>
+
+                    <div class="module-name">
+                        Finanças
+                    </div>
+
+                    <div class="module-description">
+                        O teu dinheiro
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    onclick="openPage('objectivesPage')">
+
+                    <div class="module-icon">☆</div>
+
+                    <div class="module-name">
+                        Objetivos
+                    </div>
+
+                    <div class="module-description">
+                        Os teus objetivos
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    onclick="openPage('schoolPage')">
+
+                    <div class="module-icon">⌂</div>
+
+                    <div class="module-name">
+                        Escola
+                    </div>
+
+                    <div class="module-description">
+                        Estudos e horários
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    onclick="openPage('workPage')">
+
+                    <div class="module-icon">▣</div>
+
+                    <div class="module-name">
+                        Trabalho
+                    </div>
+
+                    <div class="module-description">
+                        Vida profissional
+                    </div>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TASKS -->
+
+        <section id="tasksPage" class="hidden">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="openPage('homePage')">
+                    ‹
+                </button>
+
+                <div class="page-title">
+                    Tarefas
+                </div>
+
+            </div>
+
+
+            <div class="add-task">
+
+                <input
+                    id="newTask"
+                    class="input"
+                    placeholder="Adicionar tarefa...">
+
+                <button
+                    class="small-add"
+                    onclick="addTask()">
+                    +
+                </button>
+
+            </div>
+
+
+            <div
+                id="taskList"
+                class="task-list">
+            </div>
+
+        </section>
+
+
+
+        <!-- AGENDA -->
+
+        <section id="agendaPage" class="hidden">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="openPage('homePage')">
+                    ‹
+                </button>
+
+                <div class="page-title">
+                    Agenda
+                </div>
+
+            </div>
+
+            <div class="empty-state">
+
+                A tua agenda ficará aqui.
+
+                <br><br>
+
+                Vamos adicionar calendário,
+                compromissos, horários e lembretes.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FINANCE -->
+
+        <section id="financePage" class="hidden">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="openPage('homePage')">
+                    ‹
+                </button>
+
+                <div class="page-title">
+                    Finanças
+                </div>
+
+            </div>
+
+            <div class="empty-state">
+
+                Aqui vamos construir o teu
+                controlo financeiro.
+
+                <br><br>
+
+                Entradas, despesas, saldo,
+                categorias e objetivos financeiros.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- OBJECTIVES -->
+
+        <section id="objectivesPage" class="hidden">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="openPage('homePage')">
+                    ‹
+                </button>
+
+                <div class="page-title">
+                    Objetivos
+                </div>
+
+            </div>
+
+            <div class="empty-state">
+
+                Aqui vais poder criar e acompanhar
+                os teus objetivos.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SCHOOL -->
+
+        <section id="schoolPage" class="hidden">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="openPage('homePage')">
+                    ‹
+                </button>
+
+                <div class="page-title">
+                    Escola
+                </div>
+
+            </div>
+
+            <div class="empty-state">
+
+                Disciplinas, trabalhos,
+                testes, notas e horários.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- WORK -->
+
+        <section id="workPage" class="hidden">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="openPage('homePage')">
+                    ‹
+                </button>
+
+                <div class="page-title">
+                    Trabalho
+                </div>
+
+            </div>
+
+            <div class="empty-state">
+
+                Horários, tarefas,
+                compromissos e informação profissional.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SETTINGS -->
+
+        <section id="settingsPage" class="hidden">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="openPage('homePage')">
+                    ‹
+                </button>
+
+                <div class="page-title">
+                    Definições
+                </div>
+
+            </div>
+
+
+            <div class="profile-area">
+
+                <div id="settingsProfile"
+                     class="large-profile">
+                    A
+                </div>
+
+                <button
+                    class="change-photo"
+                    onclick="changePhoto()">
+                    Alterar fotografia
+                </button>
+
+                <input
+                    id="photoInput"
+                    type="file"
+                    accept="image/*"
+                    style="display:none"
+                    onchange="savePhoto(event)">
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <div class="settings-section-title">
+                    Perfil
+                </div>
+
+                <button
+                    class="setting-row"
+                    onclick="changeName()">
+
+                    <span>
+                        Alterar nome
+                    </span>
+
+                    <span class="setting-arrow">
+                        ›
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <div class="settings-section-title">
+                    Segurança
+                </div>
+
+                <button
+                    class="setting-row"
+                    onclick="changeCode()">
+
+                    <span>
+                        Alterar código de acesso
+                    </span>
+
+                    <span class="setting-arrow">
+                        ›
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="setting-row logout"
+                    onclick="logout()">
+
+                    <span>
+                        Terminar sessão
+                    </span>
+
+                    <span>
+                        ›
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- BOTTOM NAV -->
+
+    <nav class="bottom-nav">
+
+        <button
+            class="nav-button active"
+            onclick="openPage('homePage')">
+
+            <span class="nav-icon">⌂</span>
+            Início
+
+        </button>
+
+
+        <button
+            class="nav-button"
+            onclick="openPage('schoolPage')">
+
+            <span class="nav-icon">⌂</span>
+            Escola
+
+        </button>
+
+
+        <button
+            class="nav-button"
+            onclick="openPage('workPage')">
+
+            <span class="nav-icon">▣</span>
+            Trabalho
+
+        </button>
+
+
+        <button
+            class="nav-button"
+            onclick="openPage('settingsPage')">
+
+            <span class="nav-icon">⚙</span>
+            Definições
+
+        </button>
+
+    </nav>
+
+</section>
+
+
 
 <script>
 
-    const hoje = new Date();
 
-    const dataFormatada = hoje.toLocaleDateString(
+/* =========================
+   DATA
+========================= */
+
+let currentUser = null;
+
+let accounts =
+    JSON.parse(
+        localStorage.getItem("agenda_accounts") || "[]"
+    );
+
+
+/* =========================
+   DATE
+========================= */
+
+function updateDate() {
+
+    const today = new Date();
+
+    const date = today.toLocaleDateString(
         "pt-PT",
         {
             weekday: "long",
@@ -202,7 +1181,722 @@
         }
     );
 
-    document.getElementById("date").textContent = dataFormatada;
+    document.getElementById("todayDate")
+        .textContent =
+        date.charAt(0).toUpperCase() + date.slice(1);
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login() {
+
+    const code =
+        document.getElementById("loginCode")
+        .value.trim();
+
+    const message =
+        document.getElementById("loginMessage");
+
+
+    if (!code) {
+
+        message.textContent =
+            "Introduz o teu código.";
+
+        return;
+    }
+
+
+    const account =
+        accounts.find(
+            user => user.code === code
+        );
+
+
+    if (!account) {
+
+        message.textContent =
+            "Código incorreto.";
+
+        return;
+    }
+
+
+    currentUser = account;
+
+    localStorage.setItem(
+        "agenda_current_user",
+        account.id
+    );
+
+
+    showApp();
+
+}
+
+
+/* =========================
+   REGISTER
+========================= */
+
+function showRegister() {
+
+    const name =
+        prompt("Qual é o teu nome?");
+
+    if (!name) return;
+
+
+    const email =
+        prompt("Qual é o teu email?");
+
+    if (!email) return;
+
+
+    const password =
+        prompt("Escolhe uma palavra-passe.");
+
+    if (!password) return;
+
+
+    const code =
+        prompt("Escolhe o teu código de acesso.");
+
+    if (!code) return;
+
+
+    if (
+        accounts.some(
+            user => user.code === code
+        )
+    ) {
+
+        alert(
+            "Esse código já está a ser utilizado."
+        );
+
+        return;
+    }
+
+
+    const account = {
+
+        id:
+            Date.now().toString(),
+
+        name:
+            name,
+
+        email:
+            email,
+
+        password:
+            password,
+
+        code:
+            code,
+
+        photo:
+            "",
+
+        tasks:
+            []
+
+    };
+
+
+    accounts.push(account);
+
+    localStorage.setItem(
+        "agenda_accounts",
+        JSON.stringify(accounts)
+    );
+
+
+    alert(
+        "Conta criada. Agora podes entrar com o teu código."
+    );
+
+}
+
+
+/* =========================
+   SHOW APP
+========================= */
+
+function showApp() {
+
+    document
+        .getElementById("loginScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("app")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("homeName")
+        .textContent =
+        currentUser.name;
+
+
+    updateProfileImages();
+
+    updateDate();
+
+    updateTaskCount();
+
+    renderTasks();
+
+    openPage("homePage");
+
+}
+
+
+/* =========================
+   PAGES
+========================= */
+
+function openPage(pageId) {
+
+    const pages = [
+
+        "homePage",
+        "tasksPage",
+        "agendaPage",
+        "financePage",
+        "objectivesPage",
+        "schoolPage",
+        "workPage",
+        "settingsPage"
+
+    ];
+
+
+    pages.forEach(
+        page => {
+
+            document
+                .getElementById(page)
+                .classList.add("hidden");
+
+        }
+    );
+
+
+    document
+        .getElementById(pageId)
+        .classList.remove("hidden");
+
+
+    window.scrollTo(
+        {
+            top: 0,
+            behavior: "smooth"
+        }
+    );
+
+}
+
+
+/* =========================
+   TASKS
+========================= */
+
+function addTask() {
+
+    const input =
+        document.getElementById("newTask");
+
+    const text =
+        input.value.trim();
+
+
+    if (!text) return;
+
+
+    currentUser.tasks.push({
+
+        id:
+            Date.now(),
+
+        text:
+            text,
+
+        completed:
+            false
+
+    });
+
+
+    saveCurrentUser();
+
+    input.value = "";
+
+    renderTasks();
+
+    updateTaskCount();
+
+}
+
+
+function renderTasks() {
+
+    const list =
+        document.getElementById("taskList");
+
+    list.innerHTML = "";
+
+
+    if (
+        !currentUser ||
+        currentUser.tasks.length === 0
+    ) {
+
+        list.innerHTML = `
+
+            <div class="empty-state">
+                Não tens tarefas.
+                <br><br>
+                Adiciona a tua primeira tarefa.
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    currentUser.tasks.forEach(
+        task => {
+
+            const item =
+                document.createElement("div");
+
+            item.className =
+                "task-item";
+
+
+            item.innerHTML = `
+
+                <button
+                    class="task-check
+                    ${task.completed ? "completed" : ""}"
+                    onclick="toggleTask(${task.id})">
+                </button>
+
+                <div
+                    class="task-text
+                    ${task.completed ? "completed" : ""}">
+                    ${escapeHTML(task.text)}
+                </div>
+
+                <button
+                    class="delete-task"
+                    onclick="deleteTask(${task.id})">
+                    ×
+                </button>
+
+            `;
+
+
+            list.appendChild(item);
+
+        }
+    );
+
+}
+
+
+function toggleTask(id) {
+
+    const task =
+        currentUser.tasks.find(
+            task => task.id === id
+        );
+
+    if (!task) return;
+
+
+    task.completed =
+        !task.completed;
+
+
+    saveCurrentUser();
+
+    renderTasks();
+
+    updateTaskCount();
+
+}
+
+
+function deleteTask(id) {
+
+    currentUser.tasks =
+        currentUser.tasks.filter(
+            task => task.id !== id
+        );
+
+
+    saveCurrentUser();
+
+    renderTasks();
+
+    updateTaskCount();
+
+}
+
+
+function updateTaskCount() {
+
+    if (!currentUser) return;
+
+
+    const count =
+        currentUser.tasks.filter(
+            task => !task.completed
+        ).length;
+
+
+    document
+        .getElementById("taskCount")
+        .textContent = count;
+
+}
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+function changeName() {
+
+    const newName =
+        prompt(
+            "Novo nome:",
+            currentUser.name
+        );
+
+
+    if (!newName) return;
+
+
+    currentUser.name =
+        newName.trim();
+
+
+    saveCurrentUser();
+
+    document
+        .getElementById("homeName")
+        .textContent =
+        currentUser.name;
+
+}
+
+
+function changeCode() {
+
+    const newCode =
+        prompt(
+            "Novo código de acesso:"
+        );
+
+
+    if (!newCode) return;
+
+
+    const used =
+        accounts.some(
+            user =>
+                user.code === newCode &&
+                user.id !== currentUser.id
+        );
+
+
+    if (used) {
+
+        alert(
+            "Esse código já está a ser utilizado."
+        );
+
+        return;
+    }
+
+
+    currentUser.code =
+        newCode;
+
+
+    saveCurrentUser();
+
+
+    alert(
+        "Código alterado com sucesso."
+    );
+
+}
+
+
+function changePhoto() {
+
+    document
+        .getElementById("photoInput")
+        .click();
+
+}
+
+
+function savePhoto(event) {
+
+    const file =
+        event.target.files[0];
+
+
+    if (!file) return;
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e) {
+
+            currentUser.photo =
+                e.target.result;
+
+
+            saveCurrentUser();
+
+            updateProfileImages();
+
+        };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+function updateProfileImages() {
+
+    const small =
+        document.getElementById(
+            "homeProfile"
+        );
+
+    const large =
+        document.getElementById(
+            "settingsProfile"
+        );
+
+
+    if (currentUser.photo) {
+
+        small.innerHTML =
+            `<img
+                src="${currentUser.photo}"
+                style="
+                    width:100%;
+                    height:100%;
+                    object-fit:cover;
+                    border-radius:50%;
+                ">`;
+
+
+        large.innerHTML =
+            `<img
+                src="${currentUser.photo}"
+                style="
+                    width:100%;
+                    height:100%;
+                    object-fit:cover;
+                    border-radius:50%;
+                ">`;
+
+    } else {
+
+        const letter =
+            currentUser.name
+                .charAt(0)
+                .toUpperCase();
+
+
+        small.textContent =
+            letter;
+
+        large.textContent =
+            letter;
+
+    }
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout() {
+
+    currentUser = null;
+
+    localStorage.removeItem(
+        "agenda_current_user"
+    );
+
+
+    document
+        .getElementById("app")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("loginScreen")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("loginCode")
+        .value = "";
+
+}
+
+
+/* =========================
+   SAVE USER
+========================= */
+
+function saveCurrentUser() {
+
+    const index =
+        accounts.findIndex(
+            user =>
+                user.id === currentUser.id
+        );
+
+
+    if (index !== -1) {
+
+        accounts[index] =
+            currentUser;
+
+    }
+
+
+    localStorage.setItem(
+        "agenda_accounts",
+        JSON.stringify(accounts)
+    );
+
+}
+
+
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   INITIAL TEST ACCOUNT
+========================= */
+
+function createTestAccount() {
+
+    if (
+        !accounts.some(
+            user => user.code === "1212"
+        )
+    ) {
+
+        accounts.push({
+
+            id:
+                "test-guilherme",
+
+            name:
+                "Guilherme",
+
+            email:
+                "teste@agenda.local",
+
+            password:
+                "1212",
+
+            code:
+                "1212",
+
+            photo:
+                "",
+
+            tasks:
+                []
+
+        });
+
+
+        localStorage.setItem(
+            "agenda_accounts",
+            JSON.stringify(accounts)
+        );
+
+    }
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+createTestAccount();
+
+updateDate();
+
+
+const savedUserId =
+    localStorage.getItem(
+        "agenda_current_user"
+    );
+
+
+if (savedUserId) {
+
+    const savedUser =
+        accounts.find(
+            user =>
+                user.id === savedUserId
+        );
+
+
+    if (savedUser) {
+
+        currentUser =
+            savedUser;
+
+        showApp();
+
+    }
+
+}
 
 </script>
 
