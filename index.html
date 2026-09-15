@@ -2,162 +2,146 @@
 <html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#64756b">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8fa89a">
 <title>Agenda</title>
 
 <style>
-:root{
-    --accent:#64756b;
-    --accent2:#e8ede9;
-    --accent3:#f3f6f3;
-    --bg:#f5f6f4;
-    --card:#fff;
-    --text:#252a26;
-    --muted:#7b827d;
-    --border:#e5e8e5;
-    --danger:#b76d6d;
-    --success:#64816d;
-    --shadow:0 8px 28px rgba(35,45,38,.065);
-    --radius:20px;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
-
-*{box-sizing:border-box;margin:0;padding:0}
-
-html{scroll-behavior:smooth}
 
 body{
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    background:#f5f6f4;
+    color:#26332d;
 }
 
-button,input,select,textarea{font:inherit}
-button{cursor:pointer;border:0}
-input,select,textarea{outline:none}
-.hidden{display:none!important}
+button,input,select,textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+    border:0;
+}
+
+.hidden{
+    display:none!important;
+}
 
 /* LOGIN */
 
-#loginScreen{
+.login-screen{
     min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:24px;
+    padding:25px;
 }
 
-.login{
+.login-box{
     width:100%;
-    max-width:390px;
-    text-align:center;
+    max-width:420px;
+    background:white;
+    padding:35px;
+    border-radius:24px;
+    box-shadow:0 15px 50px rgba(0,0,0,.08);
 }
 
 .logo{
-    width:78px;
-    height:78px;
-    margin:0 auto 22px;
-    border-radius:25px;
-    background:var(--accent);
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:30px;
+    font-size:34px;
     font-weight:700;
-    box-shadow:var(--shadow);
+    margin-bottom:8px;
 }
 
-.login h1{
-    font-size:33px;
-    margin-bottom:7px;
+.subtitle{
+    color:#7a8580;
+    margin-bottom:30px;
 }
 
-.login p{
-    color:var(--muted);
-    margin-bottom:28px;
-}
-
-.input{
+input,select,textarea{
     width:100%;
-    padding:14px 15px;
-    background:white;
-    border:1px solid var(--border);
-    border-radius:14px;
-    color:var(--text);
-    transition:.2s;
+    border:1px solid #dfe5e1;
+    background:#fafbfa;
+    padding:13px 15px;
+    border-radius:12px;
+    outline:none;
+    margin-top:7px;
+    margin-bottom:15px;
 }
 
-.input:focus{
-    border-color:var(--accent);
-    box-shadow:0 0 0 3px var(--accent2);
+input:focus,select:focus,textarea:focus{
+    border-color:#8fa89a;
+}
+
+label{
+    font-size:13px;
+    font-weight:600;
 }
 
 .primary{
     width:100%;
-    padding:14px 16px;
-    border-radius:14px;
-    background:var(--accent);
+    background:#8fa89a;
     color:white;
+    padding:14px;
+    border-radius:12px;
     font-weight:600;
-    margin-top:10px;
 }
 
 .secondary{
-    width:100%;
-    padding:13px 16px;
-    border-radius:14px;
-    background:var(--accent2);
-    color:var(--accent);
-    font-weight:600;
-    margin-top:9px;
+    background:#eef2ef;
+    color:#35423b;
+    padding:11px 15px;
+    border-radius:11px;
 }
 
-.small-button{
-    background:var(--accent2);
-    color:var(--accent);
-    padding:9px 12px;
-    border-radius:11px;
-    font-weight:600;
+.danger{
+    background:#f8e8e8;
+    color:#a33d3d;
 }
 
 /* APP */
 
-#app{
+.app{
     min-height:100vh;
-    padding-bottom:86px;
-}
-
-.container{
-    width:min(100%,1050px);
-    margin:auto;
-    padding:20px;
+    padding-bottom:90px;
 }
 
 .topbar{
+    background:white;
+    border-bottom:1px solid #e7ebe8;
+    padding:17px 22px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding-top:22px;
-    padding-bottom:8px;
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.top-title{
+    font-size:21px;
+    font-weight:700;
 }
 
 .profile{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
 }
 
 .avatar{
-    width:48px;
-    height:48px;
-    border-radius:16px;
-    background:var(--accent2);
-    color:var(--accent);
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#8fa89a;
+    color:white;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     font-weight:700;
     overflow:hidden;
 }
@@ -168,480 +152,258 @@ input,select,textarea{outline:none}
     object-fit:cover;
 }
 
-.profile small{
+.content{
+    max-width:1050px;
+    margin:auto;
+    padding:25px 18px;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
     display:block;
-    color:var(--muted);
-    margin-bottom:2px;
 }
 
-.profile strong{
-    font-size:18px;
-}
+/* CARDS */
 
-.settings-button{
-    width:44px;
-    height:44px;
-    border-radius:14px;
-    background:white;
-    box-shadow:var(--shadow);
-}
-
-/* PAGES */
-
-.page{display:none}
-.page.active{display:block}
-
-.page-title{
-    font-size:30px;
-    margin-top:5px;
-}
-
-.page-subtitle{
-    color:var(--muted);
-    margin-top:5px;
-    margin-bottom:22px;
-}
-
-/* HOME */
-
-.welcome-card{
-    background:var(--accent);
-    color:white;
-    border-radius:24px;
-    padding:24px;
-    margin:12px 0 18px;
-    box-shadow:var(--shadow);
-}
-
-.welcome-card small{opacity:.78}
-
-.welcome-card h2{
-    margin-top:6px;
-    font-size:25px;
-}
-
-.summary{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:11px;
-}
-
-.summary-card{
+.card{
     background:white;
     border-radius:18px;
-    padding:16px;
-    box-shadow:var(--shadow);
+    padding:20px;
+    margin-bottom:18px;
+    border:1px solid #e9edea;
 }
 
-.summary-card span{
-    color:var(--muted);
-    font-size:12px;
+.card-title{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:15px;
 }
 
-.summary-card strong{
-    display:block;
-    margin-top:7px;
-    font-size:20px;
+.welcome{
+    font-size:27px;
+    font-weight:700;
+    margin-bottom:5px;
 }
 
-.module-grid{
+.muted{
+    color:#7b8580;
+}
+
+.grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:13px;
-    margin-top:14px;
+    gap:15px;
 }
 
-.module{
+.stat{
     background:white;
-    border:1px solid var(--border);
-    border-radius:21px;
+    border:1px solid #e9edea;
+    border-radius:18px;
     padding:20px;
-    min-height:120px;
-    text-align:left;
-    box-shadow:var(--shadow);
 }
 
-.module-icon{
-    width:42px;
-    height:42px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:13px;
-    background:var(--accent2);
-    color:var(--accent);
+.stat-number{
+    font-size:28px;
     font-weight:700;
-    margin-bottom:14px;
-}
-
-.module strong{
-    display:block;
-    font-size:16px;
-}
-
-.module span{
-    display:block;
-    color:var(--muted);
-    font-size:12px;
-    margin-top:4px;
-}
-
-/* SECTIONS */
-
-.section{margin-top:25px}
-
-.section-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:12px;
-}
-
-.section-header h3{font-size:18px}
-
-.add{
-    background:var(--accent);
-    color:white;
-    padding:9px 13px;
-    border-radius:12px;
-    font-size:13px;
-    font-weight:600;
-}
-
-.empty{
-    background:white;
-    border:1px dashed var(--border);
-    border-radius:17px;
-    padding:25px 18px;
-    text-align:center;
-    color:var(--muted);
-}
-
-/* FORMS */
-
-.form-card{
-    background:white;
-    border-radius:21px;
-    padding:20px;
-    box-shadow:var(--shadow);
-    margin-bottom:20px;
-}
-
-.form-card h3{margin-bottom:16px}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-
-.form-group{margin-bottom:12px}
-
-.form-group.full{grid-column:1/-1}
-
-.form-group label{
-    display:block;
-    color:var(--muted);
-    font-size:12px;
-    margin-bottom:6px;
-}
-
-textarea.input{
-    min-height:90px;
-    resize:vertical;
-}
-
-/* ITEMS */
-
-.item{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    background:white;
-    border:1px solid var(--border);
-    border-radius:17px;
-    padding:15px;
-    margin-bottom:10px;
-    box-shadow:0 4px 16px rgba(30,40,33,.035);
-}
-
-.item-main{
-    flex:1;
-    min-width:0;
-}
-
-.item-title{
-    font-weight:600;
-    line-height:1.3;
-}
-
-.item-meta{
-    color:var(--muted);
-    font-size:12px;
-    margin-top:4px;
-    line-height:1.4;
-}
-
-.delete{
-    background:none;
-    color:#aaa;
-    font-size:19px;
-    padding:5px;
-}
-
-.checkbox{
-    width:23px;
-    height:23px;
-    border:2px solid #ccd2cd;
-    background:white;
-    border-radius:8px;
-    flex-shrink:0;
-}
-
-.checkbox.checked{
-    background:var(--accent);
-    border-color:var(--accent);
-}
-
-.checkbox.checked:after{
-    content:"✓";
-    color:white;
-    display:block;
-    text-align:center;
-    line-height:19px;
-    font-size:13px;
-    font-weight:bold;
-}
-
-.badge{
-    display:inline-block;
-    background:var(--accent2);
-    color:var(--accent);
-    border-radius:8px;
-    padding:4px 7px;
-    font-size:10px;
-    font-weight:600;
-    margin-top:7px;
-}
-
-.badge.high{
-    background:#f5e5e5;
-    color:var(--danger);
+    margin-top:5px;
 }
 
 /* CALENDAR */
 
-.calendar{
-    background:white;
-    border-radius:22px;
-    padding:18px;
-    box-shadow:var(--shadow);
-}
-
-.calendar-head{
+.calendar-header{
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
     margin-bottom:18px;
 }
 
-.calendar-head button{
-    width:38px;
-    height:38px;
-    border-radius:12px;
-    background:var(--accent2);
-    color:var(--accent);
-    font-size:21px;
-}
-
 .calendar-title{
+    font-size:20px;
     font-weight:700;
     text-transform:capitalize;
 }
 
-.weekdays,.days{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
+.calendar-actions{
+    display:flex;
+    gap:7px;
 }
 
-.weekdays div{
+.icon-btn{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    background:#eef2ef;
+}
+
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:5px;
+}
+
+.weekday{
     text-align:center;
-    color:var(--muted);
-    font-size:10px;
-    padding-bottom:8px;
+    font-size:12px;
+    color:#89928d;
+    padding:8px 0;
+    font-weight:600;
 }
 
 .day{
-    min-height:58px;
-    border-radius:12px;
-    padding:6px;
-    cursor:pointer;
+    min-height:90px;
+    background:#fafbfa;
+    border:1px solid #edf0ee;
+    border-radius:10px;
+    padding:7px;
+    text-align:left;
+    position:relative;
 }
 
-.day:hover{background:var(--accent3)}
+.day:hover{
+    background:#f1f5f2;
+}
 
-.day.other{color:#c5cac6}
+.day.other{
+    opacity:.35;
+}
 
 .day.today{
-    background:var(--accent2);
-    color:var(--accent);
+    border:2px solid #8fa89a;
+}
+
+.day-number{
+    font-size:12px;
     font-weight:700;
+    margin-bottom:5px;
 }
 
-.day.selected{
-    outline:2px solid var(--accent);
-}
-
-.day-number{font-size:13px}
-
-.event-dots{
-    display:flex;
-    gap:3px;
-    margin-top:7px;
-}
-
-.event-dot{
-    width:5px;
-    height:5px;
-    border-radius:50%;
-    background:var(--accent);
-}
-
-/* FINANCE */
-
-.balance{
-    background:var(--accent);
-    color:white;
-    padding:25px;
-    border-radius:24px;
-    box-shadow:var(--shadow);
-    margin-bottom:14px;
-}
-
-.balance small{opacity:.8}
-
-.balance strong{
-    display:block;
-    font-size:34px;
-    margin-top:5px;
-}
-
-.money-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:11px;
-}
-
-.money-card{
-    background:white;
-    padding:17px;
-    border-radius:18px;
-    box-shadow:var(--shadow);
-}
-
-.money-card small{color:var(--muted)}
-
-.money-card strong{
-    display:block;
-    margin-top:6px;
-    font-size:20px;
-}
-
-.positive{color:var(--success)}
-.negative{color:var(--danger)}
-
-/* PROGRESS */
-
-.progress{
-    height:8px;
-    background:#edf0ed;
-    border-radius:99px;
+.day-event{
+    font-size:10px;
+    padding:3px 5px;
+    border-radius:5px;
+    background:#e5eee8;
+    margin-top:3px;
     overflow:hidden;
-    margin-top:13px;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }
 
-.progress div{
-    height:100%;
-    background:var(--accent);
-    border-radius:99px;
+.day-event.task{
+    background:#edf0f5;
 }
 
-/* SETTINGS */
-
-.setting{
-    background:white;
-    border-radius:20px;
-    padding:19px;
-    box-shadow:var(--shadow);
-    margin-bottom:12px;
+.day-event.school{
+    background:#eee9f5;
 }
 
-.setting h3{margin-bottom:12px}
+.day-event.work{
+    background:#f4eee3;
+}
 
-.color-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
+.day-event.money{
+    background:#e8f1ec;
+}
+
+.day-event.life{
+    background:#f1e9e9;
+}
+
+/* LISTAS */
+
+.list{
+    display:flex;
+    flex-direction:column;
     gap:9px;
 }
 
-.color-choice{
-    padding:12px 7px;
-    border-radius:14px;
-    background:var(--bg);
-    text-align:center;
-    border:2px solid transparent;
+.list-item{
+    background:#fafbfa;
+    border:1px solid #e7ebe8;
+    border-radius:13px;
+    padding:13px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.list-main{
+    min-width:0;
+}
+
+.list-title{
+    font-weight:600;
+}
+
+.list-info{
     font-size:12px;
+    color:#7c8580;
+    margin-top:3px;
 }
 
-.color-choice.selected{
-    border-color:var(--accent);
+.badge{
+    padding:5px 8px;
+    border-radius:7px;
+    font-size:11px;
+    background:#e8eee9;
 }
 
-.color-circle{
-    width:28px;
-    height:28px;
-    border-radius:50%;
-    margin:0 auto 7px;
+.completed{
+    text-decoration:line-through;
+    opacity:.5;
+}
+
+/* BOTOES */
+
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+}
+
+.add{
+    background:#8fa89a;
+    color:white;
+    padding:11px 15px;
+    border-radius:11px;
+    font-weight:600;
 }
 
 /* NAV */
 
-.bottom{
+.bottom-nav{
     position:fixed;
-    z-index:30;
     bottom:0;
     left:0;
     right:0;
-    height:74px;
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(15px);
-    border-top:1px solid var(--border);
-}
-
-.nav{
-    height:100%;
-    width:min(100%,650px);
-    margin:auto;
+    background:white;
+    border-top:1px solid #e4e9e5;
+    height:72px;
     display:flex;
-    justify-content:space-around;
+    justify-content:center;
+    z-index:50;
 }
 
-.nav button{
-    background:none;
-    color:#999f9a;
-    font-size:10px;
-    min-width:65px;
+.nav-inner{
+    width:100%;
+    max-width:650px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
 }
 
-.nav button.active{
-    color:var(--accent);
+.nav-btn{
+    background:white;
+    color:#818a85;
+    font-size:11px;
+}
+
+.nav-btn.active{
+    color:#607b6c;
     font-weight:700;
-}
-
-.nav-icon{
-    display:block;
-    font-size:19px;
-    margin-bottom:3px;
 }
 
 /* MODAL */
@@ -649,60 +411,101 @@ textarea.input{
 .modal{
     position:fixed;
     inset:0;
-    z-index:100;
-    background:rgba(20,25,21,.38);
+    background:rgba(30,40,35,.35);
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:18px;
+    padding:20px;
+    z-index:100;
 }
 
 .modal-box{
     background:white;
-    width:min(100%,470px);
+    width:100%;
+    max-width:500px;
     max-height:90vh;
     overflow:auto;
-    border-radius:24px;
-    padding:22px;
-    box-shadow:0 25px 70px rgba(0,0,0,.18);
+    border-radius:20px;
+    padding:25px;
 }
 
-.modal-head{
+.modal-header{
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    margin-bottom:18px;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.modal-title{
+    font-size:20px;
+    font-weight:700;
 }
 
 .close{
-    width:35px;
-    height:35px;
-    border-radius:11px;
-    background:var(--bg);
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:#eef1ef;
 }
+
+.form-actions{
+    display:flex;
+    gap:10px;
+    margin-top:5px;
+}
+
+.form-actions button{
+    flex:1;
+}
+
+/* SETTINGS */
+
+.theme-list{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.theme{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:3px solid white;
+    box-shadow:0 0 0 1px #ddd;
+}
+
+.theme.active{
+    box-shadow:0 0 0 2px #333;
+}
+
+.theme[data-theme="sage"]{background:#8fa89a}
+.theme[data-theme="blue"]{background:#668b91}
+.theme[data-theme="softblue"]{background:#8da8bd}
+.theme[data-theme="lilac"]{background:#a59bb8}
+.theme[data-theme="sand"]{background:#b9a88d}
+.theme[data-theme="gray"]{background:#929797}
 
 /* RESPONSIVE */
 
-@media(max-width:600px){
-
-    .container{padding:17px}
-
-    .form-grid{grid-template-columns:1fr}
-    .form-group.full{grid-column:auto}
-
-    .summary-card{padding:13px}
-
-    .summary-card strong{font-size:18px}
-
-    .day{min-height:49px}
-
-    .module{
-        min-height:108px;
-        padding:17px;
+@media(max-width:700px){
+    .grid{
+        grid-template-columns:1fr;
     }
 
-    .color-grid{
-        grid-template-columns:1fr 1fr;
+    .day{
+        min-height:65px;
+    }
+
+    .day-event{
+        font-size:9px;
+    }
+
+    .content{
+        padding:18px 12px;
+    }
+
+    .topbar{
+        padding:14px;
     }
 }
 </style>
@@ -712,794 +515,246 @@ textarea.input{
 
 <!-- LOGIN -->
 
-<section id="loginScreen">
+<div id="loginScreen" class="login-screen">
+    <div class="login-box">
 
-    <div class="login">
+        <div class="logo">Agenda</div>
+        <div class="subtitle">A tua organização, num só lugar.</div>
 
-        <div class="logo">A</div>
+        <label>Código de acesso</label>
+        <input id="loginCode" type="password" placeholder="Código">
 
-        <h1>Agenda</h1>
-        <p>A tua organização, num só lugar.</p>
+        <button class="primary" onclick="login()">Entrar</button>
 
-        <input
-            id="loginCode"
-            class="input"
-            type="password"
-            placeholder="Código de acesso"
-        >
-
-        <button class="primary" id="loginBtn">Entrar</button>
-
-        <button class="secondary" id="createAccountBtn">
+        <button
+            class="secondary"
+            style="width:100%;margin-top:10px"
+            onclick="showCreateAccount()">
             Criar conta
         </button>
 
-    </div>
+        <div id="loginMessage"
+             style="margin-top:15px;font-size:13px;color:#a33d3d">
+        </div>
 
-</section>
+    </div>
+</div>
 
 
 <!-- APP -->
 
-<div id="app" class="hidden">
+<div id="app" class="app hidden">
 
-<header class="topbar container">
+    <div class="topbar">
 
-    <div class="profile">
+        <div class="top-title">Agenda</div>
 
-        <div id="avatar" class="avatar">A</div>
-
-        <div>
-            <small>Olá</small>
-            <strong id="userName">Utilizador</strong>
-        </div>
-
-    </div>
-
-    <button class="settings-button" id="topSettings">⚙</button>
-
-</header>
-
-
-<main class="container">
-
-
-<!-- INÍCIO -->
-
-<section class="page active" id="homePage">
-
-    <div class="welcome-card">
-
-        <small id="homeDate"></small>
-
-        <h2>O teu dia</h2>
-
-    </div>
-
-
-    <div class="summary">
-
-        <div class="summary-card">
-            <span>Tarefas</span>
-            <strong id="summaryTasks">0</strong>
-        </div>
-
-        <div class="summary-card">
-            <span>Eventos</span>
-            <strong id="summaryEvents">0</strong>
-        </div>
-
-        <div class="summary-card">
-            <span>Saldo</span>
-            <strong id="summaryBalance">0 €</strong>
+        <div class="profile">
+            <span id="topName"></span>
+            <div id="topAvatar" class="avatar"></div>
         </div>
 
     </div>
 
 
-    <div class="section">
+    <main class="content">
 
-        <div class="section-header">
-            <h3>Hoje</h3>
-        </div>
+        <!-- INÍCIO -->
 
-        <div id="todayList"></div>
+        <section id="homePage" class="page active">
 
-    </div>
+            <div class="card">
+
+                <div id="welcomeText" class="welcome">
+                    Olá
+                </div>
+
+                <div id="todayText" class="muted"></div>
+
+            </div>
 
 
-    <div class="section">
+            <div class="grid">
 
-        <div class="section-header">
-            <h3>Áreas</h3>
-        </div>
+                <div class="stat">
+                    <div class="muted">Tarefas pendentes</div>
+                    <div id="pendingTasks" class="stat-number">0</div>
+                </div>
 
-        <div class="module-grid">
+                <div class="stat">
+                    <div class="muted">Eventos hoje</div>
+                    <div id="todayEvents" class="stat-number">0</div>
+                </div>
 
-            <button class="module" data-page="agendaPage">
-                <div class="module-icon">◷</div>
-                <strong>Agenda</strong>
-                <span>Calendário e acontecimentos</span>
+            </div>
+
+
+            <div class="card" style="margin-top:18px">
+
+                <div class="calendar-header">
+
+                    <div id="calendarTitle" class="calendar-title"></div>
+
+                    <div class="calendar-actions">
+                        <button class="icon-btn" onclick="changeMonth(-1)">‹</button>
+                        <button class="icon-btn" onclick="goToday()">Hoje</button>
+                        <button class="icon-btn" onclick="changeMonth(1)">›</button>
+                    </div>
+
+                </div>
+
+                <div id="calendar" class="calendar"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ESCOLA -->
+
+        <section id="schoolPage" class="page">
+
+            <div class="card">
+
+                <div class="card-title">Escola</div>
+
+                <div class="actions">
+                    <button class="add" onclick="openSchoolModal()">
+                        + Adicionar teste / trabalho
+                    </button>
+                </div>
+
+                <div id="schoolList" class="list"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TRABALHO -->
+
+        <section id="workPage" class="page">
+
+            <div class="card">
+
+                <div class="card-title">Trabalho</div>
+
+                <div class="actions">
+                    <button class="add" onclick="openWorkModal()">
+                        + Adicionar
+                    </button>
+                </div>
+
+                <div id="workList" class="list"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DEFINIÇÕES -->
+
+        <section id="settingsPage" class="page">
+
+            <div class="card">
+
+                <div class="card-title">Perfil</div>
+
+                <label>Nome</label>
+                <input id="settingsName">
+
+                <button class="primary" onclick="saveName()">
+                    Guardar nome
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">Tema</div>
+
+                <div class="theme-list">
+
+                    <button class="theme" data-theme="sage"
+                        onclick="setTheme('sage')"></button>
+
+                    <button class="theme" data-theme="blue"
+                        onclick="setTheme('blue')"></button>
+
+                    <button class="theme" data-theme="softblue"
+                        onclick="setTheme('softblue')"></button>
+
+                    <button class="theme" data-theme="lilac"
+                        onclick="setTheme('lilac')"></button>
+
+                    <button class="theme" data-theme="sand"
+                        onclick="setTheme('sand')"></button>
+
+                    <button class="theme" data-theme="gray"
+                        onclick="setTheme('gray')"></button>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">Sessão</div>
+
+                <button
+                    class="secondary"
+                    style="width:100%"
+                    onclick="logout()">
+                    Terminar sessão
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- NAV -->
+
+    <nav class="bottom-nav">
+
+        <div class="nav-inner">
+
+            <button
+                class="nav-btn active"
+                data-page="homePage"
+                onclick="openPage('homePage')">
+                Início
             </button>
 
-            <button class="module" data-page="tasksPage">
-                <div class="module-icon">✓</div>
-                <strong>Tarefas</strong>
-                <span>O que tens para fazer</span>
+            <button
+                class="nav-btn"
+                data-page="schoolPage"
+                onclick="openPage('schoolPage')">
+                Escola
             </button>
 
-            <button class="module" data-page="financePage">
-                <div class="module-icon">€</div>
-                <strong>Finanças</strong>
-                <span>Dinheiro e movimentos</span>
+            <button
+                class="nav-btn"
+                data-page="workPage"
+                onclick="openPage('workPage')">
+                Trabalho
             </button>
 
-            <button class="module" data-page="lifePage">
-                <div class="module-icon">○</div>
-                <strong>Vida</strong>
-                <span>Projetos, documentos e outros</span>
-            </button>
-
-            <button class="module" data-page="schoolPage">
-                <div class="module-icon">⌘</div>
-                <strong>Escola</strong>
-                <span>Testes, trabalhos e notas</span>
-            </button>
-
-            <button class="module" data-page="workPage">
-                <div class="module-icon">▣</div>
-                <strong>Trabalho</strong>
-                <span>Turnos e compromissos</span>
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- AGENDA -->
-
-<section class="page" id="agendaPage">
-
-    <h1 class="page-title">Agenda</h1>
-
-    <p class="page-subtitle">
-        Tudo o que acontece, num só lugar.
-    </p>
-
-
-    <div class="calendar">
-
-        <div class="calendar-head">
-
-            <button id="previousMonth">‹</button>
-
-            <div class="calendar-title" id="calendarTitle"></div>
-
-            <button id="nextMonth">›</button>
-
-        </div>
-
-
-        <div class="weekdays">
-
-            <div>SEG</div>
-            <div>TER</div>
-            <div>QUA</div>
-            <div>QUI</div>
-            <div>SEX</div>
-            <div>SÁB</div>
-            <div>DOM</div>
-
-        </div>
-
-
-        <div class="days" id="calendarDays"></div>
-
-    </div>
-
-
-    <div class="section">
-
-        <div class="section-header">
-
-            <h3 id="selectedDayTitle"></h3>
-
-            <button class="add" id="newEventBtn">
-                + Evento
-            </button>
-
-        </div>
-
-        <div id="dayEvents"></div>
-
-    </div>
-
-</section>
-
-
-<!-- TAREFAS -->
-
-<section class="page" id="tasksPage">
-
-    <h1 class="page-title">Tarefas</h1>
-
-    <p class="page-subtitle">
-        Organiza o que tens para fazer.
-    </p>
-
-
-    <div class="form-card">
-
-        <h3>Nova tarefa</h3>
-
-        <div class="form-group">
-            <label>Tarefa</label>
-            <input id="taskTitle" class="input" placeholder="Ex.: Estudar Biologia">
-        </div>
-
-        <div class="form-grid">
-
-            <div class="form-group">
-                <label>Data</label>
-                <input id="taskDate" class="input" type="date">
-            </div>
-
-            <div class="form-group">
-                <label>Prioridade</label>
-
-                <select id="taskPriority" class="input">
-                    <option value="normal">Normal</option>
-                    <option value="high">Alta</option>
-                </select>
-
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <label>Nota</label>
-
-            <textarea
-                id="taskNote"
-                class="input"
-                placeholder="Opcional"
-            ></textarea>
-
-        </div>
-
-        <button class="primary" id="addTaskBtn">
-            Adicionar tarefa
-        </button>
-
-    </div>
-
-
-    <div id="tasksList"></div>
-
-</section>
-
-
-<!-- FINANÇAS -->
-
-<section class="page" id="financePage">
-
-    <h1 class="page-title">Finanças</h1>
-
-    <p class="page-subtitle">
-        Controla o teu dinheiro.
-    </p>
-
-
-    <div class="balance">
-
-        <small>Saldo atual</small>
-
-        <strong id="balanceValue">0,00 €</strong>
-
-    </div>
-
-
-    <div class="money-grid">
-
-        <div class="money-card">
-
-            <small>Entradas</small>
-
-            <strong id="incomeValue" class="positive">
-                +0,00 €
-            </strong>
-
-        </div>
-
-        <div class="money-card">
-
-            <small>Despesas</small>
-
-            <strong id="expenseValue" class="negative">
-                -0,00 €
-            </strong>
-
-        </div>
-
-    </div>
-
-
-    <div class="form-card" style="margin-top:14px">
-
-        <h3>Novo movimento</h3>
-
-        <div class="form-grid">
-
-            <div class="form-group">
-                <label>Valor</label>
-                <input id="moneyAmount" class="input" type="number" step="0.01" placeholder="10">
-            </div>
-
-            <div class="form-group">
-                <label>Tipo</label>
-
-                <select id="moneyType" class="input">
-                    <option value="income">Entrada</option>
-                    <option value="expense">Despesa</option>
-                </select>
-
-            </div>
-
-            <div class="form-group">
-                <label>Data</label>
-                <input id="moneyDate" class="input" type="date">
-            </div>
-
-            <div class="form-group">
-                <label>Categoria</label>
-
-                <select id="moneyCategory" class="input">
-                    <option>Outros</option>
-                    <option>Trabalho</option>
-                    <option>Alimentação</option>
-                    <option>Transporte</option>
-                    <option>Casa</option>
-                    <option>Educação</option>
-                    <option>Lazer</option>
-                    <option>Compras</option>
-                    <option>Subscrições</option>
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Nota</label>
-
-            <textarea
-                id="moneyNote"
-                class="input"
-                placeholder="Ex.: Recebi por ajudar numa tarefa"
-            ></textarea>
-
-        </div>
-
-
-        <button class="primary" id="addMoneyBtn">
-            Adicionar movimento
-        </button>
-
-    </div>
-
-
-    <div class="section">
-
-        <div class="section-header">
-            <h3>Histórico</h3>
-        </div>
-
-        <div id="moneyList"></div>
-
-    </div>
-
-</section>
-
-
-<!-- VIDA -->
-
-<section class="page" id="lifePage">
-
-    <h1 class="page-title">Vida</h1>
-
-    <p class="page-subtitle">
-        Tudo o que não pertence às outras áreas.
-    </p>
-
-
-    <div class="form-card">
-
-        <h3>Novo registo</h3>
-
-        <div class="form-group">
-
-            <label>Título</label>
-
-            <input
-                id="lifeTitle"
-                class="input"
-                placeholder="Ex.: Renovar cartão de cidadão"
-            >
-
-        </div>
-
-
-        <div class="form-grid">
-
-            <div class="form-group">
-
-                <label>Categoria</label>
-
-                <select id="lifeCategory" class="input">
-                    <option>Documentos</option>
-                    <option>Casa</option>
-                    <option>Viagens</option>
-                    <option>Projetos</option>
-                    <option>Pessoal</option>
-                    <option>Saúde</option>
-                    <option>Compras</option>
-                    <option>Outro</option>
-                </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Data</label>
-
-                <input id="lifeDate" class="input" type="date">
-
-            </div>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Nota</label>
-
-            <textarea
-                id="lifeNote"
-                class="input"
-                placeholder="Detalhes, informações ou lembretes"
-            ></textarea>
-
-        </div>
-
-
-        <button class="primary" id="addLifeBtn">
-            Adicionar
-        </button>
-
-    </div>
-
-
-    <div id="lifeList"></div>
-
-</section>
-
-
-<!-- ESCOLA -->
-
-<section class="page" id="schoolPage">
-
-    <h1 class="page-title">Escola</h1>
-
-    <p class="page-subtitle">
-        Testes, trabalhos, aulas e notas.
-    </p>
-
-
-    <div class="form-card">
-
-        <h3>Novo registo</h3>
-
-        <div class="form-grid">
-
-            <div class="form-group">
-                <label>Disciplina</label>
-                <input id="schoolSubject" class="input" placeholder="Biologia e Geologia">
-            </div>
-
-            <div class="form-group">
-                <label>Tipo</label>
-
-                <select id="schoolType" class="input">
-                    <option>Teste</option>
-                    <option>Trabalho</option>
-                    <option>Apresentação</option>
-                    <option>Aula</option>
-                    <option>Outro</option>
-                </select>
-
-            </div>
-
-            <div class="form-group">
-                <label>Data</label>
-                <input id="schoolDate" class="input" type="date">
-            </div>
-
-            <div class="form-group">
-                <label>Hora</label>
-                <input id="schoolTime" class="input" type="time">
-            </div>
-
-            <div class="form-group">
-                <label>Nota</label>
-                <input id="schoolGrade" class="input" type="number" min="0" max="20" step="0.1">
-            </div>
-
-            <div class="form-group">
-                <label>Professor</label>
-                <input id="schoolTeacher" class="input" placeholder="Opcional">
-            </div>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Nota / detalhes</label>
-
-            <textarea
-                id="schoolNote"
-                class="input"
-                placeholder="Conteúdo, sala, matéria..."
-            ></textarea>
-
-        </div>
-
-
-        <button class="primary" id="addSchoolBtn">
-            Adicionar
-        </button>
-
-    </div>
-
-
-    <div id="schoolList"></div>
-
-</section>
-
-
-<!-- TRABALHO -->
-
-<section class="page" id="workPage">
-
-    <h1 class="page-title">Trabalho</h1>
-
-    <p class="page-subtitle">
-        Turnos, tarefas e compromissos.
-    </p>
-
-
-    <div class="form-card">
-
-        <h3>Novo registo</h3>
-
-        <div class="form-group">
-
-            <label>Título</label>
-
-            <input
-                id="workTitle"
-                class="input"
-                placeholder="Ex.: Turno de trabalho"
-            >
-
-        </div>
-
-
-        <div class="form-grid">
-
-            <div class="form-group">
-
-                <label>Tipo</label>
-
-                <select id="workType" class="input">
-                    <option>Turno</option>
-                    <option>Tarefa</option>
-                    <option>Reunião</option>
-                    <option>Compromisso</option>
-                    <option>Outro</option>
-                </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Data</label>
-
-                <input id="workDate" class="input" type="date">
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Hora de início</label>
-
-                <input id="workStart" class="input" type="time">
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Hora de fim</label>
-
-                <input id="workEnd" class="input" type="time">
-
-            </div>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Nota</label>
-
-            <textarea
-                id="workNote"
-                class="input"
-                placeholder="Local, informações, etc."
-            ></textarea>
-
-        </div>
-
-
-        <button class="primary" id="addWorkBtn">
-            Adicionar
-        </button>
-
-    </div>
-
-
-    <div id="workList"></div>
-
-</section>
-
-
-<!-- DEFINIÇÕES -->
-
-<section class="page" id="settingsPage">
-
-    <h1 class="page-title">Definições</h1>
-
-    <p class="page-subtitle">
-        Personaliza a tua Agenda.
-    </p>
-
-
-    <div class="setting">
-
-        <h3>Perfil</h3>
-
-        <input
-            id="photoInput"
-            type="file"
-            accept="image/*"
-            class="hidden"
-        >
-
-        <button class="secondary" id="photoBtn">
-            Alterar fotografia
-        </button>
-
-        <button class="secondary" id="nameBtn">
-            Alterar nome
-        </button>
-
-        <button class="secondary" id="codeBtn">
-            Alterar código
-        </button>
-
-    </div>
-
-
-    <div class="setting">
-
-        <h3>Aparência</h3>
-
-        <p style="color:var(--muted);font-size:12px;margin-bottom:13px">
-            Escolhe uma cor simples para a aplicação.
-        </p>
-
-
-        <div class="color-grid">
-
-            <button class="color-choice" data-theme="sage">
-                <div class="color-circle" style="background:#64756b"></div>
-                Verde-sálvia
-            </button>
-
-            <button class="color-choice" data-theme="blue">
-                <div class="color-circle" style="background:#63778a"></div>
-                Azul-petróleo
-            </button>
-
-            <button class="color-choice" data-theme="sky">
-                <div class="color-circle" style="background:#7594a5"></div>
-                Azul suave
-            </button>
-
-            <button class="color-choice" data-theme="lilac">
-                <div class="color-circle" style="background:#81758e"></div>
-                Lilás
-            </button>
-
-            <button class="color-choice" data-theme="sand">
-                <div class="color-circle" style="background:#927f67"></div>
-                Areia
-            </button>
-
-            <button class="color-choice" data-theme="gray">
-                <div class="color-circle" style="background:#707572"></div>
-                Cinzento
+            <button
+                class="nav-btn"
+                data-page="settingsPage"
+                onclick="openPage('settingsPage')">
+                Definições
             </button>
 
         </div>
 
-    </div>
-
-
-    <div class="setting">
-
-        <h3>Conta</h3>
-
-        <button class="secondary" id="logoutBtn">
-            Terminar sessão
-        </button>
-
-    </div>
-
-</section>
-
-</main>
-
-
-<!-- NAVEGAÇÃO -->
-
-<nav class="bottom">
-
-    <div class="nav">
-
-        <button data-page="homePage">
-            <span class="nav-icon">⌂</span>
-            Início
-        </button>
-
-        <button data-page="schoolPage">
-            <span class="nav-icon">⌘</span>
-            Escola
-        </button>
-
-        <button data-page="workPage">
-            <span class="nav-icon">▣</span>
-            Trabalho
-        </button>
-
-        <button data-page="settingsPage">
-            <span class="nav-icon">⚙</span>
-            Definições
-        </button>
-
-    </div>
-
-</nav>
+    </nav>
 
 </div>
 
@@ -1507,132 +762,110 @@ textarea.input{
 <!-- MODAL -->
 
 <div id="modal" class="modal hidden">
-
-    <div class="modal-box" id="modalBox"></div>
-
+    <div id="modalContent" class="modal-box"></div>
 </div>
 
 
 <script>
 
 /* =========================================================
-   CONFIGURAÇÃO
+   DADOS
 ========================================================= */
 
-const THEMES={
-    sage:{
-        accent:"#64756b",
-        light:"#e8ede9",
-        soft:"#f3f6f3"
-    },
-    blue:{
-        accent:"#63778a",
-        light:"#e8edf1",
-        soft:"#f2f5f7"
-    },
-    sky:{
-        accent:"#7594a5",
-        light:"#e8eff2",
-        soft:"#f3f7f8"
-    },
-    lilac:{
-        accent:"#81758e",
-        light:"#eeeaf1",
-        soft:"#f5f2f7"
-    },
-    sand:{
-        accent:"#927f67",
-        light:"#f0ebe5",
-        soft:"#f6f3ef"
-    },
-    gray:{
-        accent:"#707572",
-        light:"#e9ebea",
-        soft:"#f3f4f4"
-    }
-};
+let accounts = JSON.parse(
+    localStorage.getItem("agenda_accounts") || "[]"
+);
 
-let accounts=[];
-let user=null;
+let currentUserId =
+    localStorage.getItem("agenda_current_user") || null;
 
-let calendarCursor=new Date();
-let selectedDate=getToday();
+let user = null;
+
+let calendarDate = new Date();
 
 
 /* =========================================================
-   ARRANQUE
+   UTILIDADES
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded",()=>{
+function uid(){
+    return Date.now().toString(36) +
+           Math.random().toString(36).substring(2,8);
+}
 
-    loadAccounts();
-    setupEvents();
-    setDefaultDates();
+function today(){
 
-});
+    const d = new Date();
 
+    return d.getFullYear() + "-" +
+        String(d.getMonth()+1).padStart(2,"0") + "-" +
+        String(d.getDate()).padStart(2,"0");
+}
 
-function loadAccounts(){
+function formatDate(date){
 
-    try{
-        accounts=JSON.parse(
-            localStorage.getItem("agenda_accounts")||"[]"
-        );
-    }catch{
-        accounts=[];
-    }
+    if(!date) return "";
 
+    const parts = date.split("-");
 
-    /*
-       Contas de teste.
-       Só são criadas se ainda não existirem.
-    */
+    if(parts.length !== 3) return date;
 
-    if(!accounts.length){
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+}
 
-        accounts=[
-            createEmptyAccount(
-                "Guilherme",
-                "teste@agenda.local",
-                "1212",
-                "sage"
-            ),
-            createEmptyAccount(
-                "Utilizador 2",
-                "teste2@agenda.local",
-                "2020",
-                "blue"
-            )
-        ];
+function escapeHTML(value){
 
-        saveAccounts();
-
-    }
-
+    return String(value ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
 }
 
 
-function createEmptyAccount(name,email,code,theme="sage"){
+/* =========================================================
+   CONTA
+========================================================= */
 
-    return{
-        id:"user_"+Date.now()+"_"+Math.random().toString(36).slice(2),
-        name,
-        email,
-        code,
-        password:code,
-        photo:"",
-        theme,
+function createDefaultAccounts(){
 
-        tasks:[],
-        events:[],
-        money:[],
-        life:[],
-        school:[],
-        work:[]
-    };
+    if(accounts.length > 0) return;
 
+    accounts = [
+
+        {
+            id:"guilherme",
+            name:"Guilherme",
+            code:"1212",
+            theme:"sage",
+
+            tasks:[],
+            events:[],
+            money:[],
+            life:[],
+            school:[],
+            work:[]
+        },
+
+        {
+            id:"test",
+            name:"Utilizador",
+            code:"2020",
+            theme:"blue",
+
+            tasks:[],
+            events:[],
+            money:[],
+            life:[],
+            school:[],
+            work:[]
+        }
+
+    ];
+
+    saveAccounts();
 }
-
 
 function saveAccounts(){
 
@@ -1640,201 +873,53 @@ function saveAccounts(){
         "agenda_accounts",
         JSON.stringify(accounts)
     );
-
 }
 
+function normalizeUser(){
+
+    if(!user) return;
+
+    if(!Array.isArray(user.tasks))
+        user.tasks=[];
+
+    if(!Array.isArray(user.events))
+        user.events=[];
+
+    if(!Array.isArray(user.money))
+        user.money=[];
+
+    if(!Array.isArray(user.life))
+        user.life=[];
+
+    if(!Array.isArray(user.school))
+        user.school=[];
+
+    if(!Array.isArray(user.work))
+        user.work=[];
+
+    if(!user.name)
+        user.name="Utilizador";
+
+    if(!user.theme)
+        user.theme="sage";
+
+    saveUser();
+}
 
 function saveUser(){
 
-    const index=accounts.findIndex(
-        a=>a.id===user.id
-    );
+    if(!user) return;
 
-    if(index!==-1){
+    const index =
+        accounts.findIndex(a => a.id === user.id);
 
-        accounts[index]=user;
+    if(index !== -1){
+
+        accounts[index] = user;
 
         saveAccounts();
 
     }
-
-    localStorage.setItem(
-        "agenda_current_user",
-        user.id
-    );
-
-}
-
-
-/* =========================================================
-   EVENTOS DA INTERFACE
-========================================================= */
-
-function setupEvents(){
-
-    document
-        .getElementById("loginBtn")
-        .addEventListener("click",login);
-
-    document
-        .getElementById("createAccountBtn")
-        .addEventListener("click",createAccountModal);
-
-    document
-        .getElementById("topSettings")
-        .addEventListener("click",()=>openPage("settingsPage"));
-
-
-    document.querySelectorAll("[data-page]").forEach(button=>{
-
-        button.addEventListener("click",()=>{
-
-            openPage(button.dataset.page);
-
-        });
-
-    });
-
-
-    document
-        .getElementById("previousMonth")
-        .addEventListener("click",()=>{
-
-            calendarCursor.setMonth(
-                calendarCursor.getMonth()-1
-            );
-
-            renderCalendar();
-
-        });
-
-
-    document
-        .getElementById("nextMonth")
-        .addEventListener("click",()=>{
-
-            calendarCursor.setMonth(
-                calendarCursor.getMonth()+1
-            );
-
-            renderCalendar();
-
-        });
-
-
-    document
-        .getElementById("newEventBtn")
-        .addEventListener("click",eventModal);
-
-
-    document
-        .getElementById("addTaskBtn")
-        .addEventListener("click",addTask);
-
-
-    document
-        .getElementById("addMoneyBtn")
-        .addEventListener("click",addMoney);
-
-
-    document
-        .getElementById("addLifeBtn")
-        .addEventListener("click",addLife);
-
-
-    document
-        .getElementById("addSchoolBtn")
-        .addEventListener("click",addSchool);
-
-
-    document
-        .getElementById("addWorkBtn")
-        .addEventListener("click",addWork);
-
-
-    document
-        .getElementById("photoBtn")
-        .addEventListener("click",()=>{
-
-            document
-                .getElementById("photoInput")
-                .click();
-
-        });
-
-
-    document
-        .getElementById("photoInput")
-        .addEventListener("change",changePhoto);
-
-
-    document
-        .getElementById("nameBtn")
-        .addEventListener("click",changeName);
-
-
-    document
-        .getElementById("codeBtn")
-        .addEventListener("click",changeCode);
-
-
-    document
-        .getElementById("logoutBtn")
-        .addEventListener("click",logout);
-
-
-    document.querySelectorAll("[data-theme]").forEach(button=>{
-
-        button.addEventListener("click",()=>{
-
-            setTheme(button.dataset.theme);
-
-        });
-
-    });
-
-
-    document
-        .getElementById("modal")
-        .addEventListener("click",event=>{
-
-            if(event.target.id==="modal"){
-                closeModal();
-            }
-
-        });
-
-
-    document
-        .getElementById("loginCode")
-        .addEventListener("keydown",event=>{
-
-            if(event.key==="Enter"){
-                login();
-            }
-
-        });
-
-
-    const saved=localStorage.getItem(
-        "agenda_current_user"
-    );
-
-    if(saved){
-
-        const found=accounts.find(
-            a=>a.id===saved
-        );
-
-        if(found){
-
-            user=found;
-            showApp();
-
-        }
-
-    }
-
 }
 
 
@@ -1844,235 +929,225 @@ function setupEvents(){
 
 function login(){
 
-    const code=document
-        .getElementById("loginCode")
-        .value
-        .trim();
+    const code =
+        document.getElementById("loginCode").value.trim();
 
-
-    const found=accounts.find(
-        account=>account.code===code
-    );
-
+    const found =
+        accounts.find(a => a.code === code);
 
     if(!found){
 
-        alert("Código incorreto.");
-        return;
+        document.getElementById("loginMessage").textContent =
+            "Código de acesso inválido.";
 
+        return;
     }
 
+    user = found;
 
-    user=found;
+    currentUserId = user.id;
 
-    saveUser();
-    showApp();
+    localStorage.setItem(
+        "agenda_current_user",
+        user.id
+    );
 
+    normalizeUser();
+
+    openApp();
 }
 
+function openApp(){
 
-function createAccountModal(){
+    document
+        .getElementById("loginScreen")
+        .classList.add("hidden");
 
-    showModal(`
+    document
+        .getElementById("app")
+        .classList.remove("hidden");
 
-        <div class="modal-head">
+    updateProfile();
 
-            <h2>Criar conta</h2>
+    renderAll();
 
+    openPage("homePage");
+}
+
+function logout(){
+
+    localStorage.removeItem("agenda_current_user");
+
+    user = null;
+
+    document
+        .getElementById("app")
+        .classList.add("hidden");
+
+    document
+        .getElementById("loginScreen")
+        .classList.remove("hidden");
+
+    document.getElementById("loginCode").value="";
+}
+
+function showCreateAccount(){
+
+    openModal(`
+        <div class="modal-header">
+            <div class="modal-title">Criar conta</div>
             <button class="close" onclick="closeModal()">×</button>
-
         </div>
 
+        <label>Nome</label>
+        <input id="newName">
 
-        <div class="form-group">
+        <label>Código de acesso</label>
+        <input id="newCode" type="password">
 
-            <label>Nome</label>
+        <div class="form-actions">
 
-            <input
-                id="newName"
-                class="input"
-                placeholder="Nome"
-            >
+            <button class="secondary"
+                    onclick="closeModal()">
+                Cancelar
+            </button>
 
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Email</label>
-
-            <input
-                id="newEmail"
-                class="input"
-                type="email"
-                placeholder="nome@email.com"
-            >
+            <button class="primary"
+                    onclick="createAccount()">
+                Criar
+            </button>
 
         </div>
-
-
-        <div class="form-group">
-
-            <label>Palavra-passe</label>
-
-            <input
-                id="newPassword"
-                class="input"
-                type="password"
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Código de acesso</label>
-
-            <input
-                id="newCode"
-                class="input"
-                type="password"
-                placeholder="Ex.: 1234"
-            >
-
-        </div>
-
-
-        <button class="primary" onclick="createAccount()">
-            Criar conta
-        </button>
-
     `);
-
 }
-
 
 function createAccount(){
 
-    const name=document
-        .getElementById("newName")
-        .value.trim();
+    const name =
+        document.getElementById("newName").value.trim();
 
-    const email=document
-        .getElementById("newEmail")
-        .value.trim();
+    const code =
+        document.getElementById("newCode").value.trim();
 
-    const password=document
-        .getElementById("newPassword")
-        .value;
-
-    const code=document
-        .getElementById("newCode")
-        .value.trim();
-
-
-    if(!name||!email||!password||!code){
+    if(!name || !code){
 
         alert("Preenche todos os campos.");
-        return;
 
+        return;
     }
 
-
-    if(accounts.some(a=>a.code===code)){
+    if(accounts.some(a => a.code === code)){
 
         alert("Esse código já está a ser utilizado.");
-        return;
 
+        return;
     }
 
+    const newAccount = {
 
-    const account=createEmptyAccount(
-        name,
-        email,
-        code
-    );
+        id:uid(),
+        name:name,
+        code:code,
+        theme:"sage",
 
-    account.password=password;
+        tasks:[],
+        events:[],
+        money:[],
+        life:[],
+        school:[],
+        work:[]
+    };
 
-    accounts.push(account);
-
-    user=account;
+    accounts.push(newAccount);
 
     saveAccounts();
-    saveUser();
 
     closeModal();
-    showApp();
+
+    alert("Conta criada.");
 
 }
 
 
 /* =========================================================
-   APP
+   PERFIL / TEMA
 ========================================================= */
-
-function showApp(){
-
-    document
-        .getElementById("loginScreen")
-        .classList.add("hidden");
-
-    document
-        .getElementById("app")
-        .classList.remove("hidden");
-
-
-    applyTheme(user.theme||"sage");
-    updateProfile();
-    renderAll();
-
-    openPage("homePage");
-
-}
-
-
-function logout(){
-
-    localStorage.removeItem(
-        "agenda_current_user"
-    );
-
-    user=null;
-
-    document
-        .getElementById("app")
-        .classList.add("hidden");
-
-    document
-        .getElementById("loginScreen")
-        .classList.remove("hidden");
-
-    document
-        .getElementById("loginCode")
-        .value="";
-
-}
-
 
 function updateProfile(){
 
+    document.getElementById("topName").textContent =
+        user.name;
+
+    document.getElementById("welcomeText").textContent =
+        "Olá, " + user.name;
+
+    document.getElementById("todayText").textContent =
+        new Date().toLocaleDateString(
+            "pt-PT",
+            {
+                weekday:"long",
+                day:"numeric",
+                month:"long"
+            }
+        );
+
+    document.getElementById("settingsName").value =
+        user.name;
+
+    applyTheme(user.theme);
+}
+
+function saveName(){
+
+    const name =
+        document.getElementById("settingsName").value.trim();
+
+    if(!name) return;
+
+    user.name=name;
+
+    saveUser();
+
+    updateProfile();
+}
+
+function setTheme(theme){
+
+    user.theme=theme;
+
+    saveUser();
+
+    applyTheme(theme);
+}
+
+function applyTheme(theme){
+
+    const themes={
+
+        sage:"#8fa89a",
+        blue:"#668b91",
+        softblue:"#8da8bd",
+        lilac:"#a59bb8",
+        sand:"#b9a88d",
+        gray:"#929797"
+
+    };
+
+    document.documentElement.style.setProperty(
+        "--theme",
+        themes[theme] || themes.sage
+    );
+
     document
-        .getElementById("userName")
-        .textContent=user.name;
+        .querySelectorAll(".theme")
+        .forEach(button => {
 
+            button.classList.toggle(
+                "active",
+                button.dataset.theme === theme
+            );
 
-    const avatar=document
-        .getElementById("avatar");
-
-
-    if(user.photo){
-
-        avatar.innerHTML=
-            `<img src="${user.photo}" alt="">`;
-
-    }else{
-
-        avatar.textContent=
-            user.name.charAt(0).toUpperCase();
-
-    }
-
+        });
 }
 
 
@@ -2080,1864 +1155,25 @@ function updateProfile(){
    NAVEGAÇÃO
 ========================================================= */
 
-function openPage(pageId){
+function openPage(page){
 
     document
         .querySelectorAll(".page")
-        .forEach(page=>{
-            page.classList.remove("active");
-        });
+        .forEach(p => p.classList.remove("active"));
 
+    const target =
+        document.getElementById(page);
 
-    const page=document.getElementById(pageId);
-
-    if(!page)return;
-
-    page.classList.add("active");
-
+    if(target)
+        target.classList.add("active");
 
     document
-        .querySelectorAll(".nav button")
-        .forEach(button=>{
+        .querySelectorAll(".nav-btn")
+        .forEach(btn => {
 
-            button.classList.toggle(
+            btn.classList.toggle(
                 "active",
-                button.dataset.page===pageId
-            );
-
-        });
-
-
-    if(pageId==="homePage")renderHome();
-    if(pageId==="agendaPage")renderCalendar();
-    if(pageId==="tasksPage")renderTasks();
-    if(pageId==="financePage")renderFinance();
-    if(pageId==="lifePage")renderLife();
-    if(pageId==="schoolPage")renderSchool();
-    if(pageId==="workPage")renderWork();
-
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =========================================================
-   INÍCIO
-========================================================= */
-
-function renderHome(){
-
-    const today=getToday();
-
-    document
-        .getElementById("homeDate")
-        .textContent=formatLongDate(today);
-
-
-    const pending=user.tasks.filter(
-        task=>!task.completed
-    ).length;
-
-
-    document
-        .getElementById("summaryTasks")
-        .textContent=pending;
-
-
-    const events=getAgendaItems()
-        .filter(item=>item.date===today);
-
-
-    document
-        .getElementById("summaryEvents")
-        .textContent=events.length;
-
-
-    document
-        .getElementById("summaryBalance")
-        .textContent=formatMoney(calculateBalance());
-
-
-    const todayList=document
-        .getElementById("todayList");
-
-
-    if(!events.length){
-
-        todayList.innerHTML=
-            `<div class="empty">
-                Não tens nada marcado para hoje.
-             </div>`;
-
-        return;
-
-    }
-
-
-    todayList.innerHTML=events
-        .sort(sortItems)
-        .map(itemCard)
-        .join("");
-
-}
-
-
-/* =========================================================
-   TAREFAS
-========================================================= */
-
-function addTask(){
-
-    const title=document
-        .getElementById("taskTitle")
-        .value.trim();
-
-    const date=document
-        .getElementById("taskDate")
-        .value||getToday();
-
-    const priority=document
-        .getElementById("taskPriority")
-        .value;
-
-    const note=document
-        .getElementById("taskNote")
-        .value.trim();
-
-
-    if(!title){
-
-        alert("Escreve o nome da tarefa.");
-        return;
-
-    }
-
-
-    user.tasks.push({
-
-        id:uid(),
-
-        title,
-        date,
-        priority,
-        note,
-
-        completed:false
-
-    });
-
-
-    saveUser();
-
-
-    document.getElementById("taskTitle").value="";
-    document.getElementById("taskNote").value="";
-
-
-    renderTasks();
-    renderHome();
-    renderCalendar();
-
-}
-
-
-function toggleTask(id){
-
-    const task=user.tasks.find(
-        t=>t.id===id
-    );
-
-    if(!task)return;
-
-    task.completed=!task.completed;
-
-    saveUser();
-
-    renderTasks();
-    renderHome();
-    renderCalendar();
-
-}
-
-
-function deleteTask(id){
-
-    user.tasks=user.tasks.filter(
-        t=>t.id!==id
-    );
-
-    saveUser();
-
-    renderTasks();
-    renderHome();
-    renderCalendar();
-
-}
-
-
-function renderTasks(){
-
-    const list=document
-        .getElementById("tasksList");
-
-
-    if(!user.tasks.length){
-
-        list.innerHTML=
-            `<div class="empty">
-                Ainda não tens tarefas.
-             </div>`;
-
-        return;
-
-    }
-
-
-    const tasks=[...user.tasks]
-        .sort((a,b)=>a.date.localeCompare(b.date));
-
-
-    list.innerHTML=tasks.map(task=>`
-
-        <div class="item">
-
-            <button
-                class="checkbox ${task.completed?"checked":""}"
-                onclick="toggleTask('${task.id}')">
-            </button>
-
-
-            <div class="item-main">
-
-                <div
-                    class="item-title"
-                    style="${task.completed?
-                        "text-decoration:line-through;color:#aaa":
-                        ""}"
-                >
-                    ${esc(task.title)}
-                </div>
-
-
-                <div class="item-meta">
-
-                    ${formatShortDate(task.date)}
-
-                    ${task.note
-                        ?" · "+esc(task.note)
-                        :""}
-
-                </div>
-
-
-                ${task.priority==="high"
-                    ?`<span class="badge high">
-                        Alta prioridade
-                      </span>`
-                    :""}
-
-            </div>
-
-
-            <button
-                class="delete"
-                onclick="deleteTask('${task.id}')"
-            >
-                ×
-            </button>
-
-        </div>
-
-    `).join("");
-
-}
-
-
-/* =========================================================
-   AGENDA
-========================================================= */
-
-function getAgendaItems(){
-
-    const items=[];
-
-
-    user.events.forEach(event=>{
-
-        items.push({
-
-            id:event.id,
-            source:"Agenda",
-            type:"event",
-
-            title:event.title,
-            date:event.date,
-            time:event.time,
-            end:event.end,
-
-            note:event.note
-
-        });
-
-    });
-
-
-    user.tasks.forEach(task=>{
-
-        items.push({
-
-            id:task.id,
-            source:"Tarefas",
-            type:"task",
-
-            title:task.title,
-            date:task.date,
-
-            time:"",
-
-            note:task.note,
-
-            completed:task.completed
-
-        });
-
-    });
-
-
-    user.money.forEach(movement=>{
-
-        items.push({
-
-            id:movement.id,
-            source:"Finanças",
-            type:"money",
-
-            title:
-                (movement.type==="income"?"+":"-")
-                +formatMoney(movement.amount),
-
-            date:movement.date,
-
-            note:movement.note,
-
-            category:movement.category,
-
-            moneyType:movement.type
-
-        });
-
-    });
-
-
-    user.school.forEach(record=>{
-
-        items.push({
-
-            id:record.id,
-            source:"Escola",
-            type:"school",
-
-            title:
-                record.type+" — "+record.subject,
-
-            date:record.date,
-
-            time:record.time,
-
-            note:record.note,
-
-            grade:record.grade,
-
-            teacher:record.teacher
-
-        });
-
-    });
-
-
-    user.work.forEach(record=>{
-
-        items.push({
-
-            id:record.id,
-            source:"Trabalho",
-            type:"work",
-
-            title:record.title,
-
-            date:record.date,
-
-            time:record.start,
-
-            end:record.end,
-
-            note:record.note,
-
-            workType:record.type
-
-        });
-
-    });
-
-
-    user.life.forEach(record=>{
-
-        items.push({
-
-            id:record.id,
-            source:"Vida",
-            type:"life",
-
-            title:record.title,
-
-            date:record.date,
-
-            note:record.note,
-
-            category:record.category
-
-        });
-
-    });
-
-
-    return items;
-
-}
-
-
-function renderCalendar(){
-
-    const year=calendarCursor.getFullYear();
-    const month=calendarCursor.getMonth();
-
-
-    document
-        .getElementById("calendarTitle")
-        .textContent=
-            calendarCursor.toLocaleDateString(
-                "pt-PT",
-                {
-                    month:"long",
-                    year:"numeric"
-                }
-            );
-
-
-    const firstDay=new Date(
-        year,
-        month,
-        1
-    );
-
-
-    let offset=firstDay.getDay();
-
-    offset=(offset+6)%7;
-
-
-    const totalDays=new Date(
-        year,
-        month+1,
-        0
-    ).getDate();
-
-
-    const previousTotal=new Date(
-        year,
-        month,
-        0
-    ).getDate();
-
-
-    const days=document
-        .getElementById("calendarDays");
-
-
-    let html="";
-
-
-    for(let i=0;i<42;i++){
-
-        let date;
-        let day;
-        let other=false;
-
-
-        if(i<offset){
-
-            day=
-                previousTotal-offset+i+1;
-
-            date=new Date(
-                year,
-                month-1,
-                day
-            );
-
-            other=true;
-
-        }else if(i>=offset+totalDays){
-
-            day=
-                i-offset-totalDays+1;
-
-            date=new Date(
-                year,
-                month+1,
-                day
-            );
-
-            other=true;
-
-        }else{
-
-            day=i-offset+1;
-
-            date=new Date(
-                year,
-                month,
-                day
-            );
-
-        }
-
-
-        const value=formatDate(date);
-
-
-        const items=getAgendaItems()
-            .filter(item=>item.date===value);
-
-
-        html+=`
-
-            <button
-                class="day
-                    ${other?"other":""}
-                    ${value===getToday()?"today":""}
-                    ${value===selectedDate?"selected":""}"
-                data-date="${value}"
-            >
-
-                <div class="day-number">
-                    ${day}
-                </div>
-
-
-                ${
-                    items.length
-                    ?
-                    `<div class="event-dots">
-                        ${items.slice(0,3)
-                            .map(()=>
-                                `<span class="event-dot"></span>`
-                            )
-                            .join("")
-                        }
-                     </div>`
-                    :""
-                }
-
-            </button>
-
-        `;
-
-    }
-
-
-    days.innerHTML=html;
-
-
-    days
-        .querySelectorAll(".day")
-        .forEach(button=>{
-
-            button.addEventListener("click",()=>{
-
-                selectedDate=
-                    button.dataset.date;
-
-                renderCalendar();
-
-            });
-
-        });
-
-
-    renderDayEvents();
-
-}
-
-
-function renderDayEvents(){
-
-    document
-        .getElementById("selectedDayTitle")
-        .textContent=
-            formatLongDate(selectedDate);
-
-
-    const items=getAgendaItems()
-        .filter(item=>item.date===selectedDate)
-        .sort(sortItems);
-
-
-    const list=document
-        .getElementById("dayEvents");
-
-
-    if(!items.length){
-
-        list.innerHTML=
-            `<div class="empty">
-                Nada marcado para este dia.
-             </div>`;
-
-        return;
-
-    }
-
-
-    list.innerHTML=
-        items.map(itemCard).join("");
-
-}
-
-
-function itemCard(item){
-
-    let meta=item.source;
-
-
-    if(item.time){
-
-        meta+=" · "+item.time;
-
-        if(item.end){
-            meta+="–"+item.end;
-        }
-
-    }
-
-
-    if(item.category){
-        meta+=" · "+item.category;
-    }
-
-
-    return `
-
-        <button
-            class="item"
-            style="width:100%;text-align:left"
-            onclick="showDetails('${item.id}','${item.type}')"
-        >
-
-            <div class="module-icon">
-                ${iconFor(item.type)}
-            </div>
-
-
-            <div class="item-main">
-
-                <div class="item-title">
-                    ${esc(item.title)}
-                </div>
-
-
-                <div class="item-meta">
-                    ${esc(meta)}
-                </div>
-
-            </div>
-
-        </button>
-
-    `;
-
-}
-
-
-function iconFor(type){
-
-    if(type==="task")return"✓";
-    if(type==="money")return"€";
-    if(type==="school")return"⌘";
-    if(type==="work")return"▣";
-    if(type==="life")return"○";
-
-    return"◷";
-
-}
-
-
-function sortItems(a,b){
-
-    return(a.time||"").localeCompare(
-        b.time||""
-    );
-
-}
-
-
-/* =========================================================
-   EVENTOS
-========================================================= */
-
-function eventModal(){
-
-    showModal(`
-
-        <div class="modal-head">
-
-            <h2>Novo evento</h2>
-
-            <button class="close" onclick="closeModal()">×</button>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Título</label>
-
-            <input
-                id="eventTitle"
-                class="input"
-                placeholder="Ex.: Consulta"
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Data</label>
-
-            <input
-                id="eventDate"
-                class="input"
-                type="date"
-                value="${selectedDate}"
-            >
-
-        </div>
-
-
-        <div class="form-grid">
-
-            <div class="form-group">
-
-                <label>Hora início</label>
-
-                <input
-                    id="eventStart"
-                    class="input"
-                    type="time"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Hora fim</label>
-
-                <input
-                    id="eventEnd"
-                    class="input"
-                    type="time"
-                >
-
-            </div>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Nota</label>
-
-            <textarea
-                id="eventNote"
-                class="input"
-                placeholder="Detalhes"
-            ></textarea>
-
-        </div>
-
-
-        <button
-            class="primary"
-            onclick="addEvent()"
-        >
-            Guardar evento
-        </button>
-
-    `);
-
-}
-
-
-function addEvent(){
-
-    const title=document
-        .getElementById("eventTitle")
-        .value.trim();
-
-    const date=document
-        .getElementById("eventDate")
-        .value;
-
-    const time=document
-        .getElementById("eventStart")
-        .value;
-
-    const end=document
-        .getElementById("eventEnd")
-        .value;
-
-    const note=document
-        .getElementById("eventNote")
-        .value.trim();
-
-
-    if(!title||!date){
-
-        alert("Preenche o título e a data.");
-        return;
-
-    }
-
-
-    user.events.push({
-
-        id:uid(),
-
-        title,
-        date,
-        time,
-        end,
-        note
-
-    });
-
-
-    selectedDate=date;
-
-    const d=new Date(
-        date+"T12:00:00"
-    );
-
-    calendarCursor=new Date(
-        d.getFullYear(),
-        d.getMonth(),
-        1
-    );
-
-
-    saveUser();
-    closeModal();
-
-    renderCalendar();
-    renderHome();
-
-}
-
-
-/* =========================================================
-   FINANÇAS
-========================================================= */
-
-function addMoney(){
-
-    const amount=parseFloat(
-        document.getElementById("moneyAmount").value
-    );
-
-    const type=document
-        .getElementById("moneyType")
-        .value;
-
-    const date=document
-        .getElementById("moneyDate")
-        .value||getToday();
-
-    const category=document
-        .getElementById("moneyCategory")
-        .value;
-
-    const note=document
-        .getElementById("moneyNote")
-        .value.trim();
-
-
-    if(!amount||amount<=0){
-
-        alert("Introduz um valor válido.");
-        return;
-
-    }
-
-
-    user.money.push({
-
-        id:uid(),
-
-        amount,
-        type,
-        date,
-        category,
-        note
-
-    });
-
-
-    saveUser();
-
-
-    document.getElementById("moneyAmount").value="";
-    document.getElementById("moneyNote").value="";
-
-
-    renderFinance();
-    renderHome();
-    renderCalendar();
-
-}
-
-
-function calculateBalance(){
-
-    return user.money.reduce(
-        (total,movement)=>{
-
-            return total+
-                (
-                    movement.type==="income"
-                    ?movement.amount
-                    :-movement.amount
-                );
-
-        },
-        0
-    );
-
-}
-
-
-function renderFinance(){
-
-    const income=user.money
-        .filter(m=>m.type==="income")
-        .reduce(
-            (sum,m)=>sum+m.amount,
-            0
-        );
-
-
-    const expense=user.money
-        .filter(m=>m.type==="expense")
-        .reduce(
-            (sum,m)=>sum+m.amount,
-            0
-        );
-
-
-    document
-        .getElementById("balanceValue")
-        .textContent=
-            formatMoney(calculateBalance());
-
-
-    document
-        .getElementById("incomeValue")
-        .textContent=
-            "+"+formatMoney(income);
-
-
-    document
-        .getElementById("expenseValue")
-        .textContent=
-            "-"+formatMoney(expense);
-
-
-    const list=document
-        .getElementById("moneyList");
-
-
-    if(!user.money.length){
-
-        list.innerHTML=
-            `<div class="empty">
-                Ainda não tens movimentos.
-             </div>`;
-
-        return;
-
-    }
-
-
-    list.innerHTML=
-        [...user.money]
-        .sort((a,b)=>b.date.localeCompare(a.date))
-        .map(m=>`
-
-            <button
-                class="item"
-                style="width:100%;text-align:left"
-                onclick="showDetails('${m.id}','money')"
-            >
-
-                <div class="module-icon">€</div>
-
-                <div class="item-main">
-
-                    <div class="item-title ${
-                        m.type==="income"
-                        ?"positive"
-                        :"negative"
-                    }">
-
-                        ${m.type==="income"?"+":"-"}
-                        ${formatMoney(m.amount)}
-
-                    </div>
-
-                    <div class="item-meta">
-
-                        ${formatShortDate(m.date)}
-                        · ${esc(m.category)}
-
-                    </div>
-
-                </div>
-
-            </button>
-
-        `)
-        .join("");
-
-}
-
-
-/* =========================================================
-   VIDA
-========================================================= */
-
-function addLife(){
-
-    const title=document
-        .getElementById("lifeTitle")
-        .value.trim();
-
-    const category=document
-        .getElementById("lifeCategory")
-        .value;
-
-    const date=document
-        .getElementById("lifeDate")
-        .value||"";
-
-    const note=document
-        .getElementById("lifeNote")
-        .value.trim();
-
-
-    if(!title){
-
-        alert("Escreve o título.");
-        return;
-
-    }
-
-
-    user.life.push({
-
-        id:uid(),
-
-        title,
-        category,
-        date,
-        note
-
-    });
-
-
-    saveUser();
-
-
-    document.getElementById("lifeTitle").value="";
-    document.getElementById("lifeDate").value="";
-    document.getElementById("lifeNote").value="";
-
-
-    renderLife();
-    renderCalendar();
-    renderHome();
-
-}
-
-
-function deleteLife(id){
-
-    user.life=user.life.filter(
-        item=>item.id!==id
-    );
-
-    saveUser();
-
-    renderLife();
-    renderCalendar();
-    renderHome();
-
-}
-
-
-function renderLife(){
-
-    const list=document
-        .getElementById("lifeList");
-
-
-    if(!user.life.length){
-
-        list.innerHTML=
-            `<div class="empty">
-                Ainda não tens registos em Vida.
-             </div>`;
-
-        return;
-
-    }
-
-
-    list.innerHTML=
-        [...user.life]
-        .sort((a,b)=>
-            (a.date||"").localeCompare(b.date||"")
-        )
-        .map(item=>`
-
-            <div class="item">
-
-                <div class="module-icon">○</div>
-
-
-                <div class="item-main">
-
-                    <div class="item-title">
-                        ${esc(item.title)}
-                    </div>
-
-
-                    <div class="item-meta">
-
-                        ${esc(item.category)}
-
-                        ${item.date
-                            ?" · "+formatShortDate(item.date)
-                            :""}
-
-                    </div>
-
-
-                    ${
-                        item.note
-                        ?`<div class="item-meta">
-                            ${esc(item.note)}
-                          </div>`
-                        :""
-                    }
-
-                </div>
-
-
-                <button
-                    class="delete"
-                    onclick="deleteLife('${item.id}')"
-                >
-                    ×
-                </button>
-
-            </div>
-
-        `)
-        .join("");
-
-}
-
-
-/* =========================================================
-   ESCOLA
-========================================================= */
-
-function addSchool(){
-
-    const subject=document
-        .getElementById("schoolSubject")
-        .value.trim();
-
-    const type=document
-        .getElementById("schoolType")
-        .value;
-
-    const date=document
-        .getElementById("schoolDate")
-        .value;
-
-    const time=document
-        .getElementById("schoolTime")
-        .value;
-
-    const grade=document
-        .getElementById("schoolGrade")
-        .value;
-
-    const teacher=document
-        .getElementById("schoolTeacher")
-        .value.trim();
-
-    const note=document
-        .getElementById("schoolNote")
-        .value.trim();
-
-
-    if(!subject||!date){
-
-        alert("Indica pelo menos a disciplina e a data.");
-        return;
-
-    }
-
-
-    user.school.push({
-
-        id:uid(),
-
-        subject,
-        type,
-        date,
-        time,
-
-        grade:
-            grade===""
-            ?""
-            :Number(grade),
-
-        teacher,
-        note
-
-    });
-
-
-    saveUser();
-
-
-    document.getElementById("schoolSubject").value="";
-    document.getElementById("schoolDate").value="";
-    document.getElementById("schoolTime").value="";
-    document.getElementById("schoolGrade").value="";
-    document.getElementById("schoolTeacher").value="";
-    document.getElementById("schoolNote").value="";
-
-
-    renderSchool();
-    renderCalendar();
-    renderHome();
-
-}
-
-
-function deleteSchool(id){
-
-    user.school=user.school.filter(
-        item=>item.id!==id
-    );
-
-    saveUser();
-
-    renderSchool();
-    renderCalendar();
-    renderHome();
-
-}
-
-
-function renderSchool(){
-
-    const list=document
-        .getElementById("schoolList");
-
-
-    if(!user.school.length){
-
-        list.innerHTML=
-            `<div class="empty">
-                Ainda não tens registos escolares.
-             </div>`;
-
-        return;
-
-    }
-
-
-    list.innerHTML=
-        [...user.school]
-        .sort((a,b)=>a.date.localeCompare(b.date))
-        .map(item=>`
-
-            <div class="item">
-
-                <div class="module-icon">⌘</div>
-
-
-                <div class="item-main">
-
-                    <div class="item-title">
-
-                        ${esc(item.type)}
-                        — ${esc(item.subject)}
-
-                    </div>
-
-
-                    <div class="item-meta">
-
-                        ${formatShortDate(item.date)}
-
-                        ${item.time
-                            ?" · "+item.time
-                            :""}
-
-                        ${item.teacher
-                            ?" · "+esc(item.teacher)
-                            :""}
-
-                    </div>
-
-
-                    ${
-                        item.grade!==""
-                        ?
-                        `<span class="badge">
-                            Nota ${item.grade}
-                         </span>`
-                        :""
-                    }
-
-
-                    ${
-                        item.note
-                        ?
-                        `<div class="item-meta">
-                            ${esc(item.note)}
-                         </div>`
-                        :""
-                    }
-
-                </div>
-
-
-                <button
-                    class="delete"
-                    onclick="deleteSchool('${item.id}')"
-                >
-                    ×
-                </button>
-
-            </div>
-
-        `)
-        .join("");
-
-}
-
-
-/* =========================================================
-   TRABALHO
-========================================================= */
-
-function addWork(){
-
-    const title=document
-        .getElementById("workTitle")
-        .value.trim();
-
-    const type=document
-        .getElementById("workType")
-        .value;
-
-    const date=document
-        .getElementById("workDate")
-        .value;
-
-    const start=document
-        .getElementById("workStart")
-        .value;
-
-    const end=document
-        .getElementById("workEnd")
-        .value;
-
-    const note=document
-        .getElementById("workNote")
-        .value.trim();
-
-
-    if(!title||!date){
-
-        alert("Indica o título e a data.");
-        return;
-
-    }
-
-
-    user.work.push({
-
-        id:uid(),
-
-        title,
-        type,
-        date,
-        start,
-        end,
-        note
-
-    });
-
-
-    saveUser();
-
-
-    document.getElementById("workTitle").value="";
-    document.getElementById("workDate").value="";
-    document.getElementById("workStart").value="";
-    document.getElementById("workEnd").value="";
-    document.getElementById("workNote").value="";
-
-
-    renderWork();
-    renderCalendar();
-    renderHome();
-
-}
-
-
-function deleteWork(id){
-
-    user.work=user.work.filter(
-        item=>item.id!==id
-    );
-
-    saveUser();
-
-    renderWork();
-    renderCalendar();
-    renderHome();
-
-}
-
-
-function renderWork(){
-
-    const list=document
-        .getElementById("workList");
-
-
-    if(!user.work.length){
-
-        list.innerHTML=
-            `<div class="empty">
-                Ainda não tens registos de trabalho.
-             </div>`;
-
-        return;
-
-    }
-
-
-    list.innerHTML=
-        [...user.work]
-        .sort((a,b)=>a.date.localeCompare(b.date))
-        .map(item=>`
-
-            <div class="item">
-
-                <div class="module-icon">▣</div>
-
-
-                <div class="item-main">
-
-                    <div class="item-title">
-                        ${esc(item.title)}
-                    </div>
-
-
-                    <div class="item-meta">
-
-                        ${esc(item.type)}
-                        · ${formatShortDate(item.date)}
-
-                        ${item.start
-                            ?" · "+item.start
-                            :""}
-
-                        ${item.end
-                            ?"–"+item.end
-                            :""}
-
-                    </div>
-
-
-                    ${
-                        item.note
-                        ?
-                        `<div class="item-meta">
-                            ${esc(item.note)}
-                         </div>`
-                        :""
-                    }
-
-                </div>
-
-
-                <button
-                    class="delete"
-                    onclick="deleteWork('${item.id}')"
-                >
-                    ×
-                </button>
-
-            </div>
-
-        `)
-        .join("");
-
-}
-
-
-/* =========================================================
-   DETALHES
-========================================================= */
-
-function showDetails(id,type){
-
-    let item=null;
-
-
-    if(type==="money"){
-        item=user.money.find(
-            x=>x.id===id
-        );
-    }else if(type==="task"){
-        item=user.tasks.find(
-            x=>x.id===id
-        );
-    }else if(type==="school"){
-        item=user.school.find(
-            x=>x.id===id
-        );
-    }else if(type==="work"){
-        item=user.work.find(
-            x=>x.id===id
-        );
-    }else if(type==="life"){
-        item=user.life.find(
-            x=>x.id===id
-        );
-    }else{
-        item=user.events.find(
-            x=>x.id===id
-        );
-    }
-
-
-    if(!item)return;
-
-
-    let title="";
-    let source="";
-
-
-    if(type==="money"){
-
-        title=
-            (item.type==="income"?"+":"-")
-            +formatMoney(item.amount);
-
-        source="Finanças";
-
-    }else if(type==="school"){
-
-        title=
-            item.type+" — "+item.subject;
-
-        source="Escola";
-
-    }else{
-
-        title=item.title;
-
-        if(type==="task")source="Tarefas";
-        if(type==="work")source="Trabalho";
-        if(type==="life")source="Vida";
-        if(type==="event")source="Agenda";
-
-    }
-
-
-    let html=`
-
-        <div class="modal-head">
-
-            <h2>${esc(title)}</h2>
-
-            <button class="close" onclick="closeModal()">×</button>
-
-        </div>
-
-
-        <div class="item-meta" style="font-size:13px">
-            ${esc(source)}
-        </div>
-
-
-        <div style="margin-top:20px">
-
-            <p><strong>Data</strong></p>
-
-            <p class="item-meta">
-                ${formatLongDate(item.date)}
-            </p>
-
-    `;
-
-
-    if(item.time){
-
-        html+=`
-
-            <p style="margin-top:15px">
-                <strong>Hora</strong>
-            </p>
-
-            <p class="item-meta">
-
-                ${item.time}
-
-                ${
-                    item.end
-                    ?"–"+item.end
-                    :""
-                }
-
-            </p>
-
-        `;
-
-    }
-
-
-    if(type==="money"){
-
-        html+=`
-
-            <p style="margin-top:15px">
-                <strong>Categoria</strong>
-            </p>
-
-            <p class="item-meta">
-                ${esc(item.category)}
-            </p>
-
-        `;
-
-    }
-
-
-    if(type==="school"&&item.grade!==""){
-
-        html+=`
-
-            <p style="margin-top:15px">
-                <strong>Nota</strong>
-            </p>
-
-            <p class="item-meta">
-                ${item.grade}
-            </p>
-
-        `;
-
-    }
-
-
-    if(item.note){
-
-        html+=`
-
-            <p style="margin-top:15px">
-                <strong>Nota / detalhes</strong>
-            </p>
-
-            <div style="
-                margin-top:7px;
-                background:var(--bg);
-                padding:14px;
-                border-radius:13px;
-            ">
-                ${esc(item.note)}
-            </div>
-
-        `;
-
-    }
-
-
-    html+=`</div>`;
-
-
-    showModal(html);
-
-}
-
-
-/* =========================================================
-   DEFINIÇÕES
-========================================================= */
-
-function changeName(){
-
-    const name=prompt(
-        "Novo nome:",
-        user.name
-    );
-
-
-    if(!name||!name.trim())return;
-
-
-    user.name=name.trim();
-
-    saveUser();
-
-    updateProfile();
-    renderHome();
-
-}
-
-
-function changeCode(){
-
-    const code=prompt(
-        "Novo código de acesso:"
-    );
-
-
-    if(!code)return;
-
-
-    if(accounts.some(
-        a=>a.code===code&&a.id!==user.id
-    )){
-
-        alert(
-            "Esse código já está a ser utilizado."
-        );
-
-        return;
-
-    }
-
-
-    user.code=code;
-
-    saveUser();
-
-    alert("Código alterado.");
-
-}
-
-
-function changePhoto(event){
-
-    const file=event.target.files[0];
-
-    if(!file)return;
-
-
-    const reader=new FileReader();
-
-
-    reader.onload=()=>{
-
-        user.photo=reader.result;
-
-        saveUser();
-        updateProfile();
-
-    };
-
-
-    reader.readAsDataURL(file);
-
-}
-
-
-function setTheme(theme){
-
-    if(!THEMES[theme])return;
-
-
-    user.theme=theme;
-
-    saveUser();
-
-    applyTheme(theme);
-
-}
-
-
-function applyTheme(theme){
-
-    const selected=
-        THEMES[theme]||THEMES.sage;
-
-
-    document.documentElement
-        .style.setProperty(
-            "--accent",
-            selected.accent
-        );
-
-
-    document.documentElement
-        .style.setProperty(
-            "--accent2",
-            selected.light
-        );
-
-
-    document.documentElement
-        .style.setProperty(
-            "--accent3",
-            selected.soft
-        );
-
-
-    document
-        .querySelectorAll("[data-theme]")
-        .forEach(button=>{
-
-            button.classList.toggle(
-                "selected",
-                button.dataset.theme===theme
+                btn.dataset.page === page
             );
 
         });
@@ -3949,183 +1185,1075 @@ function applyTheme(theme){
    MODAL
 ========================================================= */
 
-function showModal(html){
+function openModal(html){
 
-    document
-        .getElementById("modalBox")
-        .innerHTML=html;
-
+    document.getElementById("modalContent").innerHTML =
+        html;
 
     document
         .getElementById("modal")
         .classList.remove("hidden");
-
 }
-
 
 function closeModal(){
 
     document
         .getElementById("modal")
         .classList.add("hidden");
-
 }
 
 
 /* =========================================================
-   DATAS
+   CALENDÁRIO
 ========================================================= */
 
-function getToday(){
+function changeMonth(amount){
 
-    const date=new Date();
-
-    return formatDate(date);
-
-}
-
-
-function formatDate(date){
-
-    const y=date.getFullYear();
-
-    const m=String(
-        date.getMonth()+1
-    ).padStart(2,"0");
-
-    const d=String(
-        date.getDate()
-    ).padStart(2,"0");
-
-
-    return `${y}-${m}-${d}`;
-
-}
-
-
-function formatShortDate(value){
-
-    if(!value)return"";
-
-    const parts=value.split("-");
-
-    return `${parts[2]}/${parts[1]}/${parts[0]}`;
-
-}
-
-
-function formatLongDate(value){
-
-    if(!value)return"";
-
-    const parts=value.split("-");
-
-
-    const date=new Date(
-        Number(parts[0]),
-        Number(parts[1])-1,
-        Number(parts[2])
+    calendarDate.setMonth(
+        calendarDate.getMonth()+amount
     );
 
+    renderCalendar();
+}
 
-    return date.toLocaleDateString(
-        "pt-PT",
-        {
-            weekday:"long",
-            day:"numeric",
-            month:"long",
-            year:"numeric"
-        }
-    );
+function goToday(){
 
+    calendarDate = new Date();
+
+    renderCalendar();
+}
+
+function dateKey(date){
+
+    return date.getFullYear() + "-" +
+        String(date.getMonth()+1).padStart(2,"0") + "-" +
+        String(date.getDate()).padStart(2,"0");
 }
 
 
-function setDefaultDates(){
+/*
+    ESTA É A PARTE MAIS IMPORTANTE:
 
-    const today=getToday();
+    O calendário NÃO guarda acontecimentos.
 
+    Ele vai buscar os acontecimentos diretamente
+    às tarefas, eventos, escola, trabalho, finanças e Vida.
+*/
 
-    [
-        "taskDate",
-        "moneyDate",
-        "lifeDate",
-        "schoolDate",
-        "workDate"
-    ].forEach(id=>{
+function getCalendarItems(){
 
-        const element=
-            document.getElementById(id);
+    const result=[];
 
-        if(element)element.value=today;
+    /* TAREFAS */
+
+    user.tasks.forEach(item => {
+
+        if(!item.date) return;
+
+        result.push({
+
+            id:item.id,
+            date:item.date,
+            title:item.title,
+            type:"task"
+
+        });
 
     });
 
+
+    /* EVENTOS */
+
+    user.events.forEach(item => {
+
+        if(!item.date) return;
+
+        result.push({
+
+            id:item.id,
+            date:item.date,
+            title:item.title,
+            type:"event"
+
+        });
+
+    });
+
+
+    /* ESCOLA */
+
+    user.school.forEach(item => {
+
+        if(!item.date) return;
+
+        result.push({
+
+            id:item.id,
+            date:item.date,
+            title:"Escola: " + item.subject,
+            type:"school"
+
+        });
+
+    });
+
+
+    /* TRABALHO */
+
+    user.work.forEach(item => {
+
+        if(!item.date) return;
+
+        result.push({
+
+            id:item.id,
+            date:item.date,
+            title:"Trabalho: " + item.title,
+            type:"work"
+
+        });
+
+    });
+
+
+    /* FINANÇAS */
+
+    user.money.forEach(item => {
+
+        if(!item.date) return;
+
+        result.push({
+
+            id:item.id,
+            date:item.date,
+            title:
+                (item.type === "income" ? "+" : "-") +
+                item.amount + "€",
+            type:"money"
+
+        });
+
+    });
+
+
+    /* VIDA */
+
+    user.life.forEach(item => {
+
+        if(!item.date) return;
+
+        result.push({
+
+            id:item.id,
+            date:item.date,
+            title:item.title,
+            type:"life"
+
+        });
+
+    });
+
+    return result;
+}
+
+
+function renderCalendar(){
+
+    const calendar =
+        document.getElementById("calendar");
+
+    const title =
+        document.getElementById("calendarTitle");
+
+    if(!calendar || !user) return;
+
+    const year =
+        calendarDate.getFullYear();
+
+    const month =
+        calendarDate.getMonth();
+
+    title.textContent =
+        new Date(year,month,1).toLocaleDateString(
+            "pt-PT",
+            {
+                month:"long",
+                year:"numeric"
+            }
+        );
+
+    calendar.innerHTML="";
+
+
+    const weekdays=[
+        "Seg",
+        "Ter",
+        "Qua",
+        "Qui",
+        "Sex",
+        "Sáb",
+        "Dom"
+    ];
+
+    weekdays.forEach(day => {
+
+        const el =
+            document.createElement("div");
+
+        el.className="weekday";
+
+        el.textContent=day;
+
+        calendar.appendChild(el);
+
+    });
+
+
+    /*
+       JS começa a semana no Domingo.
+       Aqui convertemos para Segunda-feira.
+    */
+
+    let firstDay =
+        new Date(year,month,1).getDay();
+
+    firstDay =
+        firstDay === 0 ? 6 : firstDay-1;
+
+    const daysInMonth =
+        new Date(year,month+1,0).getDate();
+
+    const previousMonthDays =
+        new Date(year,month,0).getDate();
+
+    const items =
+        getCalendarItems();
+
+    for(let i=0;i<42;i++){
+
+        const dayNumber =
+            i-firstDay+1;
+
+        let cellDate;
+        let other=false;
+
+        if(dayNumber < 1){
+
+            cellDate =
+                new Date(
+                    year,
+                    month-1,
+                    previousMonthDays+dayNumber
+                );
+
+            other=true;
+
+        }
+        else if(dayNumber > daysInMonth){
+
+            cellDate =
+                new Date(
+                    year,
+                    month+1,
+                    dayNumber-daysInMonth
+                );
+
+            other=true;
+
+        }
+        else{
+
+            cellDate =
+                new Date(
+                    year,
+                    month,
+                    dayNumber
+                );
+
+        }
+
+        const key =
+            dateKey(cellDate);
+
+        const cell =
+            document.createElement("button");
+
+        cell.className="day";
+
+        if(other)
+            cell.classList.add("other");
+
+        if(key === today())
+            cell.classList.add("today");
+
+        cell.innerHTML =
+            `<div class="day-number">${cellDate.getDate()}</div>`;
+
+        const dayItems =
+            items.filter(item => item.date === key);
+
+        dayItems.slice(0,4).forEach(item => {
+
+            const event =
+                document.createElement("div");
+
+            event.className =
+                "day-event " + item.type;
+
+            event.textContent =
+                item.title;
+
+            cell.appendChild(event);
+
+        });
+
+        if(dayItems.length > 4){
+
+            const more =
+                document.createElement("div");
+
+            more.className="day-event";
+
+            more.textContent =
+                "+" + (dayItems.length-4);
+
+            cell.appendChild(more);
+
+        }
+
+        cell.onclick = () =>
+            showDay(key);
+
+        calendar.appendChild(cell);
+
+    }
+
 }
 
 
 /* =========================================================
-   UTILITÁRIOS
+   DIA DO CALENDÁRIO
 ========================================================= */
 
-function uid(){
+function showDay(date){
 
-    return Date.now().toString(36)
-        +"_"+Math.random()
-            .toString(36)
-            .slice(2,9);
+    const items =
+        getCalendarItems()
+            .filter(item => item.date === date);
 
+    let html=`
+
+        <div class="modal-header">
+
+            <div class="modal-title">
+                ${formatDate(date)}
+            </div>
+
+            <button class="close"
+                    onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+    `;
+
+    if(items.length===0){
+
+        html += `
+            <p class="muted">
+                Não há nada marcado para este dia.
+            </p>
+        `;
+
+    }
+    else{
+
+        html += `<div class="list">`;
+
+        items.forEach(item => {
+
+            html += `
+                <div class="list-item">
+
+                    <div class="list-main">
+
+                        <div class="list-title">
+                            ${escapeHTML(item.title)}
+                        </div>
+
+                        <div class="list-info">
+                            ${item.type}
+                        </div>
+
+                    </div>
+
+                </div>
+            `;
+
+        });
+
+        html += `</div>`;
+
+    }
+
+    openModal(html);
 }
 
 
-function formatMoney(value){
+/* =========================================================
+   EVENTOS
+========================================================= */
 
-    return new Intl.NumberFormat(
-        "pt-PT",
-        {
-            minimumFractionDigits:2,
-            maximumFractionDigits:2
-        }
-    ).format(value)+" €";
+function openEventModal(){
 
+    openModal(`
+
+        <div class="modal-header">
+
+            <div class="modal-title">
+                Novo evento
+            </div>
+
+            <button class="close"
+                    onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+        <label>Título</label>
+        <input id="eventTitle"
+               placeholder="Ex.: Consulta, aniversário...">
+
+        <label>Data</label>
+        <input id="eventDate"
+               type="date"
+               value="${today()}">
+
+        <label>Hora</label>
+        <input id="eventTime"
+               type="time">
+
+        <label>Notas</label>
+        <textarea id="eventNote"
+                  rows="3"></textarea>
+
+        <div class="form-actions">
+
+            <button class="secondary"
+                    onclick="closeModal()">
+                Cancelar
+            </button>
+
+            <button class="primary"
+                    onclick="addEvent()">
+                Adicionar
+            </button>
+
+        </div>
+    `);
 }
 
+function addEvent(){
 
-function esc(value){
+    const title =
+        document.getElementById("eventTitle")
+            .value.trim();
 
-    if(value===undefined||value===null)
-        return"";
+    const date =
+        document.getElementById("eventDate")
+            .value;
 
+    const time =
+        document.getElementById("eventTime")
+            .value;
 
-    return String(value)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
+    const note =
+        document.getElementById("eventNote")
+            .value.trim();
+
+    if(!title || !date){
+
+        alert("Indica pelo menos o título e a data.");
+
+        return;
+    }
+
+    user.events.push({
+
+        id:uid(),
+        title:title,
+        date:date,
+        time:time,
+        note:note
+
+    });
+
+    saveUser();
+
+    closeModal();
+
+    renderAll();
+
+    calendarDate =
+        new Date(date + "T12:00:00");
+
+    renderCalendar();
 
 }
 
 
 /* =========================================================
-   RENDER GERAL
+   TAREFAS
+========================================================= */
+
+function addTask(){
+
+    openModal(`
+
+        <div class="modal-header">
+
+            <div class="modal-title">
+                Nova tarefa
+            </div>
+
+            <button class="close"
+                    onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+        <label>Tarefa</label>
+        <input id="taskTitle">
+
+        <label>Data</label>
+        <input id="taskDate"
+               type="date"
+               value="${today()}">
+
+        <label>Prioridade</label>
+        <select id="taskPriority">
+            <option value="normal">Normal</option>
+            <option value="alta">Alta</option>
+            <option value="baixa">Baixa</option>
+        </select>
+
+        <div class="form-actions">
+
+            <button class="secondary"
+                    onclick="closeModal()">
+                Cancelar
+            </button>
+
+            <button class="primary"
+                    onclick="saveTask()">
+                Adicionar
+            </button>
+
+        </div>
+
+    `);
+}
+
+function saveTask(){
+
+    const title =
+        document.getElementById("taskTitle")
+            .value.trim();
+
+    const date =
+        document.getElementById("taskDate")
+            .value;
+
+    const priority =
+        document.getElementById("taskPriority")
+            .value;
+
+    if(!title || !date){
+
+        alert("Preenche a tarefa e a data.");
+
+        return;
+    }
+
+    user.tasks.push({
+
+        id:uid(),
+        title:title,
+        date:date,
+        priority:priority,
+        completed:false
+
+    });
+
+    saveUser();
+
+    closeModal();
+
+    renderAll();
+
+}
+
+
+/* =========================================================
+   ESCOLA
+========================================================= */
+
+function openSchoolModal(){
+
+    openModal(`
+
+        <div class="modal-header">
+
+            <div class="modal-title">
+                Novo registo escolar
+            </div>
+
+            <button class="close"
+                    onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+        <label>Disciplina</label>
+        <input id="schoolSubject"
+               placeholder="Ex.: Biologia e Geologia">
+
+        <label>Tipo</label>
+        <select id="schoolType">
+
+            <option value="Teste">Teste</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Apresentação">Apresentação</option>
+            <option value="Entrega">Entrega</option>
+            <option value="Outro">Outro</option>
+
+        </select>
+
+        <label>Data</label>
+        <input id="schoolDate"
+               type="date"
+               value="${today()}">
+
+        <label>Hora</label>
+        <input id="schoolTime"
+               type="time">
+
+        <label>Professor</label>
+        <input id="schoolTeacher">
+
+        <label>Nota</label>
+        <input id="schoolGrade"
+               type="number"
+               min="0"
+               max="20"
+               step="0.1">
+
+        <label>Notas</label>
+        <textarea id="schoolNote"
+                  rows="3"></textarea>
+
+        <div class="form-actions">
+
+            <button class="secondary"
+                    onclick="closeModal()">
+                Cancelar
+            </button>
+
+            <button class="primary"
+                    onclick="addSchool()">
+                Adicionar
+            </button>
+
+        </div>
+
+    `);
+}
+
+function addSchool(){
+
+    const subject =
+        document.getElementById("schoolSubject")
+            .value.trim();
+
+    const type =
+        document.getElementById("schoolType")
+            .value;
+
+    const date =
+        document.getElementById("schoolDate")
+            .value;
+
+    const time =
+        document.getElementById("schoolTime")
+            .value;
+
+    const teacher =
+        document.getElementById("schoolTeacher")
+            .value.trim();
+
+    const grade =
+        document.getElementById("schoolGrade")
+            .value;
+
+    const note =
+        document.getElementById("schoolNote")
+            .value.trim();
+
+    if(!subject || !date){
+
+        alert("Indica a disciplina e a data.");
+
+        return;
+    }
+
+    user.school.push({
+
+        id:uid(),
+        subject:subject,
+        type:type,
+        date:date,
+        time:time,
+        teacher:teacher,
+        grade:grade,
+        note:note
+
+    });
+
+    saveUser();
+
+    closeModal();
+
+    renderAll();
+
+    calendarDate =
+        new Date(date + "T12:00:00");
+
+    renderCalendar();
+}
+
+
+/* =========================================================
+   TRABALHO
+========================================================= */
+
+function openWorkModal(){
+
+    openModal(`
+
+        <div class="modal-header">
+
+            <div class="modal-title">
+                Novo registo de trabalho
+            </div>
+
+            <button class="close"
+                    onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+        <label>Título</label>
+        <input id="workTitle">
+
+        <label>Tipo</label>
+        <select id="workType">
+
+            <option value="Turno">Turno</option>
+            <option value="Tarefa">Tarefa</option>
+            <option value="Reunião">Reunião</option>
+            <option value="Consulta">Compromisso</option>
+            <option value="Outro">Outro</option>
+
+        </select>
+
+        <label>Data</label>
+        <input id="workDate"
+               type="date"
+               value="${today()}">
+
+        <label>Início</label>
+        <input id="workStart"
+               type="time">
+
+        <label>Fim</label>
+        <input id="workEnd"
+               type="time">
+
+        <label>Notas</label>
+        <textarea id="workNote"
+                  rows="3"></textarea>
+
+        <div class="form-actions">
+
+            <button class="secondary"
+                    onclick="closeModal()">
+                Cancelar
+            </button>
+
+            <button class="primary"
+                    onclick="addWork()">
+                Adicionar
+            </button>
+
+        </div>
+
+    `);
+}
+
+function addWork(){
+
+    const title =
+        document.getElementById("workTitle")
+            .value.trim();
+
+    const type =
+        document.getElementById("workType")
+            .value;
+
+    const date =
+        document.getElementById("workDate")
+            .value;
+
+    const start =
+        document.getElementById("workStart")
+            .value;
+
+    const end =
+        document.getElementById("workEnd")
+            .value;
+
+    const note =
+        document.getElementById("workNote")
+            .value.trim();
+
+    if(!title || !date){
+
+        alert("Indica o título e a data.");
+
+        return;
+    }
+
+    user.work.push({
+
+        id:uid(),
+        title:title,
+        type:type,
+        date:date,
+        start:start,
+        end:end,
+        note:note
+
+    });
+
+    saveUser();
+
+    closeModal();
+
+    renderAll();
+
+    calendarDate =
+        new Date(date + "T12:00:00");
+
+    renderCalendar();
+}
+
+
+/* =========================================================
+   RENDERIZAÇÃO
 ========================================================= */
 
 function renderAll(){
 
+    normalizeUser();
+
     renderHome();
+
     renderCalendar();
-    renderTasks();
-    renderFinance();
-    renderLife();
+
     renderSchool();
+
     renderWork();
 
-    applyTheme(
-        user.theme||"sage"
-    );
+}
+
+function renderHome(){
+
+    const pending =
+        user.tasks.filter(
+            task => !task.completed
+        ).length;
+
+    document.getElementById("pendingTasks")
+        .textContent=pending;
+
+    const todayCount =
+        getCalendarItems()
+            .filter(item => item.date === today())
+            .length;
+
+    document.getElementById("todayEvents")
+        .textContent=todayCount;
+}
+
+function renderSchool(){
+
+    const container =
+        document.getElementById("schoolList");
+
+    if(user.school.length===0){
+
+        container.innerHTML =
+            `<div class="muted">
+                Ainda não tens registos escolares.
+             </div>`;
+
+        return;
+    }
+
+    container.innerHTML =
+        user.school
+            .slice()
+            .sort((a,b) =>
+                a.date.localeCompare(b.date)
+            )
+            .map(item => `
+
+                <div class="list-item">
+
+                    <div class="list-main">
+
+                        <div class="list-title">
+                            ${escapeHTML(item.subject)}
+                        </div>
+
+                        <div class="list-info">
+                            ${escapeHTML(item.type)}
+                            · ${formatDate(item.date)}
+                            ${item.time ? " · "+item.time : ""}
+                        </div>
+
+                    </div>
+
+                    <div class="badge">
+                        ${escapeHTML(item.type)}
+                    </div>
+
+                </div>
+
+            `)
+            .join("");
+}
+
+function renderWork(){
+
+    const container =
+        document.getElementById("workList");
+
+    if(user.work.length===0){
+
+        container.innerHTML =
+            `<div class="muted">
+                Ainda não tens registos de trabalho.
+             </div>`;
+
+        return;
+    }
+
+    container.innerHTML =
+        user.work
+            .slice()
+            .sort((a,b) =>
+                a.date.localeCompare(b.date)
+            )
+            .map(item => `
+
+                <div class="list-item">
+
+                    <div class="list-main">
+
+                        <div class="list-title">
+                            ${escapeHTML(item.title)}
+                        </div>
+
+                        <div class="list-info">
+                            ${escapeHTML(item.type)}
+                            · ${formatDate(item.date)}
+                            ${item.start ? " · "+item.start : ""}
+                            ${item.end ? " - "+item.end : ""}
+                        </div>
+
+                    </div>
+
+                    <div class="badge">
+                        ${escapeHTML(item.type)}
+                    </div>
+
+                </div>
+
+            `)
+            .join("");
+}
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
+createDefaultAccounts();
+
+
+/*
+    Recuperar sessão anterior
+*/
+
+if(currentUserId){
+
+    const found =
+        accounts.find(
+            account => account.id === currentUserId
+        );
+
+    if(found){
+
+        user=found;
+
+        normalizeUser();
+
+        openApp();
+
+    }
 
 }
+
+
+/*
+    Fechar modal ao clicar fora
+*/
+
+document.getElementById("modal")
+    .addEventListener("click",function(e){
+
+        if(e.target === this)
+            closeModal();
+
+    });
+
+
+/*
+    Enter no login
+*/
+
+document.getElementById("loginCode")
+    .addEventListener("keydown",function(e){
+
+        if(e.key === "Enter")
+            login();
+
+    });
 
 </script>
 
