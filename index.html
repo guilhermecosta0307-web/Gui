@@ -2,30 +2,29 @@
 <html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#66756b">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#64756b">
 <title>Agenda</title>
 
 <style>
 :root{
-    --accent:#66756b;
-    --accent-light:#e9eee9;
-    --accent-soft:#f3f6f3;
-    --text:#252925;
-    --muted:#7c837d;
+    --accent:#64756b;
+    --accent2:#e8ede9;
+    --accent3:#f3f6f3;
     --bg:#f5f6f4;
-    --card:#ffffff;
-    --border:#e7e9e6;
-    --danger:#b96b6b;
-    --shadow:0 8px 25px rgba(40,50,42,.07);
+    --card:#fff;
+    --text:#252a26;
+    --muted:#7b827d;
+    --border:#e5e8e5;
+    --danger:#b76d6d;
+    --success:#64816d;
+    --shadow:0 8px 28px rgba(35,45,38,.065);
     --radius:20px;
 }
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
 
 body{
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
@@ -34,18 +33,10 @@ body{
     min-height:100vh;
 }
 
-button,input,select,textarea{
-    font:inherit;
-}
-
-button{
-    border:0;
-    cursor:pointer;
-}
-
-.hidden{
-    display:none!important;
-}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;border:0}
+input,select,textarea{outline:none}
+.hidden{display:none!important}
 
 /* LOGIN */
 
@@ -57,96 +48,99 @@ button{
     padding:24px;
 }
 
-.login-box{
+.login{
     width:100%;
     max-width:390px;
     text-align:center;
 }
 
 .logo{
-    width:76px;
-    height:76px;
+    width:78px;
+    height:78px;
+    margin:0 auto 22px;
     border-radius:25px;
     background:var(--accent);
     color:white;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:28px;
+    font-size:30px;
     font-weight:700;
-    margin:0 auto 22px;
     box-shadow:var(--shadow);
 }
 
-.login-box h1{
-    font-size:32px;
+.login h1{
+    font-size:33px;
     margin-bottom:7px;
 }
 
-.login-box p{
+.login p{
     color:var(--muted);
     margin-bottom:28px;
 }
 
 .input{
     width:100%;
-    border:1px solid var(--border);
+    padding:14px 15px;
     background:white;
+    border:1px solid var(--border);
     border-radius:14px;
-    padding:15px;
-    outline:none;
+    color:var(--text);
     transition:.2s;
 }
 
 .input:focus{
     border-color:var(--accent);
-    box-shadow:0 0 0 3px var(--accent-light);
+    box-shadow:0 0 0 3px var(--accent2);
 }
 
 .primary{
     width:100%;
-    padding:15px;
+    padding:14px 16px;
     border-radius:14px;
     background:var(--accent);
     color:white;
-    margin-top:12px;
     font-weight:600;
+    margin-top:10px;
 }
 
 .secondary{
     width:100%;
-    padding:14px;
+    padding:13px 16px;
     border-radius:14px;
-    background:var(--accent-light);
+    background:var(--accent2);
     color:var(--accent);
-    margin-top:10px;
     font-weight:600;
+    margin-top:9px;
 }
 
-.link-btn{
-    background:none;
+.small-button{
+    background:var(--accent2);
     color:var(--accent);
-    margin-top:18px;
+    padding:9px 12px;
+    border-radius:11px;
+    font-weight:600;
 }
 
 /* APP */
 
 #app{
     min-height:100vh;
-    padding-bottom:88px;
+    padding-bottom:86px;
 }
 
 .container{
     width:min(100%,1050px);
     margin:auto;
-    padding:22px;
+    padding:20px;
 }
 
 .topbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:24px;
+    padding-top:22px;
+    padding-bottom:8px;
 }
 
 .profile{
@@ -159,11 +153,11 @@ button{
     width:48px;
     height:48px;
     border-radius:16px;
-    background:var(--accent-light);
+    background:var(--accent2);
     color:var(--accent);
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     font-weight:700;
     overflow:hidden;
 }
@@ -175,140 +169,126 @@ button{
 }
 
 .profile small{
-    color:var(--muted);
     display:block;
-    margin-bottom:3px;
+    color:var(--muted);
+    margin-bottom:2px;
 }
 
 .profile strong{
     font-size:18px;
 }
 
-.icon-btn{
+.settings-button{
     width:44px;
     height:44px;
     border-radius:14px;
     background:white;
-    color:var(--text);
     box-shadow:var(--shadow);
 }
 
 /* PAGES */
 
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
-}
+.page{display:none}
+.page.active{display:block}
 
 .page-title{
-    font-size:29px;
-    margin-bottom:6px;
+    font-size:30px;
+    margin-top:5px;
 }
 
 .page-subtitle{
     color:var(--muted);
+    margin-top:5px;
     margin-bottom:22px;
 }
 
 /* HOME */
 
-.date-card{
+.welcome-card{
     background:var(--accent);
     color:white;
     border-radius:24px;
-    padding:23px;
-    margin-bottom:20px;
+    padding:24px;
+    margin:12px 0 18px;
     box-shadow:var(--shadow);
 }
 
-.date-card small{
-    opacity:.8;
-}
+.welcome-card small{opacity:.78}
 
-.date-card h2{
-    margin-top:5px;
+.welcome-card h2{
+    margin-top:6px;
     font-size:25px;
 }
 
-.summary-grid{
+.summary{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:12px;
-    margin-bottom:24px;
+    gap:11px;
 }
 
 .summary-card{
     background:white;
     border-radius:18px;
-    padding:17px;
+    padding:16px;
     box-shadow:var(--shadow);
 }
 
 .summary-card span{
-    font-size:13px;
     color:var(--muted);
+    font-size:12px;
 }
 
 .summary-card strong{
     display:block;
-    font-size:23px;
-    margin-top:8px;
+    margin-top:7px;
+    font-size:20px;
 }
 
 .module-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:14px;
+    gap:13px;
+    margin-top:14px;
 }
 
-.module-card{
+.module{
     background:white;
     border:1px solid var(--border);
-    border-radius:22px;
-    padding:22px;
-    text-align:left;
+    border-radius:21px;
+    padding:20px;
     min-height:120px;
+    text-align:left;
     box-shadow:var(--shadow);
-    transition:.18s;
-}
-
-.module-card:hover{
-    transform:translateY(-2px);
 }
 
 .module-icon{
-    width:43px;
-    height:43px;
-    border-radius:14px;
-    background:var(--accent-light);
-    color:var(--accent);
+    width:42px;
+    height:42px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    margin-bottom:15px;
-    font-size:19px;
+    align-items:center;
+    border-radius:13px;
+    background:var(--accent2);
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:14px;
 }
 
-.module-card strong{
+.module strong{
     display:block;
-    font-size:17px;
+    font-size:16px;
 }
 
-.module-card span{
+.module span{
     display:block;
     color:var(--muted);
-    font-size:13px;
+    font-size:12px;
     margin-top:4px;
 }
 
 /* SECTIONS */
 
-.section{
-    margin-top:25px;
-}
+.section{margin-top:25px}
 
 .section-header{
     display:flex;
@@ -317,39 +297,72 @@ button{
     margin-bottom:12px;
 }
 
-.section-header h3{
-    font-size:18px;
-}
+.section-header h3{font-size:18px}
 
-.add-btn{
+.add{
     background:var(--accent);
     color:white;
-    border-radius:13px;
-    padding:10px 14px;
+    padding:9px 13px;
+    border-radius:12px;
+    font-size:13px;
     font-weight:600;
 }
 
 .empty{
     background:white;
     border:1px dashed var(--border);
-    border-radius:18px;
-    padding:25px;
+    border-radius:17px;
+    padding:25px 18px;
     text-align:center;
     color:var(--muted);
 }
 
-/* LISTS */
+/* FORMS */
+
+.form-card{
+    background:white;
+    border-radius:21px;
+    padding:20px;
+    box-shadow:var(--shadow);
+    margin-bottom:20px;
+}
+
+.form-card h3{margin-bottom:16px}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.form-group{margin-bottom:12px}
+
+.form-group.full{grid-column:1/-1}
+
+.form-group label{
+    display:block;
+    color:var(--muted);
+    font-size:12px;
+    margin-bottom:6px;
+}
+
+textarea.input{
+    min-height:90px;
+    resize:vertical;
+}
+
+/* ITEMS */
 
 .item{
+    display:flex;
+    align-items:center;
+    gap:12px;
     background:white;
     border:1px solid var(--border);
     border-radius:17px;
-    padding:16px;
+    padding:15px;
     margin-bottom:10px;
-    display:flex;
-    align-items:center;
-    gap:13px;
-    box-shadow:0 4px 15px rgba(40,50,42,.035);
+    box-shadow:0 4px 16px rgba(30,40,33,.035);
 }
 
 .item-main{
@@ -359,127 +372,94 @@ button{
 
 .item-title{
     font-weight:600;
+    line-height:1.3;
 }
 
 .item-meta{
     color:var(--muted);
-    font-size:13px;
+    font-size:12px;
     margin-top:4px;
+    line-height:1.4;
+}
+
+.delete{
+    background:none;
+    color:#aaa;
+    font-size:19px;
+    padding:5px;
 }
 
 .checkbox{
     width:23px;
     height:23px;
-    border-radius:8px;
     border:2px solid #ccd2cd;
     background:white;
+    border-radius:8px;
     flex-shrink:0;
 }
 
-.checkbox.done{
+.checkbox.checked{
     background:var(--accent);
     border-color:var(--accent);
-    position:relative;
 }
 
-.checkbox.done:after{
+.checkbox.checked:after{
     content:"✓";
     color:white;
-    position:absolute;
-    left:4px;
-    top:-2px;
+    display:block;
+    text-align:center;
+    line-height:19px;
+    font-size:13px;
     font-weight:bold;
-}
-
-.delete-btn{
-    background:none;
-    color:#aaa;
-    font-size:18px;
-    padding:5px;
 }
 
 .badge{
     display:inline-block;
-    padding:5px 8px;
-    border-radius:8px;
-    background:var(--accent-light);
+    background:var(--accent2);
     color:var(--accent);
-    font-size:11px;
+    border-radius:8px;
+    padding:4px 7px;
+    font-size:10px;
     font-weight:600;
+    margin-top:7px;
 }
 
 .badge.high{
-    background:#f7e8e8;
+    background:#f5e5e5;
     color:var(--danger);
-}
-
-/* FORMS */
-
-.form-card{
-    background:white;
-    border-radius:22px;
-    padding:20px;
-    box-shadow:var(--shadow);
-    margin-bottom:20px;
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-}
-
-.form-group{
-    margin-bottom:12px;
-}
-
-.form-group.full{
-    grid-column:1/-1;
-}
-
-.form-group label{
-    display:block;
-    font-size:13px;
-    color:var(--muted);
-    margin-bottom:6px;
-}
-
-textarea.input{
-    min-height:90px;
-    resize:vertical;
 }
 
 /* CALENDAR */
 
-.calendar-card{
+.calendar{
     background:white;
     border-radius:22px;
     padding:18px;
     box-shadow:var(--shadow);
 }
 
-.calendar-header{
+.calendar-head{
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     margin-bottom:18px;
 }
 
-.calendar-header button{
+.calendar-head button{
     width:38px;
     height:38px;
     border-radius:12px;
-    background:var(--accent-light);
+    background:var(--accent2);
     color:var(--accent);
+    font-size:21px;
 }
 
 .calendar-title{
-    font-size:18px;
     font-weight:700;
     text-transform:capitalize;
 }
 
-.weekdays,.calendar-grid{
+.weekdays,.days{
     display:grid;
     grid-template-columns:repeat(7,1fr);
 }
@@ -487,28 +467,23 @@ textarea.input{
 .weekdays div{
     text-align:center;
     color:var(--muted);
-    font-size:11px;
-    padding-bottom:9px;
+    font-size:10px;
+    padding-bottom:8px;
 }
 
 .day{
-    min-height:57px;
+    min-height:58px;
     border-radius:12px;
     padding:6px;
     cursor:pointer;
-    position:relative;
 }
 
-.day:hover{
-    background:var(--accent-soft);
-}
+.day:hover{background:var(--accent3)}
 
-.day.other{
-    color:#c5c9c5;
-}
+.day.other{color:#c5cac6}
 
 .day.today{
-    background:var(--accent-light);
+    background:var(--accent2);
     color:var(--accent);
     font-weight:700;
 }
@@ -517,75 +492,63 @@ textarea.input{
     outline:2px solid var(--accent);
 }
 
-.day-number{
-    font-size:13px;
-}
+.day-number{font-size:13px}
 
-.dots{
+.event-dots{
     display:flex;
     gap:3px;
     margin-top:7px;
 }
 
-.dot{
+.event-dot{
     width:5px;
     height:5px;
     border-radius:50%;
     background:var(--accent);
 }
 
-/* MONEY */
+/* FINANCE */
 
-.balance-card{
+.balance{
     background:var(--accent);
     color:white;
-    border-radius:24px;
     padding:25px;
-    margin-bottom:16px;
+    border-radius:24px;
     box-shadow:var(--shadow);
+    margin-bottom:14px;
 }
 
-.balance-card small{
-    opacity:.8;
-}
+.balance small{opacity:.8}
 
-.balance-card strong{
+.balance strong{
     display:block;
     font-size:34px;
-    margin-top:7px;
+    margin-top:5px;
 }
 
 .money-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-bottom:20px;
+    gap:11px;
 }
 
 .money-card{
     background:white;
-    border-radius:18px;
     padding:17px;
+    border-radius:18px;
     box-shadow:var(--shadow);
 }
 
-.money-card small{
-    color:var(--muted);
-}
+.money-card small{color:var(--muted)}
 
 .money-card strong{
     display:block;
-    font-size:21px;
-    margin-top:7px;
+    margin-top:6px;
+    font-size:20px;
 }
 
-.positive{
-    color:#5e8069;
-}
-
-.negative{
-    color:var(--danger);
-}
+.positive{color:var(--success)}
+.negative{color:var(--danger)}
 
 /* PROGRESS */
 
@@ -594,10 +557,10 @@ textarea.input{
     background:#edf0ed;
     border-radius:99px;
     overflow:hidden;
-    margin-top:12px;
+    margin-top:13px;
 }
 
-.progress-bar{
+.progress div{
     height:100%;
     background:var(--accent);
     border-radius:99px;
@@ -605,34 +568,32 @@ textarea.input{
 
 /* SETTINGS */
 
-.setting-card{
+.setting{
     background:white;
     border-radius:20px;
-    padding:18px;
-    margin-bottom:12px;
+    padding:19px;
     box-shadow:var(--shadow);
+    margin-bottom:12px;
 }
 
-.setting-card h3{
-    margin-bottom:14px;
-}
+.setting h3{margin-bottom:12px}
 
 .color-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:10px;
+    gap:9px;
 }
 
-.color-option{
-    border:2px solid transparent;
-    border-radius:14px;
+.color-choice{
     padding:12px 7px;
+    border-radius:14px;
     background:var(--bg);
     text-align:center;
-    cursor:pointer;
+    border:2px solid transparent;
+    font-size:12px;
 }
 
-.color-option.selected{
+.color-choice.selected{
     border-color:var(--accent);
 }
 
@@ -643,44 +604,43 @@ textarea.input{
     margin:0 auto 7px;
 }
 
-/* BOTTOM NAV */
+/* NAV */
 
-.bottom-nav{
+.bottom{
     position:fixed;
+    z-index:30;
     bottom:0;
     left:0;
     right:0;
     height:74px;
-    background:rgba(255,255,255,.95);
+    background:rgba(255,255,255,.96);
     backdrop-filter:blur(15px);
     border-top:1px solid var(--border);
-    display:flex;
-    justify-content:center;
-    z-index:20;
 }
 
-.nav-inner{
+.nav{
+    height:100%;
     width:min(100%,650px);
+    margin:auto;
     display:flex;
     justify-content:space-around;
 }
 
-.nav-btn{
+.nav button{
     background:none;
-    color:#9a9f9b;
-    font-size:11px;
-    padding:9px 16px;
+    color:#999f9a;
+    font-size:10px;
     min-width:65px;
 }
 
-.nav-btn.active{
+.nav button.active{
     color:var(--accent);
     font-weight:700;
 }
 
 .nav-icon{
-    font-size:19px;
     display:block;
+    font-size:19px;
     margin-bottom:3px;
 }
 
@@ -689,12 +649,12 @@ textarea.input{
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(30,35,31,.35);
+    z-index:100;
+    background:rgba(20,25,21,.38);
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:20px;
-    z-index:50;
+    padding:18px;
 }
 
 .modal-box{
@@ -702,21 +662,21 @@ textarea.input{
     width:min(100%,470px);
     max-height:90vh;
     overflow:auto;
-    border-radius:25px;
-    padding:23px;
-    box-shadow:0 20px 60px rgba(0,0,0,.15);
+    border-radius:24px;
+    padding:22px;
+    box-shadow:0 25px 70px rgba(0,0,0,.18);
 }
 
-.modal-header{
+.modal-head{
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    margin-bottom:20px;
+    justify-content:space-between;
+    margin-bottom:18px;
 }
 
 .close{
-    width:36px;
-    height:36px;
+    width:35px;
+    height:35px;
     border-radius:11px;
     background:var(--bg);
 }
@@ -724,41 +684,25 @@ textarea.input{
 /* RESPONSIVE */
 
 @media(max-width:600px){
-    .container{
-        padding:18px;
-    }
 
-    .summary-grid{
-        grid-template-columns:1fr 1fr 1fr;
-    }
+    .container{padding:17px}
 
-    .summary-card{
-        padding:13px;
-    }
+    .form-grid{grid-template-columns:1fr}
+    .form-group.full{grid-column:auto}
 
-    .summary-card strong{
-        font-size:19px;
-    }
+    .summary-card{padding:13px}
 
-    .form-grid{
-        grid-template-columns:1fr;
-    }
+    .summary-card strong{font-size:18px}
 
-    .form-group.full{
-        grid-column:auto;
-    }
+    .day{min-height:49px}
 
-    .day{
-        min-height:48px;
-    }
-
-    .module-card{
-        min-height:110px;
+    .module{
+        min-height:108px;
         padding:17px;
     }
 
     .color-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:1fr 1fr;
     }
 }
 </style>
@@ -769,132 +713,178 @@ textarea.input{
 <!-- LOGIN -->
 
 <section id="loginScreen">
-    <div class="login-box">
+
+    <div class="login">
+
         <div class="logo">A</div>
+
         <h1>Agenda</h1>
         <p>A tua organização, num só lugar.</p>
 
-        <input id="loginCode" class="input" type="password" placeholder="Código de acesso">
-        <button class="primary" onclick="login()">Entrar</button>
-        <button class="secondary" onclick="openCreateAccount()">Criar conta</button>
+        <input
+            id="loginCode"
+            class="input"
+            type="password"
+            placeholder="Código de acesso"
+        >
+
+        <button class="primary" id="loginBtn">Entrar</button>
+
+        <button class="secondary" id="createAccountBtn">
+            Criar conta
+        </button>
+
     </div>
+
 </section>
+
 
 <!-- APP -->
 
 <div id="app" class="hidden">
 
 <header class="topbar container">
+
     <div class="profile">
-        <div id="topAvatar" class="avatar">A</div>
+
+        <div id="avatar" class="avatar">A</div>
+
         <div>
             <small>Olá</small>
-            <strong id="topName">Utilizador</strong>
+            <strong id="userName">Utilizador</strong>
         </div>
+
     </div>
 
-    <button class="icon-btn" onclick="openPage('settingsPage')">⚙</button>
+    <button class="settings-button" id="topSettings">⚙</button>
+
 </header>
+
 
 <main class="container">
 
+
 <!-- INÍCIO -->
 
-<section id="homePage" class="page active">
+<section class="page active" id="homePage">
 
-    <div class="date-card">
+    <div class="welcome-card">
+
         <small id="homeDate"></small>
+
         <h2>O teu dia</h2>
+
     </div>
 
-    <div class="summary-grid">
+
+    <div class="summary">
+
         <div class="summary-card">
             <span>Tarefas</span>
-            <strong id="homeTasks">0</strong>
+            <strong id="summaryTasks">0</strong>
         </div>
 
         <div class="summary-card">
             <span>Eventos</span>
-            <strong id="homeEvents">0</strong>
+            <strong id="summaryEvents">0</strong>
         </div>
 
         <div class="summary-card">
             <span>Saldo</span>
-            <strong id="homeBalance">0 €</strong>
+            <strong id="summaryBalance">0 €</strong>
         </div>
+
     </div>
 
+
     <div class="section">
+
         <div class="section-header">
             <h3>Hoje</h3>
         </div>
+
         <div id="todayList"></div>
+
     </div>
 
+
     <div class="section">
+
         <div class="section-header">
-            <h3>Acesso rápido</h3>
+            <h3>Áreas</h3>
         </div>
 
         <div class="module-grid">
 
-            <button class="module-card" onclick="openPage('agendaPage')">
+            <button class="module" data-page="agendaPage">
                 <div class="module-icon">◷</div>
                 <strong>Agenda</strong>
                 <span>Calendário e acontecimentos</span>
             </button>
 
-            <button class="module-card" onclick="openPage('tasksPage')">
+            <button class="module" data-page="tasksPage">
                 <div class="module-icon">✓</div>
                 <strong>Tarefas</strong>
                 <span>O que tens para fazer</span>
             </button>
 
-            <button class="module-card" onclick="openPage('financePage')">
+            <button class="module" data-page="financePage">
                 <div class="module-icon">€</div>
                 <strong>Finanças</strong>
-                <span>Saldo e movimentos</span>
+                <span>Dinheiro e movimentos</span>
             </button>
 
-            <button class="module-card" onclick="openPage('objectivesPage')">
-                <div class="module-icon">◎</div>
-                <strong>Objetivos</strong>
-                <span>Planos e progresso</span>
+            <button class="module" data-page="lifePage">
+                <div class="module-icon">○</div>
+                <strong>Vida</strong>
+                <span>Projetos, documentos e outros</span>
             </button>
 
-            <button class="module-card" onclick="openPage('schoolPage')">
+            <button class="module" data-page="schoolPage">
                 <div class="module-icon">⌘</div>
                 <strong>Escola</strong>
-                <span>Notas, testes e trabalhos</span>
+                <span>Testes, trabalhos e notas</span>
             </button>
 
-            <button class="module-card" onclick="openPage('workPage')">
+            <button class="module" data-page="workPage">
                 <div class="module-icon">▣</div>
                 <strong>Trabalho</strong>
                 <span>Turnos e compromissos</span>
             </button>
 
         </div>
+
     </div>
+
 </section>
 
 
 <!-- AGENDA -->
 
-<section id="agendaPage" class="page">
+<section class="page" id="agendaPage">
 
     <h1 class="page-title">Agenda</h1>
-    <p class="page-subtitle">Tudo o que acontece, num só calendário.</p>
 
-    <div class="calendar-card">
+    <p class="page-subtitle">
+        Tudo o que acontece, num só lugar.
+    </p>
 
-        <div class="calendar-header">
-            <button onclick="changeMonth(-1)">‹</button>
-            <div id="calendarTitle" class="calendar-title"></div>
-            <button onclick="changeMonth(1)">›</button>
+
+    <div class="calendar">
+
+        <div class="calendar-head">
+
+            <button id="previousMonth">‹</button>
+
+            <div class="calendar-title" id="calendarTitle"></div>
+
+            <button id="nextMonth">›</button>
+
         </div>
 
+
         <div class="weekdays">
+
             <div>SEG</div>
             <div>TER</div>
             <div>QUA</div>
@@ -902,36 +892,55 @@ textarea.input{
             <div>SEX</div>
             <div>SÁB</div>
             <div>DOM</div>
+
         </div>
 
-        <div id="calendarGrid" class="calendar-grid"></div>
+
+        <div class="days" id="calendarDays"></div>
+
     </div>
 
+
     <div class="section">
+
         <div class="section-header">
-            <h3 id="selectedDateTitle">Hoje</h3>
-            <button class="add-btn" onclick="openEventModal()">+ Evento</button>
+
+            <h3 id="selectedDayTitle"></h3>
+
+            <button class="add" id="newEventBtn">
+                + Evento
+            </button>
+
         </div>
 
         <div id="dayEvents"></div>
+
     </div>
+
 </section>
 
 
 <!-- TAREFAS -->
 
-<section id="tasksPage" class="page">
+<section class="page" id="tasksPage">
 
     <h1 class="page-title">Tarefas</h1>
-    <p class="page-subtitle">Organiza o que tens para fazer.</p>
+
+    <p class="page-subtitle">
+        Organiza o que tens para fazer.
+    </p>
+
 
     <div class="form-card">
-        <div class="form-grid">
 
-            <div class="form-group full">
-                <label>Tarefa</label>
-                <input id="taskTitle" class="input" placeholder="Ex.: Estudar para Biologia">
-            </div>
+        <h3>Nova tarefa</h3>
+
+        <div class="form-group">
+            <label>Tarefa</label>
+            <input id="taskTitle" class="input" placeholder="Ex.: Estudar Biologia">
+        </div>
+
+        <div class="form-grid">
 
             <div class="form-group">
                 <label>Data</label>
@@ -940,66 +949,104 @@ textarea.input{
 
             <div class="form-group">
                 <label>Prioridade</label>
+
                 <select id="taskPriority" class="input">
                     <option value="normal">Normal</option>
                     <option value="high">Alta</option>
                 </select>
+
             </div>
 
-            <div class="form-group full">
-                <label>Nota</label>
-                <textarea id="taskNote" class="input" placeholder="Opcional"></textarea>
-            </div>
         </div>
 
-        <button class="primary" onclick="addTask()">Adicionar tarefa</button>
+        <div class="form-group">
+
+            <label>Nota</label>
+
+            <textarea
+                id="taskNote"
+                class="input"
+                placeholder="Opcional"
+            ></textarea>
+
+        </div>
+
+        <button class="primary" id="addTaskBtn">
+            Adicionar tarefa
+        </button>
+
     </div>
 
+
     <div id="tasksList"></div>
+
 </section>
 
 
 <!-- FINANÇAS -->
 
-<section id="financePage" class="page">
+<section class="page" id="financePage">
 
     <h1 class="page-title">Finanças</h1>
-    <p class="page-subtitle">Controla o teu dinheiro.</p>
 
-    <div class="balance-card">
+    <p class="page-subtitle">
+        Controla o teu dinheiro.
+    </p>
+
+
+    <div class="balance">
+
         <small>Saldo atual</small>
-        <strong id="financeBalance">0,00 €</strong>
+
+        <strong id="balanceValue">0,00 €</strong>
+
     </div>
+
 
     <div class="money-grid">
+
         <div class="money-card">
+
             <small>Entradas</small>
-            <strong id="financeIncome" class="positive">+0,00 €</strong>
+
+            <strong id="incomeValue" class="positive">
+                +0,00 €
+            </strong>
+
         </div>
 
         <div class="money-card">
+
             <small>Despesas</small>
-            <strong id="financeExpense" class="negative">-0,00 €</strong>
+
+            <strong id="expenseValue" class="negative">
+                -0,00 €
+            </strong>
+
         </div>
+
     </div>
 
-    <div class="form-card">
 
-        <h3 style="margin-bottom:15px">Novo movimento</h3>
+    <div class="form-card" style="margin-top:14px">
+
+        <h3>Novo movimento</h3>
 
         <div class="form-grid">
 
             <div class="form-group">
-                <label>Valor (€)</label>
+                <label>Valor</label>
                 <input id="moneyAmount" class="input" type="number" step="0.01" placeholder="10">
             </div>
 
             <div class="form-group">
                 <label>Tipo</label>
+
                 <select id="moneyType" class="input">
                     <option value="income">Entrada</option>
                     <option value="expense">Despesa</option>
                 </select>
+
             </div>
 
             <div class="form-group">
@@ -1009,6 +1056,7 @@ textarea.input{
 
             <div class="form-group">
                 <label>Categoria</label>
+
                 <select id="moneyCategory" class="input">
                     <option>Outros</option>
                     <option>Trabalho</option>
@@ -1020,77 +1068,143 @@ textarea.input{
                     <option>Compras</option>
                     <option>Subscrições</option>
                 </select>
-            </div>
 
-            <div class="form-group full">
-                <label>Nota</label>
-                <textarea id="moneyNote" class="input" placeholder="Ex.: Ajudei numa tarefa"></textarea>
             </div>
 
         </div>
 
-        <button class="primary" onclick="addMoney()">Adicionar movimento</button>
+
+        <div class="form-group">
+
+            <label>Nota</label>
+
+            <textarea
+                id="moneyNote"
+                class="input"
+                placeholder="Ex.: Recebi por ajudar numa tarefa"
+            ></textarea>
+
+        </div>
+
+
+        <button class="primary" id="addMoneyBtn">
+            Adicionar movimento
+        </button>
+
     </div>
 
+
     <div class="section">
+
         <div class="section-header">
             <h3>Histórico</h3>
         </div>
+
         <div id="moneyList"></div>
+
     </div>
+
 </section>
 
 
-<!-- OBJETIVOS -->
+<!-- VIDA -->
 
-<section id="objectivesPage" class="page">
+<section class="page" id="lifePage">
 
-    <h1 class="page-title">Objetivos</h1>
-    <p class="page-subtitle">Transforma planos em progresso.</p>
+    <h1 class="page-title">Vida</h1>
+
+    <p class="page-subtitle">
+        Tudo o que não pertence às outras áreas.
+    </p>
+
 
     <div class="form-card">
 
+        <h3>Novo registo</h3>
+
+        <div class="form-group">
+
+            <label>Título</label>
+
+            <input
+                id="lifeTitle"
+                class="input"
+                placeholder="Ex.: Renovar cartão de cidadão"
+            >
+
+        </div>
+
+
         <div class="form-grid">
 
-            <div class="form-group full">
-                <label>Objetivo</label>
-                <input id="goalTitle" class="input" placeholder="Ex.: Poupar para o carro">
+            <div class="form-group">
+
+                <label>Categoria</label>
+
+                <select id="lifeCategory" class="input">
+                    <option>Documentos</option>
+                    <option>Casa</option>
+                    <option>Viagens</option>
+                    <option>Projetos</option>
+                    <option>Pessoal</option>
+                    <option>Saúde</option>
+                    <option>Compras</option>
+                    <option>Outro</option>
+                </select>
+
             </div>
+
 
             <div class="form-group">
-                <label>Meta</label>
-                <input id="goalTarget" class="input" type="number" placeholder="5000">
-            </div>
 
-            <div class="form-group">
-                <label>Valor atual</label>
-                <input id="goalCurrent" class="input" type="number" placeholder="0">
-            </div>
+                <label>Data</label>
 
-            <div class="form-group full">
-                <label>Prazo</label>
-                <input id="goalDate" class="input" type="date">
+                <input id="lifeDate" class="input" type="date">
+
             </div>
 
         </div>
 
-        <button class="primary" onclick="addGoal()">Criar objetivo</button>
+
+        <div class="form-group">
+
+            <label>Nota</label>
+
+            <textarea
+                id="lifeNote"
+                class="input"
+                placeholder="Detalhes, informações ou lembretes"
+            ></textarea>
+
+        </div>
+
+
+        <button class="primary" id="addLifeBtn">
+            Adicionar
+        </button>
+
     </div>
 
-    <div id="goalsList"></div>
+
+    <div id="lifeList"></div>
+
 </section>
 
 
 <!-- ESCOLA -->
 
-<section id="schoolPage" class="page">
+<section class="page" id="schoolPage">
 
     <h1 class="page-title">Escola</h1>
-    <p class="page-subtitle">Disciplinas, testes, trabalhos e notas.</p>
+
+    <p class="page-subtitle">
+        Testes, trabalhos, aulas e notas.
+    </p>
+
 
     <div class="form-card">
 
-        <h3 style="margin-bottom:15px">Novo registo escolar</h3>
+        <h3>Novo registo</h3>
 
         <div class="form-grid">
 
@@ -1101,6 +1215,7 @@ textarea.input{
 
             <div class="form-group">
                 <label>Tipo</label>
+
                 <select id="schoolType" class="input">
                     <option>Teste</option>
                     <option>Trabalho</option>
@@ -1108,6 +1223,7 @@ textarea.input{
                     <option>Aula</option>
                     <option>Outro</option>
                 </select>
+
             </div>
 
             <div class="form-group">
@@ -1122,7 +1238,7 @@ textarea.input{
 
             <div class="form-group">
                 <label>Nota</label>
-                <input id="schoolGrade" class="input" type="number" min="0" max="20" step="0.1" placeholder="Opcional">
+                <input id="schoolGrade" class="input" type="number" min="0" max="20" step="0.1">
             </div>
 
             <div class="form-group">
@@ -1130,45 +1246,68 @@ textarea.input{
                 <input id="schoolTeacher" class="input" placeholder="Opcional">
             </div>
 
-            <div class="form-group full">
-                <label>Nota / descrição</label>
-                <textarea id="schoolNote" class="input" placeholder="Detalhes"></textarea>
-            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Nota / detalhes</label>
+
+            <textarea
+                id="schoolNote"
+                class="input"
+                placeholder="Conteúdo, sala, matéria..."
+            ></textarea>
 
         </div>
 
-        <button class="primary" onclick="addSchool()">Adicionar</button>
+
+        <button class="primary" id="addSchoolBtn">
+            Adicionar
+        </button>
+
     </div>
 
+
     <div id="schoolList"></div>
+
 </section>
 
 
 <!-- TRABALHO -->
 
-<section id="workPage" class="page">
+<section class="page" id="workPage">
 
     <h1 class="page-title">Trabalho</h1>
-    <p class="page-subtitle">Turnos, tarefas e compromissos.</p>
+
+    <p class="page-subtitle">
+        Turnos, tarefas e compromissos.
+    </p>
+
 
     <div class="form-card">
 
-        <h3 style="margin-bottom:15px">Novo registo de trabalho</h3>
+        <h3>Novo registo</h3>
+
+        <div class="form-group">
+
+            <label>Título</label>
+
+            <input
+                id="workTitle"
+                class="input"
+                placeholder="Ex.: Turno de trabalho"
+            >
+
+        </div>
+
 
         <div class="form-grid">
 
-            <div class="form-group full">
-                <label>Título</label>
-                <input id="workTitle" class="input" placeholder="Ex.: Turno de trabalho">
-            </div>
-
             <div class="form-group">
-                <label>Data</label>
-                <input id="workDate" class="input" type="date">
-            </div>
 
-            <div class="form-group">
                 <label>Tipo</label>
+
                 <select id="workType" class="input">
                     <option>Turno</option>
                     <option>Tarefa</option>
@@ -1176,101 +1315,155 @@ textarea.input{
                     <option>Compromisso</option>
                     <option>Outro</option>
                 </select>
+
             </div>
 
+
             <div class="form-group">
-                <label>Hora início</label>
+
+                <label>Data</label>
+
+                <input id="workDate" class="input" type="date">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Hora de início</label>
+
                 <input id="workStart" class="input" type="time">
+
             </div>
+
 
             <div class="form-group">
-                <label>Hora fim</label>
-                <input id="workEnd" class="input" type="time">
-            </div>
 
-            <div class="form-group full">
-                <label>Nota</label>
-                <textarea id="workNote" class="input" placeholder="Detalhes"></textarea>
+                <label>Hora de fim</label>
+
+                <input id="workEnd" class="input" type="time">
+
             </div>
 
         </div>
 
-        <button class="primary" onclick="addWork()">Adicionar</button>
+
+        <div class="form-group">
+
+            <label>Nota</label>
+
+            <textarea
+                id="workNote"
+                class="input"
+                placeholder="Local, informações, etc."
+            ></textarea>
+
+        </div>
+
+
+        <button class="primary" id="addWorkBtn">
+            Adicionar
+        </button>
+
     </div>
 
+
     <div id="workList"></div>
+
 </section>
 
 
 <!-- DEFINIÇÕES -->
 
-<section id="settingsPage" class="page">
+<section class="page" id="settingsPage">
 
     <h1 class="page-title">Definições</h1>
-    <p class="page-subtitle">Personaliza a tua Agenda.</p>
 
-    <div class="setting-card">
+    <p class="page-subtitle">
+        Personaliza a tua Agenda.
+    </p>
+
+
+    <div class="setting">
+
         <h3>Perfil</h3>
 
-        <input id="photoInput" type="file" accept="image/*" class="hidden" onchange="changePhoto(event)">
+        <input
+            id="photoInput"
+            type="file"
+            accept="image/*"
+            class="hidden"
+        >
 
-        <button class="secondary" onclick="document.getElementById('photoInput').click()">
+        <button class="secondary" id="photoBtn">
             Alterar fotografia
         </button>
 
-        <button class="secondary" onclick="changeName()">
+        <button class="secondary" id="nameBtn">
             Alterar nome
         </button>
 
-        <button class="secondary" onclick="changeCode()">
-            Alterar código de acesso
+        <button class="secondary" id="codeBtn">
+            Alterar código
         </button>
+
     </div>
 
-    <div class="setting-card">
+
+    <div class="setting">
+
         <h3>Aparência</h3>
-        <p style="color:var(--muted);font-size:13px;margin-bottom:14px">
-            Escolhe uma cor discreta para a aplicação.
+
+        <p style="color:var(--muted);font-size:12px;margin-bottom:13px">
+            Escolhe uma cor simples para a aplicação.
         </p>
+
 
         <div class="color-grid">
 
-            <div class="color-option" data-color="sage" onclick="setTheme('sage')">
-                <div class="color-circle" style="background:#66756b"></div>
+            <button class="color-choice" data-theme="sage">
+                <div class="color-circle" style="background:#64756b"></div>
                 Verde-sálvia
-            </div>
+            </button>
 
-            <div class="color-option" data-color="blue" onclick="setTheme('blue')">
+            <button class="color-choice" data-theme="blue">
                 <div class="color-circle" style="background:#63778a"></div>
                 Azul-petróleo
-            </div>
+            </button>
 
-            <div class="color-option" data-color="sky" onclick="setTheme('sky')">
+            <button class="color-choice" data-theme="sky">
                 <div class="color-circle" style="background:#7594a5"></div>
                 Azul suave
-            </div>
+            </button>
 
-            <div class="color-option" data-color="lilac" onclick="setTheme('lilac')">
+            <button class="color-choice" data-theme="lilac">
                 <div class="color-circle" style="background:#81758e"></div>
                 Lilás
-            </div>
+            </button>
 
-            <div class="color-option" data-color="sand" onclick="setTheme('sand')">
+            <button class="color-choice" data-theme="sand">
                 <div class="color-circle" style="background:#927f67"></div>
                 Areia
-            </div>
+            </button>
 
-            <div class="color-option" data-color="gray" onclick="setTheme('gray')">
+            <button class="color-choice" data-theme="gray">
                 <div class="color-circle" style="background:#707572"></div>
                 Cinzento
-            </div>
+            </button>
 
         </div>
+
     </div>
 
-    <div class="setting-card">
+
+    <div class="setting">
+
         <h3>Conta</h3>
-        <button class="secondary" onclick="logout()">Terminar sessão</button>
+
+        <button class="secondary" id="logoutBtn">
+            Terminar sessão
+        </button>
+
     </div>
 
 </section>
@@ -1278,32 +1471,34 @@ textarea.input{
 </main>
 
 
-<!-- NAV -->
+<!-- NAVEGAÇÃO -->
 
-<nav class="bottom-nav">
-    <div class="nav-inner">
+<nav class="bottom">
 
-        <button class="nav-btn active" data-page="homePage" onclick="openPage('homePage')">
+    <div class="nav">
+
+        <button data-page="homePage">
             <span class="nav-icon">⌂</span>
             Início
         </button>
 
-        <button class="nav-btn" data-page="schoolPage" onclick="openPage('schoolPage')">
+        <button data-page="schoolPage">
             <span class="nav-icon">⌘</span>
             Escola
         </button>
 
-        <button class="nav-btn" data-page="workPage" onclick="openPage('workPage')">
+        <button data-page="workPage">
             <span class="nav-icon">▣</span>
             Trabalho
         </button>
 
-        <button class="nav-btn" data-page="settingsPage" onclick="openPage('settingsPage')">
+        <button data-page="settingsPage">
             <span class="nav-icon">⚙</span>
             Definições
         </button>
 
     </div>
+
 </nav>
 
 </div>
@@ -1312,26 +1507,22 @@ textarea.input{
 <!-- MODAL -->
 
 <div id="modal" class="modal hidden">
-    <div class="modal-box" id="modalContent"></div>
+
+    <div class="modal-box" id="modalBox"></div>
+
 </div>
 
 
 <script>
 
-/* =========================
-   DADOS
-========================= */
+/* =========================================================
+   CONFIGURAÇÃO
+========================================================= */
 
-let accounts = JSON.parse(localStorage.getItem("agenda_accounts") || "[]");
-let currentUser = null;
-
-let calendarDate = new Date();
-let selectedDate = localDate();
-
-const themes = {
+const THEMES={
     sage:{
-        accent:"#66756b",
-        light:"#e9eee9",
+        accent:"#64756b",
+        light:"#e8ede9",
         soft:"#f3f6f3"
     },
     blue:{
@@ -1361,1201 +1552,2318 @@ const themes = {
     }
 };
 
+let accounts=[];
+let user=null;
 
-/* =========================
-   INICIALIZAÇÃO
-========================= */
+let calendarCursor=new Date();
+let selectedDate=getToday();
 
-function init(){
+
+/* =========================================================
+   ARRANQUE
+========================================================= */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+    loadAccounts();
+    setupEvents();
+    setDefaultDates();
+
+});
+
+
+function loadAccounts(){
+
+    try{
+        accounts=JSON.parse(
+            localStorage.getItem("agenda_accounts")||"[]"
+        );
+    }catch{
+        accounts=[];
+    }
+
+
+    /*
+       Contas de teste.
+       Só são criadas se ainda não existirem.
+    */
 
     if(!accounts.length){
 
-        accounts.push({
-            id:"test-guilherme",
-            name:"Guilherme",
-            email:"teste@agenda.local",
-            password:"1212",
-            code:"1212",
-            photo:"",
-            theme:"sage",
-            tasks:[],
-            events:[],
-            money:[],
-            goals:[],
-            school:[],
-            work:[]
-        });
-
-        accounts.push({
-            id:"test-user",
-            name:"Utilizador 2",
-            email:"teste2@agenda.local",
-            password:"2020",
-            code:"2020",
-            photo:"",
-            theme:"blue",
-            tasks:[],
-            events:[],
-            money:[],
-            goals:[],
-            school:[],
-            work:[]
-        });
+        accounts=[
+            createEmptyAccount(
+                "Guilherme",
+                "teste@agenda.local",
+                "1212",
+                "sage"
+            ),
+            createEmptyAccount(
+                "Utilizador 2",
+                "teste2@agenda.local",
+                "2020",
+                "blue"
+            )
+        ];
 
         saveAccounts();
+
     }
 
-    const savedId = localStorage.getItem("agenda_current_user");
-
-    if(savedId){
-        const account = accounts.find(a=>a.id===savedId);
-
-        if(account){
-            currentUser = account;
-            showApp();
-        }
-    }
-
-    setDefaultDates();
-}
-
-function saveAccounts(){
-    localStorage.setItem("agenda_accounts",JSON.stringify(accounts));
-}
-
-function saveUser(){
-    const index = accounts.findIndex(a=>a.id===currentUser.id);
-
-    if(index!==-1){
-        accounts[index] = currentUser;
-        saveAccounts();
-    }
-
-    localStorage.setItem("agenda_current_user",currentUser.id);
 }
 
 
-/* =========================
-   LOGIN / CONTA
-========================= */
+function createEmptyAccount(name,email,code,theme="sage"){
 
-function login(){
-
-    const code = document.getElementById("loginCode").value.trim();
-
-    const account = accounts.find(a=>a.code===code);
-
-    if(!account){
-        alert("Código incorreto.");
-        return;
-    }
-
-    currentUser = account;
-    localStorage.setItem("agenda_current_user",account.id);
-
-    showApp();
-}
-
-function openCreateAccount(){
-
-    showModal(`
-        <div class="modal-header">
-            <h2>Criar conta</h2>
-            <button class="close" onclick="closeModal()">×</button>
-        </div>
-
-        <div class="form-group">
-            <label>Nome</label>
-            <input id="newName" class="input" placeholder="O teu nome">
-        </div>
-
-        <div class="form-group">
-            <label>Email</label>
-            <input id="newEmail" class="input" type="email" placeholder="nome@email.com">
-        </div>
-
-        <div class="form-group">
-            <label>Palavra-passe</label>
-            <input id="newPassword" class="input" type="password">
-        </div>
-
-        <div class="form-group">
-            <label>Código de acesso</label>
-            <input id="newCode" class="input" type="password" placeholder="Ex.: 1234">
-        </div>
-
-        <button class="primary" onclick="createAccount()">Criar conta</button>
-    `);
-}
-
-function createAccount(){
-
-    const name = document.getElementById("newName").value.trim();
-    const email = document.getElementById("newEmail").value.trim();
-    const password = document.getElementById("newPassword").value;
-    const code = document.getElementById("newCode").value.trim();
-
-    if(!name || !email || !password || !code){
-        alert("Preenche todos os campos.");
-        return;
-    }
-
-    if(accounts.some(a=>a.code===code)){
-        alert("Esse código já está a ser utilizado.");
-        return;
-    }
-
-    const account = {
-        id:"user-"+Date.now(),
+    return{
+        id:"user_"+Date.now()+"_"+Math.random().toString(36).slice(2),
         name,
         email,
-        password,
         code,
+        password:code,
         photo:"",
-        theme:"sage",
+        theme,
+
         tasks:[],
         events:[],
         money:[],
-        goals:[],
+        life:[],
         school:[],
         work:[]
     };
 
+}
+
+
+function saveAccounts(){
+
+    localStorage.setItem(
+        "agenda_accounts",
+        JSON.stringify(accounts)
+    );
+
+}
+
+
+function saveUser(){
+
+    const index=accounts.findIndex(
+        a=>a.id===user.id
+    );
+
+    if(index!==-1){
+
+        accounts[index]=user;
+
+        saveAccounts();
+
+    }
+
+    localStorage.setItem(
+        "agenda_current_user",
+        user.id
+    );
+
+}
+
+
+/* =========================================================
+   EVENTOS DA INTERFACE
+========================================================= */
+
+function setupEvents(){
+
+    document
+        .getElementById("loginBtn")
+        .addEventListener("click",login);
+
+    document
+        .getElementById("createAccountBtn")
+        .addEventListener("click",createAccountModal);
+
+    document
+        .getElementById("topSettings")
+        .addEventListener("click",()=>openPage("settingsPage"));
+
+
+    document.querySelectorAll("[data-page]").forEach(button=>{
+
+        button.addEventListener("click",()=>{
+
+            openPage(button.dataset.page);
+
+        });
+
+    });
+
+
+    document
+        .getElementById("previousMonth")
+        .addEventListener("click",()=>{
+
+            calendarCursor.setMonth(
+                calendarCursor.getMonth()-1
+            );
+
+            renderCalendar();
+
+        });
+
+
+    document
+        .getElementById("nextMonth")
+        .addEventListener("click",()=>{
+
+            calendarCursor.setMonth(
+                calendarCursor.getMonth()+1
+            );
+
+            renderCalendar();
+
+        });
+
+
+    document
+        .getElementById("newEventBtn")
+        .addEventListener("click",eventModal);
+
+
+    document
+        .getElementById("addTaskBtn")
+        .addEventListener("click",addTask);
+
+
+    document
+        .getElementById("addMoneyBtn")
+        .addEventListener("click",addMoney);
+
+
+    document
+        .getElementById("addLifeBtn")
+        .addEventListener("click",addLife);
+
+
+    document
+        .getElementById("addSchoolBtn")
+        .addEventListener("click",addSchool);
+
+
+    document
+        .getElementById("addWorkBtn")
+        .addEventListener("click",addWork);
+
+
+    document
+        .getElementById("photoBtn")
+        .addEventListener("click",()=>{
+
+            document
+                .getElementById("photoInput")
+                .click();
+
+        });
+
+
+    document
+        .getElementById("photoInput")
+        .addEventListener("change",changePhoto);
+
+
+    document
+        .getElementById("nameBtn")
+        .addEventListener("click",changeName);
+
+
+    document
+        .getElementById("codeBtn")
+        .addEventListener("click",changeCode);
+
+
+    document
+        .getElementById("logoutBtn")
+        .addEventListener("click",logout);
+
+
+    document.querySelectorAll("[data-theme]").forEach(button=>{
+
+        button.addEventListener("click",()=>{
+
+            setTheme(button.dataset.theme);
+
+        });
+
+    });
+
+
+    document
+        .getElementById("modal")
+        .addEventListener("click",event=>{
+
+            if(event.target.id==="modal"){
+                closeModal();
+            }
+
+        });
+
+
+    document
+        .getElementById("loginCode")
+        .addEventListener("keydown",event=>{
+
+            if(event.key==="Enter"){
+                login();
+            }
+
+        });
+
+
+    const saved=localStorage.getItem(
+        "agenda_current_user"
+    );
+
+    if(saved){
+
+        const found=accounts.find(
+            a=>a.id===saved
+        );
+
+        if(found){
+
+            user=found;
+            showApp();
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+function login(){
+
+    const code=document
+        .getElementById("loginCode")
+        .value
+        .trim();
+
+
+    const found=accounts.find(
+        account=>account.code===code
+    );
+
+
+    if(!found){
+
+        alert("Código incorreto.");
+        return;
+
+    }
+
+
+    user=found;
+
+    saveUser();
+    showApp();
+
+}
+
+
+function createAccountModal(){
+
+    showModal(`
+
+        <div class="modal-head">
+
+            <h2>Criar conta</h2>
+
+            <button class="close" onclick="closeModal()">×</button>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Nome</label>
+
+            <input
+                id="newName"
+                class="input"
+                placeholder="Nome"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input
+                id="newEmail"
+                class="input"
+                type="email"
+                placeholder="nome@email.com"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Palavra-passe</label>
+
+            <input
+                id="newPassword"
+                class="input"
+                type="password"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Código de acesso</label>
+
+            <input
+                id="newCode"
+                class="input"
+                type="password"
+                placeholder="Ex.: 1234"
+            >
+
+        </div>
+
+
+        <button class="primary" onclick="createAccount()">
+            Criar conta
+        </button>
+
+    `);
+
+}
+
+
+function createAccount(){
+
+    const name=document
+        .getElementById("newName")
+        .value.trim();
+
+    const email=document
+        .getElementById("newEmail")
+        .value.trim();
+
+    const password=document
+        .getElementById("newPassword")
+        .value;
+
+    const code=document
+        .getElementById("newCode")
+        .value.trim();
+
+
+    if(!name||!email||!password||!code){
+
+        alert("Preenche todos os campos.");
+        return;
+
+    }
+
+
+    if(accounts.some(a=>a.code===code)){
+
+        alert("Esse código já está a ser utilizado.");
+        return;
+
+    }
+
+
+    const account=createEmptyAccount(
+        name,
+        email,
+        code
+    );
+
+    account.password=password;
+
     accounts.push(account);
-    currentUser = account;
+
+    user=account;
 
     saveAccounts();
-    localStorage.setItem("agenda_current_user",account.id);
+    saveUser();
 
     closeModal();
     showApp();
-}
 
-function logout(){
-
-    localStorage.removeItem("agenda_current_user");
-    currentUser = null;
-
-    document.getElementById("app").classList.add("hidden");
-    document.getElementById("loginScreen").style.display="flex";
 }
 
 
-/* =========================
+/* =========================================================
    APP
-========================= */
+========================================================= */
 
 function showApp(){
 
-    document.getElementById("loginScreen").style.display="none";
-    document.getElementById("app").classList.remove("hidden");
+    document
+        .getElementById("loginScreen")
+        .classList.add("hidden");
 
-    applyTheme(currentUser.theme || "sage");
+    document
+        .getElementById("app")
+        .classList.remove("hidden");
+
+
+    applyTheme(user.theme||"sage");
     updateProfile();
     renderAll();
 
     openPage("homePage");
+
 }
+
+
+function logout(){
+
+    localStorage.removeItem(
+        "agenda_current_user"
+    );
+
+    user=null;
+
+    document
+        .getElementById("app")
+        .classList.add("hidden");
+
+    document
+        .getElementById("loginScreen")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("loginCode")
+        .value="";
+
+}
+
 
 function updateProfile(){
 
-    document.getElementById("topName").textContent = currentUser.name;
+    document
+        .getElementById("userName")
+        .textContent=user.name;
 
-    const avatar = document.getElementById("topAvatar");
 
-    if(currentUser.photo){
-        avatar.innerHTML = `<img src="${currentUser.photo}" alt="">`;
+    const avatar=document
+        .getElementById("avatar");
+
+
+    if(user.photo){
+
+        avatar.innerHTML=
+            `<img src="${user.photo}" alt="">`;
+
     }else{
-        avatar.textContent = currentUser.name.charAt(0).toUpperCase();
+
+        avatar.textContent=
+            user.name.charAt(0).toUpperCase();
+
     }
+
 }
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
 
 function openPage(pageId){
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
+    document
+        .querySelectorAll(".page")
+        .forEach(page=>{
+            page.classList.remove("active");
+        });
+
+
+    const page=document.getElementById(pageId);
+
+    if(!page)return;
+
+    page.classList.add("active");
+
+
+    document
+        .querySelectorAll(".nav button")
+        .forEach(button=>{
+
+            button.classList.toggle(
+                "active",
+                button.dataset.page===pageId
+            );
+
+        });
+
+
+    if(pageId==="homePage")renderHome();
+    if(pageId==="agendaPage")renderCalendar();
+    if(pageId==="tasksPage")renderTasks();
+    if(pageId==="financePage")renderFinance();
+    if(pageId==="lifePage")renderLife();
+    if(pageId==="schoolPage")renderSchool();
+    if(pageId==="workPage")renderWork();
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
     });
 
-    const page = document.getElementById(pageId);
-
-    if(page){
-        page.classList.add("active");
-    }
-
-    document.querySelectorAll(".nav-btn").forEach(btn=>{
-        btn.classList.toggle("active",btn.dataset.page===pageId);
-    });
-
-    if(pageId==="agendaPage") renderCalendar();
-    if(pageId==="homePage") renderHome();
-    if(pageId==="tasksPage") renderTasks();
-    if(pageId==="financePage") renderFinance();
-    if(pageId==="objectivesPage") renderGoals();
-    if(pageId==="schoolPage") renderSchool();
-    if(pageId==="workPage") renderWork();
-
-    window.scrollTo({top:0,behavior:"smooth"});
 }
 
 
-/* =========================
+/* =========================================================
    INÍCIO
-========================= */
+========================================================= */
 
 function renderHome(){
 
-    const today = localDate();
+    const today=getToday();
 
-    document.getElementById("homeDate").textContent =
-        formatLongDate(today);
+    document
+        .getElementById("homeDate")
+        .textContent=formatLongDate(today);
 
-    const pending = currentUser.tasks.filter(t=>!t.completed);
 
-    document.getElementById("homeTasks").textContent = pending.length;
+    const pending=user.tasks.filter(
+        task=>!task.completed
+    ).length;
 
-    const todayEvents = getAllAgendaItems()
-        .filter(x=>x.date===today);
 
-    document.getElementById("homeEvents").textContent =
-        todayEvents.length;
+    document
+        .getElementById("summaryTasks")
+        .textContent=pending;
 
-    const balance = calculateBalance();
 
-    document.getElementById("homeBalance").textContent =
-        money(balance);
+    const events=getAgendaItems()
+        .filter(item=>item.date===today);
 
-    const list = document.getElementById("todayList");
 
-    const todayItems = getAllAgendaItems()
-        .filter(x=>x.date===today)
-        .sort(sortAgenda);
+    document
+        .getElementById("summaryEvents")
+        .textContent=events.length;
 
-    if(!todayItems.length){
-        list.innerHTML = `<div class="empty">Não tens acontecimentos registados para hoje.</div>`;
+
+    document
+        .getElementById("summaryBalance")
+        .textContent=formatMoney(calculateBalance());
+
+
+    const todayList=document
+        .getElementById("todayList");
+
+
+    if(!events.length){
+
+        todayList.innerHTML=
+            `<div class="empty">
+                Não tens nada marcado para hoje.
+             </div>`;
+
         return;
+
     }
 
-    list.innerHTML = todayItems.map(renderAgendaItem).join("");
+
+    todayList.innerHTML=events
+        .sort(sortItems)
+        .map(itemCard)
+        .join("");
+
 }
 
 
-/* =========================
+/* =========================================================
    TAREFAS
-========================= */
+========================================================= */
 
 function addTask(){
 
-    const title = document.getElementById("taskTitle").value.trim();
-    const date = document.getElementById("taskDate").value;
-    const priority = document.getElementById("taskPriority").value;
-    const note = document.getElementById("taskNote").value.trim();
+    const title=document
+        .getElementById("taskTitle")
+        .value.trim();
+
+    const date=document
+        .getElementById("taskDate")
+        .value||getToday();
+
+    const priority=document
+        .getElementById("taskPriority")
+        .value;
+
+    const note=document
+        .getElementById("taskNote")
+        .value.trim();
+
 
     if(!title){
+
         alert("Escreve o nome da tarefa.");
         return;
+
     }
 
-    currentUser.tasks.push({
-        id:Date.now().toString(),
+
+    user.tasks.push({
+
+        id:uid(),
+
         title,
-        date:date || localDate(),
+        date,
         priority,
         note,
+
         completed:false
+
     });
 
+
     saveUser();
+
 
     document.getElementById("taskTitle").value="";
     document.getElementById("taskNote").value="";
 
+
     renderTasks();
     renderHome();
+    renderCalendar();
+
 }
+
 
 function toggleTask(id){
 
-    const task = currentUser.tasks.find(t=>t.id===id);
+    const task=user.tasks.find(
+        t=>t.id===id
+    );
 
-    if(task){
-        task.completed=!task.completed;
-        saveUser();
-        renderTasks();
-        renderHome();
-    }
+    if(!task)return;
+
+    task.completed=!task.completed;
+
+    saveUser();
+
+    renderTasks();
+    renderHome();
+    renderCalendar();
+
 }
+
 
 function deleteTask(id){
 
-    currentUser.tasks =
-        currentUser.tasks.filter(t=>t.id!==id);
+    user.tasks=user.tasks.filter(
+        t=>t.id!==id
+    );
 
     saveUser();
+
     renderTasks();
     renderHome();
+    renderCalendar();
+
 }
+
 
 function renderTasks(){
 
-    const list = document.getElementById("tasksList");
+    const list=document
+        .getElementById("tasksList");
 
-    if(!currentUser.tasks.length){
-        list.innerHTML=`<div class="empty">Ainda não tens tarefas.</div>`;
+
+    if(!user.tasks.length){
+
+        list.innerHTML=
+            `<div class="empty">
+                Ainda não tens tarefas.
+             </div>`;
+
         return;
+
     }
 
-    const tasks=[...currentUser.tasks].sort((a,b)=>
-        a.date.localeCompare(b.date)
-    );
 
-    list.innerHTML=tasks.map(t=>`
+    const tasks=[...user.tasks]
+        .sort((a,b)=>a.date.localeCompare(b.date));
+
+
+    list.innerHTML=tasks.map(task=>`
 
         <div class="item">
 
-            <button class="checkbox ${t.completed?"done":""}"
-                onclick="toggleTask('${t.id}')">
+            <button
+                class="checkbox ${task.completed?"checked":""}"
+                onclick="toggleTask('${task.id}')">
             </button>
+
 
             <div class="item-main">
 
-                <div class="item-title"
-                    style="${t.completed?"text-decoration:line-through;color:#aaa":""}">
-                    ${escapeHTML(t.title)}
+                <div
+                    class="item-title"
+                    style="${task.completed?
+                        "text-decoration:line-through;color:#aaa":
+                        ""}"
+                >
+                    ${esc(task.title)}
                 </div>
+
 
                 <div class="item-meta">
-                    ${formatShortDate(t.date)}
-                    ${t.note?` · ${escapeHTML(t.note)}`:""}
+
+                    ${formatShortDate(task.date)}
+
+                    ${task.note
+                        ?" · "+esc(task.note)
+                        :""}
+
                 </div>
 
-                ${t.priority==="high"
-                    ?`<span class="badge high" style="margin-top:7px">Alta prioridade</span>`
+
+                ${task.priority==="high"
+                    ?`<span class="badge high">
+                        Alta prioridade
+                      </span>`
                     :""}
 
             </div>
 
-            <button class="delete-btn"
-                onclick="deleteTask('${t.id}')">×</button>
+
+            <button
+                class="delete"
+                onclick="deleteTask('${task.id}')"
+            >
+                ×
+            </button>
 
         </div>
 
     `).join("");
+
 }
 
 
-/* =========================
+/* =========================================================
    AGENDA
-========================= */
+========================================================= */
 
-function getAllAgendaItems(){
+function getAgendaItems(){
 
     const items=[];
 
-    currentUser.tasks.forEach(t=>{
-        items.push({
-            id:t.id,
-            source:"Tarefa",
-            type:"task",
-            title:t.title,
-            date:t.date,
-            time:"",
-            note:t.note,
-            completed:t.completed
-        });
-    });
 
-    currentUser.events.forEach(e=>{
+    user.events.forEach(event=>{
+
         items.push({
-            ...e,
+
+            id:event.id,
             source:"Agenda",
-            type:"event"
+            type:"event",
+
+            title:event.title,
+            date:event.date,
+            time:event.time,
+            end:event.end,
+
+            note:event.note
+
         });
+
     });
 
-    currentUser.money.forEach(m=>{
+
+    user.tasks.forEach(task=>{
+
         items.push({
-            id:m.id,
+
+            id:task.id,
+            source:"Tarefas",
+            type:"task",
+
+            title:task.title,
+            date:task.date,
+
+            time:"",
+
+            note:task.note,
+
+            completed:task.completed
+
+        });
+
+    });
+
+
+    user.money.forEach(movement=>{
+
+        items.push({
+
+            id:movement.id,
             source:"Finanças",
             type:"money",
-            title:(m.type==="income"?"+":"-")+moneyNumber(m.amount),
-            date:m.date,
-            time:"",
-            note:m.note,
-            amount:m.amount,
-            moneyType:m.type,
-            category:m.category
+
+            title:
+                (movement.type==="income"?"+":"-")
+                +formatMoney(movement.amount),
+
+            date:movement.date,
+
+            note:movement.note,
+
+            category:movement.category,
+
+            moneyType:movement.type
+
         });
+
     });
 
-    currentUser.school.forEach(s=>{
+
+    user.school.forEach(record=>{
+
         items.push({
-            id:s.id,
+
+            id:record.id,
             source:"Escola",
             type:"school",
-            title:`${s.type} — ${s.subject}`,
-            date:s.date,
-            time:s.time,
-            note:s.note,
-            grade:s.grade
+
+            title:
+                record.type+" — "+record.subject,
+
+            date:record.date,
+
+            time:record.time,
+
+            note:record.note,
+
+            grade:record.grade,
+
+            teacher:record.teacher
+
         });
+
     });
 
-    currentUser.work.forEach(w=>{
+
+    user.work.forEach(record=>{
+
         items.push({
-            id:w.id,
+
+            id:record.id,
             source:"Trabalho",
             type:"work",
-            title:w.title,
-            date:w.date,
-            time:w.start,
-            end:w.end,
-            note:w.note,
-            workType:w.type
+
+            title:record.title,
+
+            date:record.date,
+
+            time:record.start,
+
+            end:record.end,
+
+            note:record.note,
+
+            workType:record.type
+
         });
+
     });
 
+
+    user.life.forEach(record=>{
+
+        items.push({
+
+            id:record.id,
+            source:"Vida",
+            type:"life",
+
+            title:record.title,
+
+            date:record.date,
+
+            note:record.note,
+
+            category:record.category
+
+        });
+
+    });
+
+
     return items;
+
 }
+
 
 function renderCalendar(){
 
-    const year=calendarDate.getFullYear();
-    const month=calendarDate.getMonth();
+    const year=calendarCursor.getFullYear();
+    const month=calendarCursor.getMonth();
 
-    document.getElementById("calendarTitle").textContent =
-        calendarDate.toLocaleDateString("pt-PT",{
-            month:"long",
-            year:"numeric"
-        });
 
-    const first=new Date(year,month,1);
+    document
+        .getElementById("calendarTitle")
+        .textContent=
+            calendarCursor.toLocaleDateString(
+                "pt-PT",
+                {
+                    month:"long",
+                    year:"numeric"
+                }
+            );
 
-    let start=first.getDay();
 
-    // segunda = 0
-    start=(start+6)%7;
+    const firstDay=new Date(
+        year,
+        month,
+        1
+    );
 
-    const daysInMonth=new Date(year,month+1,0).getDate();
-    const previousDays=new Date(year,month,0).getDate();
 
-    const grid=document.getElementById("calendarGrid");
+    let offset=firstDay.getDay();
+
+    offset=(offset+6)%7;
+
+
+    const totalDays=new Date(
+        year,
+        month+1,
+        0
+    ).getDate();
+
+
+    const previousTotal=new Date(
+        year,
+        month,
+        0
+    ).getDate();
+
+
+    const days=document
+        .getElementById("calendarDays");
+
 
     let html="";
 
+
     for(let i=0;i<42;i++){
 
+        let date;
         let day;
-        let dateObj;
         let other=false;
 
-        if(i<start){
 
-            day=previousDays-start+i+1;
-            dateObj=new Date(year,month-1,day);
+        if(i<offset){
+
+            day=
+                previousTotal-offset+i+1;
+
+            date=new Date(
+                year,
+                month-1,
+                day
+            );
+
             other=true;
 
-        }else if(i>=start+daysInMonth){
+        }else if(i>=offset+totalDays){
 
-            day=i-(start+daysInMonth)+1;
-            dateObj=new Date(year,month+1,day);
+            day=
+                i-offset-totalDays+1;
+
+            date=new Date(
+                year,
+                month+1,
+                day
+            );
+
             other=true;
 
         }else{
 
-            day=i-start+1;
-            dateObj=new Date(year,month,day);
+            day=i-offset+1;
+
+            date=new Date(
+                year,
+                month,
+                day
+            );
+
         }
 
-        const date=formatDate(dateObj);
 
-        const todayClass=date===localDate()?"today":"";
-        const selectedClass=date===selectedDate?"selected":"";
+        const value=formatDate(date);
 
-        const events=getAllAgendaItems()
-            .filter(x=>x.date===date);
+
+        const items=getAgendaItems()
+            .filter(item=>item.date===value);
+
 
         html+=`
 
-            <div class="day ${other?"other":""} ${todayClass} ${selectedClass}"
-                onclick="selectDate('${date}')">
+            <button
+                class="day
+                    ${other?"other":""}
+                    ${value===getToday()?"today":""}
+                    ${value===selectedDate?"selected":""}"
+                data-date="${value}"
+            >
 
-                <div class="day-number">${day}</div>
+                <div class="day-number">
+                    ${day}
+                </div>
 
-                ${events.length
-                    ?`<div class="dots">
-                        ${events.slice(0,3).map(()=>`<div class="dot"></div>`).join("")}
-                       </div>`
-                    :""}
 
-            </div>
+                ${
+                    items.length
+                    ?
+                    `<div class="event-dots">
+                        ${items.slice(0,3)
+                            .map(()=>
+                                `<span class="event-dot"></span>`
+                            )
+                            .join("")
+                        }
+                     </div>`
+                    :""
+                }
+
+            </button>
+
         `;
+
     }
 
-    grid.innerHTML=html;
+
+    days.innerHTML=html;
+
+
+    days
+        .querySelectorAll(".day")
+        .forEach(button=>{
+
+            button.addEventListener("click",()=>{
+
+                selectedDate=
+                    button.dataset.date;
+
+                renderCalendar();
+
+            });
+
+        });
+
 
     renderDayEvents();
+
 }
 
-function changeMonth(delta){
-
-    calendarDate.setMonth(calendarDate.getMonth()+delta);
-    renderCalendar();
-}
-
-function selectDate(date){
-
-    selectedDate=date;
-    renderCalendar();
-}
 
 function renderDayEvents(){
 
-    const title=document.getElementById("selectedDateTitle");
+    document
+        .getElementById("selectedDayTitle")
+        .textContent=
+            formatLongDate(selectedDate);
 
-    title.textContent=formatLongDate(selectedDate);
 
-    const events=getAllAgendaItems()
-        .filter(x=>x.date===selectedDate)
-        .sort(sortAgenda);
+    const items=getAgendaItems()
+        .filter(item=>item.date===selectedDate)
+        .sort(sortItems);
 
-    const list=document.getElementById("dayEvents");
 
-    if(!events.length){
+    const list=document
+        .getElementById("dayEvents");
 
-        list.innerHTML=`<div class="empty">Nada marcado para este dia.</div>`;
+
+    if(!items.length){
+
+        list.innerHTML=
+            `<div class="empty">
+                Nada marcado para este dia.
+             </div>`;
+
         return;
+
     }
 
-    list.innerHTML=events.map(renderAgendaItem).join("");
+
+    list.innerHTML=
+        items.map(itemCard).join("");
+
 }
 
-function renderAgendaItem(item){
 
-    let extra="";
+function itemCard(item){
+
+    let meta=item.source;
+
 
     if(item.time){
-        extra=item.time;
+
+        meta+=" · "+item.time;
 
         if(item.end){
-            extra+=`–${item.end}`;
+            meta+="–"+item.end;
         }
+
     }
 
-    if(item.type==="money"){
-        extra=`${item.moneyType==="income"?"Entrada":"Despesa"} · ${item.category}`;
+
+    if(item.category){
+        meta+=" · "+item.category;
     }
 
-    if(item.type==="school" && item.grade!=="" && item.grade!=null){
-        extra+=` · Nota ${item.grade}`;
-    }
 
     return `
 
-        <div class="item" onclick='showItemDetails(${JSON.stringify(item).replace(/'/g,"&#39;")})'>
+        <button
+            class="item"
+            style="width:100%;text-align:left"
+            onclick="showDetails('${item.id}','${item.type}')"
+        >
 
-            <div class="module-icon" style="margin:0">
-                ${item.type==="money"?"€":
-                  item.type==="work"?"▣":
-                  item.type==="school"?"⌘":
-                  item.type==="task"?"✓":"◷"}
+            <div class="module-icon">
+                ${iconFor(item.type)}
             </div>
+
 
             <div class="item-main">
 
                 <div class="item-title">
-                    ${escapeHTML(item.title)}
+                    ${esc(item.title)}
                 </div>
 
+
                 <div class="item-meta">
-                    ${escapeHTML(item.source)}
-                    ${extra?` · ${escapeHTML(extra)}`:""}
+                    ${esc(meta)}
                 </div>
 
             </div>
 
-        </div>
+        </button>
+
     `;
+
 }
 
-function sortAgenda(a,b){
 
-    return (a.time||"").localeCompare(b.time||"");
+function iconFor(type){
+
+    if(type==="task")return"✓";
+    if(type==="money")return"€";
+    if(type==="school")return"⌘";
+    if(type==="work")return"▣";
+    if(type==="life")return"○";
+
+    return"◷";
+
 }
 
-function openEventModal(){
+
+function sortItems(a,b){
+
+    return(a.time||"").localeCompare(
+        b.time||""
+    );
+
+}
+
+
+/* =========================================================
+   EVENTOS
+========================================================= */
+
+function eventModal(){
 
     showModal(`
 
-        <div class="modal-header">
+        <div class="modal-head">
+
             <h2>Novo evento</h2>
+
             <button class="close" onclick="closeModal()">×</button>
+
         </div>
 
+
         <div class="form-group">
+
             <label>Título</label>
-            <input id="eventTitle" class="input" placeholder="Ex.: Consulta">
+
+            <input
+                id="eventTitle"
+                class="input"
+                placeholder="Ex.: Consulta"
+            >
+
         </div>
 
+
         <div class="form-group">
+
             <label>Data</label>
-            <input id="eventDate" class="input" type="date" value="${selectedDate}">
+
+            <input
+                id="eventDate"
+                class="input"
+                type="date"
+                value="${selectedDate}"
+            >
+
         </div>
+
 
         <div class="form-grid">
 
             <div class="form-group">
+
                 <label>Hora início</label>
-                <input id="eventStart" class="input" type="time">
+
+                <input
+                    id="eventStart"
+                    class="input"
+                    type="time"
+                >
+
             </div>
+
 
             <div class="form-group">
+
                 <label>Hora fim</label>
-                <input id="eventEnd" class="input" type="time">
+
+                <input
+                    id="eventEnd"
+                    class="input"
+                    type="time"
+                >
+
             </div>
 
         </div>
 
+
         <div class="form-group">
+
             <label>Nota</label>
-            <textarea id="eventNote" class="input" placeholder="Detalhes"></textarea>
+
+            <textarea
+                id="eventNote"
+                class="input"
+                placeholder="Detalhes"
+            ></textarea>
+
         </div>
 
-        <button class="primary" onclick="addEvent()">Guardar evento</button>
+
+        <button
+            class="primary"
+            onclick="addEvent()"
+        >
+            Guardar evento
+        </button>
+
     `);
+
 }
+
 
 function addEvent(){
 
-    const title=document.getElementById("eventTitle").value.trim();
-    const date=document.getElementById("eventDate").value;
-    const start=document.getElementById("eventStart").value;
-    const end=document.getElementById("eventEnd").value;
-    const note=document.getElementById("eventNote").value.trim();
+    const title=document
+        .getElementById("eventTitle")
+        .value.trim();
 
-    if(!title || !date){
+    const date=document
+        .getElementById("eventDate")
+        .value;
+
+    const time=document
+        .getElementById("eventStart")
+        .value;
+
+    const end=document
+        .getElementById("eventEnd")
+        .value;
+
+    const note=document
+        .getElementById("eventNote")
+        .value.trim();
+
+
+    if(!title||!date){
+
         alert("Preenche o título e a data.");
         return;
+
     }
 
-    currentUser.events.push({
-        id:Date.now().toString(),
+
+    user.events.push({
+
+        id:uid(),
+
         title,
         date,
-        time:start,
+        time,
         end,
         note
+
     });
+
 
     selectedDate=date;
 
+    const d=new Date(
+        date+"T12:00:00"
+    );
+
+    calendarCursor=new Date(
+        d.getFullYear(),
+        d.getMonth(),
+        1
+    );
+
+
     saveUser();
     closeModal();
+
     renderCalendar();
     renderHome();
+
 }
 
 
-/* =========================
+/* =========================================================
    FINANÇAS
-========================= */
+========================================================= */
 
 function addMoney(){
 
-    const amount=parseFloat(document.getElementById("moneyAmount").value);
-    const type=document.getElementById("moneyType").value;
-    const date=document.getElementById("moneyDate").value || localDate();
-    const category=document.getElementById("moneyCategory").value;
-    const note=document.getElementById("moneyNote").value.trim();
+    const amount=parseFloat(
+        document.getElementById("moneyAmount").value
+    );
 
-    if(!amount || amount<=0){
+    const type=document
+        .getElementById("moneyType")
+        .value;
+
+    const date=document
+        .getElementById("moneyDate")
+        .value||getToday();
+
+    const category=document
+        .getElementById("moneyCategory")
+        .value;
+
+    const note=document
+        .getElementById("moneyNote")
+        .value.trim();
+
+
+    if(!amount||amount<=0){
+
         alert("Introduz um valor válido.");
         return;
+
     }
 
-    currentUser.money.push({
-        id:Date.now().toString(),
+
+    user.money.push({
+
+        id:uid(),
+
         amount,
         type,
         date,
         category,
         note
+
     });
 
+
     saveUser();
+
 
     document.getElementById("moneyAmount").value="";
     document.getElementById("moneyNote").value="";
 
+
     renderFinance();
     renderHome();
+    renderCalendar();
+
 }
+
 
 function calculateBalance(){
 
-    return currentUser.money.reduce((total,m)=>{
-        return total+(m.type==="income"?m.amount:-m.amount);
-    },0);
+    return user.money.reduce(
+        (total,movement)=>{
+
+            return total+
+                (
+                    movement.type==="income"
+                    ?movement.amount
+                    :-movement.amount
+                );
+
+        },
+        0
+    );
+
 }
+
 
 function renderFinance(){
 
-    const income=currentUser.money
+    const income=user.money
         .filter(m=>m.type==="income")
-        .reduce((s,m)=>s+m.amount,0);
+        .reduce(
+            (sum,m)=>sum+m.amount,
+            0
+        );
 
-    const expense=currentUser.money
+
+    const expense=user.money
         .filter(m=>m.type==="expense")
-        .reduce((s,m)=>s+m.amount,0);
+        .reduce(
+            (sum,m)=>sum+m.amount,
+            0
+        );
 
-    document.getElementById("financeBalance").textContent=money(calculateBalance());
-    document.getElementById("financeIncome").textContent="+"+money(income);
-    document.getElementById("financeExpense").textContent="-"+money(expense);
 
-    const list=document.getElementById("moneyList");
+    document
+        .getElementById("balanceValue")
+        .textContent=
+            formatMoney(calculateBalance());
 
-    if(!currentUser.money.length){
-        list.innerHTML=`<div class="empty">Ainda não tens movimentos.</div>`;
+
+    document
+        .getElementById("incomeValue")
+        .textContent=
+            "+"+formatMoney(income);
+
+
+    document
+        .getElementById("expenseValue")
+        .textContent=
+            "-"+formatMoney(expense);
+
+
+    const list=document
+        .getElementById("moneyList");
+
+
+    if(!user.money.length){
+
+        list.innerHTML=
+            `<div class="empty">
+                Ainda não tens movimentos.
+             </div>`;
+
         return;
+
     }
 
-    const movements=[...currentUser.money]
-        .sort((a,b)=>b.date.localeCompare(a.date));
 
-    list.innerHTML=movements.map(m=>`
+    list.innerHTML=
+        [...user.money]
+        .sort((a,b)=>b.date.localeCompare(a.date))
+        .map(m=>`
 
-        <div class="item"
-            onclick='showItemDetails(${JSON.stringify({
-                source:"Finanças",
-                type:"money",
-                title:(m.type==="income"?"+":"-")+moneyNumber(m.amount),
-                date:m.date,
-                note:m.note,
-                category:m.category,
-                moneyType:m.type
-            }).replace(/'/g,"&#39;")})'>
+            <button
+                class="item"
+                style="width:100%;text-align:left"
+                onclick="showDetails('${m.id}','money')"
+            >
 
-            <div class="module-icon">€</div>
+                <div class="module-icon">€</div>
 
-            <div class="item-main">
+                <div class="item-main">
 
-                <div class="item-title ${m.type==="income"?"positive":"negative"}">
-                    ${m.type==="income"?"+":"-"}${money(m.amount)}
-                </div>
+                    <div class="item-title ${
+                        m.type==="income"
+                        ?"positive"
+                        :"negative"
+                    }">
 
-                <div class="item-meta">
-                    ${formatShortDate(m.date)} · ${escapeHTML(m.category)}
-                </div>
+                        ${m.type==="income"?"+":"-"}
+                        ${formatMoney(m.amount)}
 
-            </div>
-
-        </div>
-
-    `).join("");
-}
-
-
-/* =========================
-   OBJETIVOS
-========================= */
-
-function addGoal(){
-
-    const title=document.getElementById("goalTitle").value.trim();
-    const target=parseFloat(document.getElementById("goalTarget").value);
-    const current=parseFloat(document.getElementById("goalCurrent").value)||0;
-    const date=document.getElementById("goalDate").value;
-
-    if(!title || !target || target<=0){
-        alert("Preenche o objetivo e a meta.");
-        return;
-    }
-
-    currentUser.goals.push({
-        id:Date.now().toString(),
-        title,
-        target,
-        current,
-        date
-    });
-
-    saveUser();
-
-    document.getElementById("goalTitle").value="";
-    document.getElementById("goalTarget").value="";
-    document.getElementById("goalCurrent").value="";
-    document.getElementById("goalDate").value="";
-
-    renderGoals();
-}
-
-function updateGoal(id){
-
-    const goal=currentUser.goals.find(g=>g.id===id);
-
-    if(!goal)return;
-
-    const value=prompt("Valor atual:",goal.current);
-
-    if(value===null)return;
-
-    const number=parseFloat(value);
-
-    if(isNaN(number)||number<0)return;
-
-    goal.current=number;
-
-    saveUser();
-    renderGoals();
-}
-
-function deleteGoal(id){
-
-    currentUser.goals=currentUser.goals.filter(g=>g.id!==id);
-
-    saveUser();
-    renderGoals();
-}
-
-function renderGoals(){
-
-    const list=document.getElementById("goalsList");
-
-    if(!currentUser.goals.length){
-        list.innerHTML=`<div class="empty">Ainda não tens objetivos.</div>`;
-        return;
-    }
-
-    list.innerHTML=currentUser.goals.map(g=>{
-
-        const percent=Math.min(100,(g.current/g.target)*100);
-
-        return `
-
-            <div class="item" style="display:block">
-
-                <div style="display:flex;justify-content:space-between;gap:10px">
-
-                    <div>
-                        <div class="item-title">${escapeHTML(g.title)}</div>
-
-                        <div class="item-meta">
-                            ${money(g.current)} de ${money(g.target)}
-                            ${g.date?" · prazo "+formatShortDate(g.date):""}
-                        </div>
                     </div>
 
-                    <button class="delete-btn"
-                        onclick="deleteGoal('${g.id}')">×</button>
+                    <div class="item-meta">
+
+                        ${formatShortDate(m.date)}
+                        · ${esc(m.category)}
+
+                    </div>
 
                 </div>
 
-                <div class="progress">
-                    <div class="progress-bar"
-                        style="width:${percent}%"></div>
-                </div>
+            </button>
 
-                <div style="display:flex;justify-content:space-between;margin-top:9px;font-size:12px;color:var(--muted)">
-                    <span>${Math.round(percent)}%</span>
-                    <button onclick="updateGoal('${g.id}')"
-                        style="background:none;color:var(--accent);font-weight:600">
-                        Atualizar
-                    </button>
-                </div>
+        `)
+        .join("");
 
-            </div>
-
-        `;
-    }).join("");
 }
 
 
-/* =========================
+/* =========================================================
+   VIDA
+========================================================= */
+
+function addLife(){
+
+    const title=document
+        .getElementById("lifeTitle")
+        .value.trim();
+
+    const category=document
+        .getElementById("lifeCategory")
+        .value;
+
+    const date=document
+        .getElementById("lifeDate")
+        .value||"";
+
+    const note=document
+        .getElementById("lifeNote")
+        .value.trim();
+
+
+    if(!title){
+
+        alert("Escreve o título.");
+        return;
+
+    }
+
+
+    user.life.push({
+
+        id:uid(),
+
+        title,
+        category,
+        date,
+        note
+
+    });
+
+
+    saveUser();
+
+
+    document.getElementById("lifeTitle").value="";
+    document.getElementById("lifeDate").value="";
+    document.getElementById("lifeNote").value="";
+
+
+    renderLife();
+    renderCalendar();
+    renderHome();
+
+}
+
+
+function deleteLife(id){
+
+    user.life=user.life.filter(
+        item=>item.id!==id
+    );
+
+    saveUser();
+
+    renderLife();
+    renderCalendar();
+    renderHome();
+
+}
+
+
+function renderLife(){
+
+    const list=document
+        .getElementById("lifeList");
+
+
+    if(!user.life.length){
+
+        list.innerHTML=
+            `<div class="empty">
+                Ainda não tens registos em Vida.
+             </div>`;
+
+        return;
+
+    }
+
+
+    list.innerHTML=
+        [...user.life]
+        .sort((a,b)=>
+            (a.date||"").localeCompare(b.date||"")
+        )
+        .map(item=>`
+
+            <div class="item">
+
+                <div class="module-icon">○</div>
+
+
+                <div class="item-main">
+
+                    <div class="item-title">
+                        ${esc(item.title)}
+                    </div>
+
+
+                    <div class="item-meta">
+
+                        ${esc(item.category)}
+
+                        ${item.date
+                            ?" · "+formatShortDate(item.date)
+                            :""}
+
+                    </div>
+
+
+                    ${
+                        item.note
+                        ?`<div class="item-meta">
+                            ${esc(item.note)}
+                          </div>`
+                        :""
+                    }
+
+                </div>
+
+
+                <button
+                    class="delete"
+                    onclick="deleteLife('${item.id}')"
+                >
+                    ×
+                </button>
+
+            </div>
+
+        `)
+        .join("");
+
+}
+
+
+/* =========================================================
    ESCOLA
-========================= */
+========================================================= */
 
 function addSchool(){
 
-    const subject=document.getElementById("schoolSubject").value.trim();
-    const type=document.getElementById("schoolType").value;
-    const date=document.getElementById("schoolDate").value;
-    const time=document.getElementById("schoolTime").value;
-    const grade=document.getElementById("schoolGrade").value;
-    const teacher=document.getElementById("schoolTeacher").value.trim();
-    const note=document.getElementById("schoolNote").value.trim();
+    const subject=document
+        .getElementById("schoolSubject")
+        .value.trim();
 
-    if(!subject || !date){
+    const type=document
+        .getElementById("schoolType")
+        .value;
+
+    const date=document
+        .getElementById("schoolDate")
+        .value;
+
+    const time=document
+        .getElementById("schoolTime")
+        .value;
+
+    const grade=document
+        .getElementById("schoolGrade")
+        .value;
+
+    const teacher=document
+        .getElementById("schoolTeacher")
+        .value.trim();
+
+    const note=document
+        .getElementById("schoolNote")
+        .value.trim();
+
+
+    if(!subject||!date){
+
         alert("Indica pelo menos a disciplina e a data.");
         return;
+
     }
 
-    currentUser.school.push({
-        id:Date.now().toString(),
+
+    user.school.push({
+
+        id:uid(),
+
         subject,
         type,
         date,
         time,
-        grade:grade===""?"":parseFloat(grade),
+
+        grade:
+            grade===""
+            ?""
+            :Number(grade),
+
         teacher,
         note
+
     });
+
 
     saveUser();
 
+
     document.getElementById("schoolSubject").value="";
+    document.getElementById("schoolDate").value="";
+    document.getElementById("schoolTime").value="";
     document.getElementById("schoolGrade").value="";
     document.getElementById("schoolTeacher").value="";
     document.getElementById("schoolNote").value="";
 
+
     renderSchool();
+    renderCalendar();
     renderHome();
+
 }
+
 
 function deleteSchool(id){
 
-    currentUser.school=
-        currentUser.school.filter(s=>s.id!==id);
+    user.school=user.school.filter(
+        item=>item.id!==id
+    );
 
     saveUser();
+
     renderSchool();
+    renderCalendar();
     renderHome();
+
 }
+
 
 function renderSchool(){
 
-    const list=document.getElementById("schoolList");
+    const list=document
+        .getElementById("schoolList");
 
-    if(!currentUser.school.length){
-        list.innerHTML=`<div class="empty">Ainda não tens registos escolares.</div>`;
+
+    if(!user.school.length){
+
+        list.innerHTML=
+            `<div class="empty">
+                Ainda não tens registos escolares.
+             </div>`;
+
         return;
+
     }
 
-    const records=[...currentUser.school]
-        .sort((a,b)=>a.date.localeCompare(b.date));
 
-    list.innerHTML=records.map(s=>`
+    list.innerHTML=
+        [...user.school]
+        .sort((a,b)=>a.date.localeCompare(b.date))
+        .map(item=>`
 
-        <div class="item">
+            <div class="item">
 
-            <div class="module-icon">⌘</div>
+                <div class="module-icon">⌘</div>
 
-            <div class="item-main">
 
-                <div class="item-title">
-                    ${escapeHTML(s.type)} — ${escapeHTML(s.subject)}
+                <div class="item-main">
+
+                    <div class="item-title">
+
+                        ${esc(item.type)}
+                        — ${esc(item.subject)}
+
+                    </div>
+
+
+                    <div class="item-meta">
+
+                        ${formatShortDate(item.date)}
+
+                        ${item.time
+                            ?" · "+item.time
+                            :""}
+
+                        ${item.teacher
+                            ?" · "+esc(item.teacher)
+                            :""}
+
+                    </div>
+
+
+                    ${
+                        item.grade!==""
+                        ?
+                        `<span class="badge">
+                            Nota ${item.grade}
+                         </span>`
+                        :""
+                    }
+
+
+                    ${
+                        item.note
+                        ?
+                        `<div class="item-meta">
+                            ${esc(item.note)}
+                         </div>`
+                        :""
+                    }
+
                 </div>
 
-                <div class="item-meta">
-                    ${formatShortDate(s.date)}
-                    ${s.time?" · "+s.time:""}
-                    ${s.teacher?" · "+escapeHTML(s.teacher):""}
-                </div>
 
-                ${s.grade!==""&&s.grade!=null
-                    ?`<span class="badge" style="margin-top:7px">Nota ${s.grade}</span>`
-                    :""}
-
-                ${s.note
-                    ?`<div class="item-meta">${escapeHTML(s.note)}</div>`
-                    :""}
+                <button
+                    class="delete"
+                    onclick="deleteSchool('${item.id}')"
+                >
+                    ×
+                </button>
 
             </div>
 
-            <button class="delete-btn"
-                onclick="deleteSchool('${s.id}')">×</button>
+        `)
+        .join("");
 
-        </div>
-
-    `).join("");
 }
 
 
-/* =========================
+/* =========================================================
    TRABALHO
-========================= */
+========================================================= */
 
 function addWork(){
 
-    const title=document.getElementById("workTitle").value.trim();
-    const date=document.getElementById("workDate").value;
-    const type=document.getElementById("workType").value;
-    const start=document.getElementById("workStart").value;
-    const end=document.getElementById("workEnd").value;
-    const note=document.getElementById("workNote").value.trim();
+    const title=document
+        .getElementById("workTitle")
+        .value.trim();
 
-    if(!title || !date){
+    const type=document
+        .getElementById("workType")
+        .value;
+
+    const date=document
+        .getElementById("workDate")
+        .value;
+
+    const start=document
+        .getElementById("workStart")
+        .value;
+
+    const end=document
+        .getElementById("workEnd")
+        .value;
+
+    const note=document
+        .getElementById("workNote")
+        .value.trim();
+
+
+    if(!title||!date){
+
         alert("Indica o título e a data.");
         return;
+
     }
 
-    currentUser.work.push({
-        id:Date.now().toString(),
+
+    user.work.push({
+
+        id:uid(),
+
         title,
-        date,
         type,
+        date,
         start,
         end,
         note
+
     });
+
 
     saveUser();
 
+
     document.getElementById("workTitle").value="";
+    document.getElementById("workDate").value="";
+    document.getElementById("workStart").value="";
+    document.getElementById("workEnd").value="";
     document.getElementById("workNote").value="";
 
+
     renderWork();
+    renderCalendar();
     renderHome();
+
 }
+
 
 function deleteWork(id){
 
-    currentUser.work=
-        currentUser.work.filter(w=>w.id!==id);
+    user.work=user.work.filter(
+        item=>item.id!==id
+    );
 
     saveUser();
+
     renderWork();
+    renderCalendar();
     renderHome();
+
 }
+
 
 function renderWork(){
 
-    const list=document.getElementById("workList");
+    const list=document
+        .getElementById("workList");
 
-    if(!currentUser.work.length){
-        list.innerHTML=`<div class="empty">Ainda não tens registos de trabalho.</div>`;
+
+    if(!user.work.length){
+
+        list.innerHTML=
+            `<div class="empty">
+                Ainda não tens registos de trabalho.
+             </div>`;
+
         return;
+
     }
 
-    const records=[...currentUser.work]
-        .sort((a,b)=>a.date.localeCompare(b.date));
 
-    list.innerHTML=records.map(w=>`
+    list.innerHTML=
+        [...user.work]
+        .sort((a,b)=>a.date.localeCompare(b.date))
+        .map(item=>`
 
-        <div class="item">
+            <div class="item">
 
-            <div class="module-icon">▣</div>
+                <div class="module-icon">▣</div>
 
-            <div class="item-main">
 
-                <div class="item-title">
-                    ${escapeHTML(w.title)}
+                <div class="item-main">
+
+                    <div class="item-title">
+                        ${esc(item.title)}
+                    </div>
+
+
+                    <div class="item-meta">
+
+                        ${esc(item.type)}
+                        · ${formatShortDate(item.date)}
+
+                        ${item.start
+                            ?" · "+item.start
+                            :""}
+
+                        ${item.end
+                            ?"–"+item.end
+                            :""}
+
+                    </div>
+
+
+                    ${
+                        item.note
+                        ?
+                        `<div class="item-meta">
+                            ${esc(item.note)}
+                         </div>`
+                        :""
+                    }
+
                 </div>
 
-                <div class="item-meta">
-                    ${escapeHTML(w.type)} · ${formatShortDate(w.date)}
-                    ${w.start?" · "+w.start:""}
-                    ${w.end?"–"+w.end:""}
-                </div>
 
-                ${w.note
-                    ?`<div class="item-meta">${escapeHTML(w.note)}</div>`
-                    :""}
+                <button
+                    class="delete"
+                    onclick="deleteWork('${item.id}')"
+                >
+                    ×
+                </button>
 
             </div>
 
-            <button class="delete-btn"
-                onclick="deleteWork('${w.id}')">×</button>
+        `)
+        .join("");
 
-        </div>
-
-    `).join("");
 }
 
 
-/* =========================
+/* =========================================================
    DETALHES
-========================= */
+========================================================= */
 
-function showItemDetails(item){
+function showDetails(id,type){
 
-    let content=`
+    let item=null;
 
-        <div class="modal-header">
-            <h2>${escapeHTML(item.title)}</h2>
+
+    if(type==="money"){
+        item=user.money.find(
+            x=>x.id===id
+        );
+    }else if(type==="task"){
+        item=user.tasks.find(
+            x=>x.id===id
+        );
+    }else if(type==="school"){
+        item=user.school.find(
+            x=>x.id===id
+        );
+    }else if(type==="work"){
+        item=user.work.find(
+            x=>x.id===id
+        );
+    }else if(type==="life"){
+        item=user.life.find(
+            x=>x.id===id
+        );
+    }else{
+        item=user.events.find(
+            x=>x.id===id
+        );
+    }
+
+
+    if(!item)return;
+
+
+    let title="";
+    let source="";
+
+
+    if(type==="money"){
+
+        title=
+            (item.type==="income"?"+":"-")
+            +formatMoney(item.amount);
+
+        source="Finanças";
+
+    }else if(type==="school"){
+
+        title=
+            item.type+" — "+item.subject;
+
+        source="Escola";
+
+    }else{
+
+        title=item.title;
+
+        if(type==="task")source="Tarefas";
+        if(type==="work")source="Trabalho";
+        if(type==="life")source="Vida";
+        if(type==="event")source="Agenda";
+
+    }
+
+
+    let html=`
+
+        <div class="modal-head">
+
+            <h2>${esc(title)}</h2>
+
             <button class="close" onclick="closeModal()">×</button>
+
         </div>
 
-        <div class="item-meta" style="font-size:14px">
-            ${escapeHTML(item.source)}
+
+        <div class="item-meta" style="font-size:13px">
+            ${esc(source)}
         </div>
+
 
         <div style="margin-top:20px">
 
             <p><strong>Data</strong></p>
-            <p class="item-meta">${formatLongDate(item.date)}</p>
+
+            <p class="item-meta">
+                ${formatLongDate(item.date)}
+            </p>
 
     `;
 
+
     if(item.time){
-        content+=`
-            <p style="margin-top:15px"><strong>Hora</strong></p>
-            <p class="item-meta">${escapeHTML(item.time)}
-            ${item.end?"–"+escapeHTML(item.end):""}</p>
+
+        html+=`
+
+            <p style="margin-top:15px">
+                <strong>Hora</strong>
+            </p>
+
+            <p class="item-meta">
+
+                ${item.time}
+
+                ${
+                    item.end
+                    ?"–"+item.end
+                    :""
+                }
+
+            </p>
+
         `;
+
     }
 
-    if(item.category){
-        content+=`
-            <p style="margin-top:15px"><strong>Categoria</strong></p>
-            <p class="item-meta">${escapeHTML(item.category)}</p>
+
+    if(type==="money"){
+
+        html+=`
+
+            <p style="margin-top:15px">
+                <strong>Categoria</strong>
+            </p>
+
+            <p class="item-meta">
+                ${esc(item.category)}
+            </p>
+
         `;
+
     }
 
-    if(item.grade!==undefined && item.grade!==""){
-        content+=`
-            <p style="margin-top:15px"><strong>Nota</strong></p>
-            <p class="item-meta">${item.grade}</p>
+
+    if(type==="school"&&item.grade!==""){
+
+        html+=`
+
+            <p style="margin-top:15px">
+                <strong>Nota</strong>
+            </p>
+
+            <p class="item-meta">
+                ${item.grade}
+            </p>
+
         `;
+
     }
+
 
     if(item.note){
-        content+=`
-            <p style="margin-top:15px"><strong>Nota / detalhes</strong></p>
-            <div style="background:var(--bg);padding:14px;border-radius:13px;margin-top:7px">
-                ${escapeHTML(item.note)}
+
+        html+=`
+
+            <p style="margin-top:15px">
+                <strong>Nota / detalhes</strong>
+            </p>
+
+            <div style="
+                margin-top:7px;
+                background:var(--bg);
+                padding:14px;
+                border-radius:13px;
+            ">
+                ${esc(item.note)}
             </div>
+
         `;
+
     }
 
-    content+=`</div>`;
 
-    showModal(content);
+    html+=`</div>`;
+
+
+    showModal(html);
+
 }
 
 
-/* =========================
+/* =========================================================
    DEFINIÇÕES
-========================= */
+========================================================= */
 
 function changeName(){
 
-    const name=prompt("Novo nome:",currentUser.name);
+    const name=prompt(
+        "Novo nome:",
+        user.name
+    );
 
-    if(!name)return;
 
-    currentUser.name=name.trim();
+    if(!name||!name.trim())return;
+
+
+    user.name=name.trim();
 
     saveUser();
+
     updateProfile();
     renderHome();
+
 }
+
 
 function changeCode(){
 
-    const code=prompt("Novo código de acesso:");
+    const code=prompt(
+        "Novo código de acesso:"
+    );
+
 
     if(!code)return;
 
-    if(accounts.some(a=>a.code===code && a.id!==currentUser.id)){
-        alert("Esse código já está em utilização.");
+
+    if(accounts.some(
+        a=>a.code===code&&a.id!==user.id
+    )){
+
+        alert(
+            "Esse código já está a ser utilizado."
+        );
+
         return;
+
     }
 
-    currentUser.code=code;
+
+    user.code=code;
 
     saveUser();
 
     alert("Código alterado.");
+
 }
+
 
 function changePhoto(event){
 
@@ -2563,143 +3871,231 @@ function changePhoto(event){
 
     if(!file)return;
 
+
     const reader=new FileReader();
 
+
     reader.onload=()=>{
-        currentUser.photo=reader.result;
+
+        user.photo=reader.result;
 
         saveUser();
         updateProfile();
+
     };
 
+
     reader.readAsDataURL(file);
+
 }
+
 
 function setTheme(theme){
 
-    currentUser.theme=theme;
+    if(!THEMES[theme])return;
+
+
+    user.theme=theme;
 
     saveUser();
+
     applyTheme(theme);
+
 }
+
 
 function applyTheme(theme){
 
-    const t=themes[theme]||themes.sage;
+    const selected=
+        THEMES[theme]||THEMES.sage;
 
-    document.documentElement.style.setProperty("--accent",t.accent);
-    document.documentElement.style.setProperty("--accent-light",t.light);
-    document.documentElement.style.setProperty("--accent-soft",t.soft);
 
-    document.querySelectorAll(".color-option").forEach(el=>{
-        el.classList.toggle("selected",el.dataset.color===theme);
-    });
+    document.documentElement
+        .style.setProperty(
+            "--accent",
+            selected.accent
+        );
+
+
+    document.documentElement
+        .style.setProperty(
+            "--accent2",
+            selected.light
+        );
+
+
+    document.documentElement
+        .style.setProperty(
+            "--accent3",
+            selected.soft
+        );
+
+
+    document
+        .querySelectorAll("[data-theme]")
+        .forEach(button=>{
+
+            button.classList.toggle(
+                "selected",
+                button.dataset.theme===theme
+            );
+
+        });
+
 }
 
 
-/* =========================
+/* =========================================================
    MODAL
-========================= */
+========================================================= */
 
 function showModal(html){
 
-    document.getElementById("modalContent").innerHTML=html;
-    document.getElementById("modal").classList.remove("hidden");
+    document
+        .getElementById("modalBox")
+        .innerHTML=html;
+
+
+    document
+        .getElementById("modal")
+        .classList.remove("hidden");
+
 }
+
 
 function closeModal(){
 
-    document.getElementById("modal").classList.add("hidden");
+    document
+        .getElementById("modal")
+        .classList.add("hidden");
+
 }
 
-document.getElementById("modal").addEventListener("click",function(e){
 
-    if(e.target===this){
-        closeModal();
-    }
-});
-
-
-/* =========================
+/* =========================================================
    DATAS
-========================= */
+========================================================= */
 
-function localDate(date=new Date()){
+function getToday(){
+
+    const date=new Date();
 
     return formatDate(date);
+
 }
+
 
 function formatDate(date){
 
     const y=date.getFullYear();
-    const m=String(date.getMonth()+1).padStart(2,"0");
-    const d=String(date.getDate()).padStart(2,"0");
+
+    const m=String(
+        date.getMonth()+1
+    ).padStart(2,"0");
+
+    const d=String(
+        date.getDate()
+    ).padStart(2,"0");
+
 
     return `${y}-${m}-${d}`;
+
 }
+
 
 function formatShortDate(value){
 
-    if(!value)return "";
+    if(!value)return"";
 
-    const [y,m,d]=value.split("-");
+    const parts=value.split("-");
 
-    return `${d}/${m}/${y}`;
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+
 }
+
 
 function formatLongDate(value){
 
-    const [y,m,d]=value.split("-");
+    if(!value)return"";
+
+    const parts=value.split("-");
+
 
     const date=new Date(
-        Number(y),
-        Number(m)-1,
-        Number(d)
+        Number(parts[0]),
+        Number(parts[1])-1,
+        Number(parts[2])
     );
 
-    return date.toLocaleDateString("pt-PT",{
-        weekday:"long",
-        day:"numeric",
-        month:"long",
-        year:"numeric"
-    });
+
+    return date.toLocaleDateString(
+        "pt-PT",
+        {
+            weekday:"long",
+            day:"numeric",
+            month:"long",
+            year:"numeric"
+        }
+    );
+
 }
+
 
 function setDefaultDates(){
 
-    const today=localDate();
+    const today=getToday();
 
-    const taskDate=document.getElementById("taskDate");
-    const moneyDate=document.getElementById("moneyDate");
 
-    if(taskDate)taskDate.value=today;
-    if(moneyDate)moneyDate.value=today;
+    [
+        "taskDate",
+        "moneyDate",
+        "lifeDate",
+        "schoolDate",
+        "workDate"
+    ].forEach(id=>{
+
+        const element=
+            document.getElementById(id);
+
+        if(element)element.value=today;
+
+    });
+
 }
 
 
-/* =========================
-   FORMATOS
-========================= */
+/* =========================================================
+   UTILITÁRIOS
+========================================================= */
 
-function money(value){
+function uid(){
 
-    return new Intl.NumberFormat("pt-PT",{
-        minimumFractionDigits:2,
-        maximumFractionDigits:2
-    }).format(value)+" €";
+    return Date.now().toString(36)
+        +"_"+Math.random()
+            .toString(36)
+            .slice(2,9);
+
 }
 
-function moneyNumber(value){
 
-    return new Intl.NumberFormat("pt-PT",{
-        minimumFractionDigits:2,
-        maximumFractionDigits:2
-    }).format(value)+" €";
+function formatMoney(value){
+
+    return new Intl.NumberFormat(
+        "pt-PT",
+        {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
+    ).format(value)+" €";
+
 }
 
-function escapeHTML(value){
 
-    if(value===undefined || value===null)return "";
+function esc(value){
+
+    if(value===undefined||value===null)
+        return"";
+
 
     return String(value)
         .replaceAll("&","&amp;")
@@ -2707,32 +4103,29 @@ function escapeHTML(value){
         .replaceAll(">","&gt;")
         .replaceAll('"',"&quot;")
         .replaceAll("'","&#039;");
+
 }
 
 
-/* =========================
+/* =========================================================
    RENDER GERAL
-========================= */
+========================================================= */
 
 function renderAll(){
 
     renderHome();
-    renderTasks();
     renderCalendar();
+    renderTasks();
     renderFinance();
-    renderGoals();
+    renderLife();
     renderSchool();
     renderWork();
 
-    applyTheme(currentUser.theme||"sage");
+    applyTheme(
+        user.theme||"sage"
+    );
+
 }
-
-
-/* =========================
-   START
-========================= */
-
-init();
 
 </script>
 
